@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.app{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+header{
+    margin-left: 200px;
+}
+.deportament{
+    
+    padding: 10px;
+    text-align: center;
+    display: inline-block;
+    &>div{
+        margin-top: 10px;
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+    }
+}

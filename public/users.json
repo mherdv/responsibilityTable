@@ -1,9 +1,94 @@
 {
     "users": [
-        1,
-        2,
-        4,
-        6,
-        4
+        {
+            "deportamentName": "incoming",
+            "users": [
+                {
+                    "fullName": "Mher Gharibyan",
+                    "id": "1",
+                    "responsibilitys": {
+                        "1": true,
+                        "2": true,
+                        "5": true,
+                        "10": true
+                    }
+                },
+                {
+                    "fullName": "Mher Gharibyan",
+                    "id": "2",
+                    "responsibilitys": {
+                        "1": true,
+                        "2": true,
+                        "5": true,
+                        "10": true
+                    }
+                },
+                {
+                    "fullName": "Mher Gharibyan",
+                    "id": "3",
+                    "responsibilitys": {
+                        "1": true,
+                        "2": true,
+                        "5": true,
+                        "10": true
+                    }
+                },
+                {
+                    "fullName": "Mher Gharibyan",
+                    "id": "4",
+                    "responsibilitys": {
+                        "1": true,
+                        "2": true,
+                        "5": true,
+                        "10": true
+                    }
+                }
+            ]
+        },
+        {
+            "deportamentName": "programmers",
+            "users": [
+                {
+                    "fullName": "Mher Gharibyan",
+                    "id": "1",
+                    "responsibilitys": {
+                        "1": true,
+                        "2": true,
+                        "5": true,
+                        "10": true
+                    }
+                },
+                {
+                    "fullName": "Mher Gharibyan",
+                    "id": "2",
+                    "responsibilitys": {
+                        "1": true,
+                        "2": true,
+                        "5": true,
+                        "10": true
+                    }
+                },
+                {
+                    "fullName": "Mher Gharibyan",
+                    "id": "3",
+                    "responsibilitys": {
+                        "1": true,
+                        "2": true,
+                        "5": true,
+                        "10": true
+                    }
+                },
+                {
+                    "fullName": "Mher Gharibyan",
+                    "id": "4",
+                    "responsibilitys": {
+                        "1": true,
+                        "2": true,
+                        "5": true,
+                        "10": true
+                    }
+                }
+            ]
+        }
     ]
 }
