@@ -1,0 +1,3 @@
+export const SETALLUSERS = 'SETALLUSERS';
+export const LOADUSERS = 'LOADUSERS';
+export const GETUSERSERROR = 'GETUSERSERROR';

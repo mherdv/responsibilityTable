@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect } from 'react';
 import './App.css';
+import { connect } from 'react-redux'
+import { getAllUsers } from './store/actions/usersAction';
 
-function App() {
+function App({ loading, error, dispatch, usersArray: users }) {
+
+  useEffect(() => {
+    dispatch(getAllUsers())
+  }, [dispatch])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      {error ? "loading error" : null}
+
+      {/* todo create component for users action */}
+      {loading ? 'preloader' :
+        users.map(user => user)
+      }
     </div>
   );
 }
 
-export default App;
+function mapStateToProps(store) {
+
+  return store.users
+}
+
+export default connect(mapStateToProps)(App);
