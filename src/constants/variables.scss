@@ -1,0 +1,18 @@
+$respContainerWidth:210px;
+
+
+
+@mixin columnStyles {
+  width: 23px;
+  border: 1px solid black;
+  padding-top: 2px;
+  box-sizing: initial;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  border-right: none;
+  border-bottom: none;
+  border-top: none;
+
+}

@@ -1,5 +1,29 @@
 {
     "responsibilitysArray": [
-        {}
+        {
+            "name": "տեխնիկական ապահովում",
+            "id": 1,
+            "responsibilitys": [
+                {
+                    "id": 1,
+                    "name": "հետեվել տեխնիկային",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "ապահովել ծրագրերի աշխատանքը",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true,
+                        "4": true
+                    }
+                }
+            ]
+        }
     ]
 }

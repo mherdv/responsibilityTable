@@ -1,4 +1,4 @@
-import { LOADRESPONSIBILITY, GETRESPONSIBILITYERROR, SETALLRESPONSIBILITY } from "../types";
+import { LOADRESPONSIBILITY, GETRESPONSIBILITYERROR, SETALLRESPONSIBILITY, UPDATERESPONSIBILITYARRAY } from "../types";
 
 const initialState = {
     loading: false,
@@ -14,6 +14,8 @@ function responsobilityReducer(state = initialState, action) {
             return { ...state, loading: false, error: true };
         case SETALLRESPONSIBILITY:
             return { responsibilityArray: action.payload, loading: false, error: false };
+        case UPDATERESPONSIBILITYARRAY:
+            return { responsibilityArray: action.payload };
         default:
             return state;
     }

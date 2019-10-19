@@ -1,22 +1,48 @@
+
+@import './constants/variables.scss';
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 .app{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 header{
-    margin-left: 200px;
+    margin-left: $respContainerWidth;
+    padding-left: 1px;
 }
 .deportament{
     
-    padding: 10px;
+    
     text-align: center;
     display: inline-block;
+    border: 1px solid black;
+    border-left: none;
+    &:first-child{
+        border-left: 1px solid black;
+    }
+    &> h4{
+        padding: 10px 0;
+        border-bottom: 1px solid black;
+    }
     &>div{
-        margin-top: 10px;
+        
         writing-mode: vertical-rl;
         text-orientation: mixed;
+       
+        &>p{
+            @include columnStyles;
+            border-top: none;
+            border-bottom: none;
+            &:last-child{
+                border-left: none;
+            }
+            &:first-child{
+                border-right: none;
+            }
+
+        }
     }
 }

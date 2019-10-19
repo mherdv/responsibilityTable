@@ -2,12 +2,13 @@ import React, { useEffect } from 'react';
 import classes from './App.module.scss';
 import { connect } from 'react-redux'
 import { getAllUsers } from './store/actions/usersAction';
+import Responsibility from './components/Responsibility';
 
 function App({ loading, error, dispatch, usersArray }) {
 
   useEffect(() => {
     dispatch(getAllUsers())
-  }, [])
+  }, [dispatch])
 
   return (
     <div className="App">
@@ -32,7 +33,13 @@ function App({ loading, error, dispatch, usersArray }) {
             )
           })}
         </header>
+
+
       }
+      {usersArray.length ?
+
+        <Responsibility usersArray={usersArray} />
+        : null}
     </div>
   );
 }

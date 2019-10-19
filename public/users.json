@@ -5,43 +5,19 @@
             "users": [
                 {
                     "fullName": "Mher Gharibyan",
-                    "id": "1",
-                    "responsibilitys": {
-                        "1": true,
-                        "2": true,
-                        "5": true,
-                        "10": true
-                    }
+                    "id": "1"
                 },
                 {
                     "fullName": "Mher Gharibyan",
-                    "id": "2",
-                    "responsibilitys": {
-                        "1": true,
-                        "2": true,
-                        "5": true,
-                        "10": true
-                    }
+                    "id": "2"
                 },
                 {
                     "fullName": "Mher Gharibyan",
-                    "id": "3",
-                    "responsibilitys": {
-                        "1": true,
-                        "2": true,
-                        "5": true,
-                        "10": true
-                    }
+                    "id": "3"
                 },
                 {
                     "fullName": "Mher Gharibyan",
-                    "id": "4",
-                    "responsibilitys": {
-                        "1": true,
-                        "2": true,
-                        "5": true,
-                        "10": true
-                    }
+                    "id": "4"
                 }
             ]
         },
@@ -50,43 +26,19 @@
             "users": [
                 {
                     "fullName": "Mher Gharibyan",
-                    "id": "1",
-                    "responsibilitys": {
-                        "1": true,
-                        "2": true,
-                        "5": true,
-                        "10": true
-                    }
+                    "id": "5"
                 },
                 {
                     "fullName": "Mher Gharibyan",
-                    "id": "2",
-                    "responsibilitys": {
-                        "1": true,
-                        "2": true,
-                        "5": true,
-                        "10": true
-                    }
+                    "id": "6"
                 },
                 {
                     "fullName": "Mher Gharibyan",
-                    "id": "3",
-                    "responsibilitys": {
-                        "1": true,
-                        "2": true,
-                        "5": true,
-                        "10": true
-                    }
+                    "id": "7"
                 },
                 {
                     "fullName": "Mher Gharibyan",
-                    "id": "4",
-                    "responsibilitys": {
-                        "1": true,
-                        "2": true,
-                        "5": true,
-                        "10": true
-                    }
+                    "id": "8"
                 }
             ]
         }

@@ -1,0 +1,40 @@
+@import '../../constants/variables.scss';
+
+.container{}
+.section{
+    background: lightblue;
+}
+.checkboxRowWrapper{
+    border: 1px solid black;
+    display: flex;
+
+    p{
+        width: $respContainerWidth;
+        background: lightgreen;
+        text-overflow: ellipsis; 
+        padding-left: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+
+        &:hover{
+            min-width: 205px;
+            // width: auto;
+            white-space:initial;
+            overflow: visible;
+            text-overflow:none;
+        }
+    }
+    &>div{
+        display: flex;
+        // margin-left: 5px;
+        &> div{
+            @include columnStyles;
+            &>input{
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
+.checkboxRowTitle{}
+.checkboxRow{}
