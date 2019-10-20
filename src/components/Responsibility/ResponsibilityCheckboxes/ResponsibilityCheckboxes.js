@@ -23,12 +23,7 @@ const ResponsibilityCheckboxes = memo(({ array, users, changeResponsibility }) =
     );
 }, (next, prev) => {
 
-    // console.log('++++++++++')
-    // console.log((Object.keys(next.users).length, Object.keys(prev.users).length))
-
-    // return !(Object.keys(next.users).length !== Object.keys(prev.users).length)
-
-    return !(next.usersLength != prev.usersLength)
+    return !(next.usersLength !== prev.usersLength)
 });
 
 export default ResponsibilityCheckboxes;

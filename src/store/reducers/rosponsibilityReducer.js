@@ -15,7 +15,7 @@ function responsobilityReducer(state = initialState, action) {
         case SETALLRESPONSIBILITY:
             return { responsibilityArray: action.payload, loading: false, error: false };
         case UPDATERESPONSIBILITYARRAY:
-            return { responsibilityArray: action.payload };
+            return { ...state, responsibilityArray: action.payload };
         default:
             return state;
     }

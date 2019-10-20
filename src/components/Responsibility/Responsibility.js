@@ -1,69 +1,60 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import LazyLoad from 'react-lazyload';
+
 import { getAllResponsibility, changeUserResponsibility } from '../../store/actions/responsibilityAction';
 import classes from './responsibility.module.scss';
+// import { iterationCopy, jsonCopy } from '../../utils/cloningObject';
 
 import DescriptionText from './DescriptionText';
-import ResponsibilityCheckboxes from './ResponsibilityCheckboxes/ResponsibilityCheckboxes';
+import OneRow from './OneRow';
 
 
 const Responsibility = ({ dispatch, responsibilityArray, usersArray, loading, error }) => {
 
-
     function changeResponsibility({ event, userId, usersArray }) {
 
-
+        // here i change in real store object
         if (!event.target.checked)
             delete usersArray[userId]
         else {
             usersArray[userId] = true
         }
-        // console.log(event, userId, usersArray)
+        // todo return to this place 
+        // then i clone object to add it to action 
+        // there is a way for deep cloning that i  dunot wont to use iterationCopy(responsibilityArray)
+        // im simple go tu clone array  on hingher lever 
+
         dispatch(changeUserResponsibility([...responsibilityArray]))
     }
-
 
     useEffect(() => {
         dispatch(getAllResponsibility());
     }, [])
 
-
     return (
         <div className={classes.container}>
             {responsibilityArray.map(({ id, responsibilitys, name }, index) => {
-                return <div key={`${id}__responsibilityRow`}>
+                return <div key={`${id}__responsibilityRow_`}>
 
                     <DescriptionText text={name} />
                     <div className={classes.section}>
-                        {responsibilitys.map(({ users, name, id }, index) => {
+                        <LazyLoad offset={100} >
+                            {responsibilitys.map(({ users, name, id }) => {
+                                return (
+                                    <OneRow
+                                        key={`${id}__checkboxContainer`}
+                                        name={name}
+                                        usersArray={usersArray}
+                                        usersLength={Object.keys(users).length}
+                                        users={users}
+                                        changeResponsibility={changeResponsibility}
+                                        classes={classes}
+                                    />
+                                )
+                            })}
+                        </LazyLoad>
 
-                            return (
-                                <div key={`${id}__checkboxContainer`} className={classes.checkboxRowWrapper}>
-                                    <DescriptionText className={classes.checkboxRowTitle} text={name} />
-
-                                    {/* checkbox container */}
-                                    {/* {array,users,onChange} */}
-
-                                    <ResponsibilityCheckboxes array={usersArray} usersLength={Object.keys(users).length} users={users} changeResponsibility={changeResponsibility} />
-
-                                    {/* <div className={classes.checkboxRow}>
-                                        {
-                                            usersArray.map((deportment) => {
-                                                return deportment.users.map(user => {
-                                                    // user id push to users object 
-                                                    return <Checkbox
-                                                        key={`checkbox___${user.id}`}
-                                                        checked={!!users[user.id]}
-                                                        onChange={(event) =>
-                                                            changeResponsibility({ event, userId: user.id, usersArray: users })}
-                                                    />
-                                                })
-                                            })
-
-                                        }
-                                    </div> */}
-                                </div>)
-                        })}
 
                     </div>
                 </div>

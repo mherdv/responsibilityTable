@@ -8,7 +8,7 @@ const Checkbox = memo(({ checked, onChange }) => {
         </div>
     );
 }, (next, prev) => {
-    return !(next.checked != prev.checked)
+    return !(next.checked !== prev.checked)
 });
 
 export default Checkbox;

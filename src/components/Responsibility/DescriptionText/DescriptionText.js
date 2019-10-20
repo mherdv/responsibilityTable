@@ -7,7 +7,7 @@ const DescriptionText = memo(({ text, className }) => {
         </p>
     );
 }, (next, prev) => {
-    return !(next.text != prev.text)
+    return !(next.text !== prev.text)
 });
 
 export default DescriptionText;
