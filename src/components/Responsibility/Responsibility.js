@@ -76,22 +76,22 @@ const Responsibility = ({ dispatch, responsibilityArray, usersArray, loading, er
                     {/* todo separate to component */}
                     <div className={classes.section}>
                         {responsibilityArray[index].show ?
-                            <LazyLoad offset={10} >
-                                {responsibilitys.map(({ users, name, id }) => {
-                                    return (
-                                        <OneRow
-                                            key={`${id}__checkboxContainer`}
-                                            name={name}
-                                            usersArray={usersArray}
-                                            usersLength={Object.keys(users).length}
-                                            responsibilityArray={responsibilityArray}
-                                            users={users}
-                                            changeResponsibility={changeResponsibility}
-                                            classes={classes}
-                                        />
-                                    )
-                                })}
-                            </LazyLoad>
+                            // <LazyLoad offset={10} >
+                            responsibilitys.map(({ users, name, id }) => {
+                                return (
+                                    <OneRow
+                                        key={`${id}__checkboxContainer`}
+                                        name={name}
+                                        usersArray={usersArray}
+                                        usersLength={Object.keys(users).length}
+                                        responsibilityArray={responsibilityArray}
+                                        users={users}
+                                        changeResponsibility={changeResponsibility}
+                                        classes={classes}
+                                    />
+                                )
+                            })
+                            // </LazyLoad>
                             : null}
                     </div>
                 </div>

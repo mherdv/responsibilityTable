@@ -5,6 +5,7 @@ import Checkbox from '../../Chechbox';
 
 const ResponsibilityCheckboxes = memo(({ array, users, changeResponsibility }) => {
     return (
+
         <div className={classes.checkboxRow}>
             {
                 array.map((deportment) => {
