@@ -8,22 +8,22 @@ const ResponsibilityCheckboxes = memo(({ array, users, changeResponsibility }) =
         <div className={classes.checkboxRow}>
             {
                 array.map((deportment) => {
-                    return deportment.users.map(user => {
-                        return <Checkbox
-                            key={`checkbox___${user.id}`}
-                            checked={!!users[user.id]}
-                            onChange={(event) =>
-                                changeResponsibility({ event, userId: user.id, usersArray: users })}
-                        />
-                    })
+                    return deportment.show ?
+                        deportment.users.map(user => {
+                            return <Checkbox
+                                key={`checkbox___${user.id}`}
+                                checked={!!users[user.id]}
+                                onChange={(event) =>
+                                    changeResponsibility({ event, userId: user.id, usersArray: users })}
+                            />
+                        }) : null
                 })
-
             }
         </div>
     );
 }, (next, prev) => {
 
-    return !(next.usersLength !== prev.usersLength)
+    // return !(next.usersLength !== prev.usersLength)
 });
 
 export default ResponsibilityCheckboxes;

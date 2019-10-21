@@ -10,7 +10,14 @@ const OneRow = memo(({
         <ResponsibilityCheckboxes array={usersArray} usersLength={Object.keys(users).length} users={users} changeResponsibility={changeResponsibility} />
     </div>
 }, (next, prev) => {
-    // add avilebility to change text 
+    if (next.responsibilityArray !== prev.responsibilityArray) {
+        return false;
+    }
+    for (let i = 0; i < next.usersArray.length; i++) {
+        if (next.usersArray[i].show !== prev.usersArray[i].show) {
+            return false
+        }
+    }
     return !(next.usersLength !== prev.usersLength)
 })
 export default OneRow;

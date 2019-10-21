@@ -1,4 +1,4 @@
-import { LOADRESPONSIBILITY, GETRESPONSIBILITYERROR, SETALLRESPONSIBILITY, UPDATERESPONSIBILITYARRAY } from "../types";
+import { LOADRESPONSIBILITY, GETRESPONSIBILITYERROR, SETALLRESPONSIBILITY, UPDATERESPONSIBILITYARRAY, CHANGERESPONSIBILITYSECIONVISIBILITY, ADDRESPONSIBILITYLINE } from "../types";
 
 const initialState = {
     loading: false,
@@ -15,6 +15,11 @@ function responsobilityReducer(state = initialState, action) {
         case SETALLRESPONSIBILITY:
             return { responsibilityArray: action.payload, loading: false, error: false };
         case UPDATERESPONSIBILITYARRAY:
+            return { ...state, responsibilityArray: action.payload };
+        case CHANGERESPONSIBILITYSECIONVISIBILITY:
+            return { ...state, responsibilityArray: action.payload };
+
+        case ADDRESPONSIBILITYLINE:
             return { ...state, responsibilityArray: action.payload };
         default:
             return state;

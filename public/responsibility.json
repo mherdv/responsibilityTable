@@ -3,6 +3,7 @@
         {
             "name": "տեխնիկական ապահովում",
             "id": 1,
+            "show": 1,
             "responsibilitys": [
                 {
                     "id": 1,
@@ -16,6 +17,70 @@
                 {
                     "id": 2,
                     "name": "ապահովել ծրագրերի աշխատանքը",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true,
+                        "4": true
+                    }
+                },
+                {
+                    "id": 4,
+                    "name": "inchvor partakanutyun 1",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": 5,
+                    "name": "inchvor partakanutyun 2",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true,
+                        "4": true
+                    }
+                }
+            ]
+        },
+        {
+            "name": "տեխնիկական ապահովում",
+            "id": 2,
+            "show": 1,
+            "responsibilitys": [
+                {
+                    "id": 5,
+                    "name": "հետեվել տեխնիկային 11",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": 6,
+                    "name": "ապահովել ծրագրերի աշխատանքը 12",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true,
+                        "4": true
+                    }
+                },
+                {
+                    "id": 7,
+                    "name": "inchvor partakanutyun 13",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": 8,
+                    "name": "inchvor partakanutyun 24",
                     "users": {
                         "1": true,
                         "2": true,

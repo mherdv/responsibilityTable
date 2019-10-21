@@ -1,4 +1,4 @@
-import { LOADRESPONSIBILITY, GETRESPONSIBILITYERROR, SETALLRESPONSIBILITY, UPDATERESPONSIBILITYARRAY } from "../types";
+import { LOADRESPONSIBILITY, GETRESPONSIBILITYERROR, SETALLRESPONSIBILITY, UPDATERESPONSIBILITYARRAY, CHANGERESPONSIBILITYSECIONVISIBILITY, ADDRESPONSIBILITYLINE } from "../types";
 import Axios from "axios";
 import keys from '../../constants/keys';
 import store from '../index';
@@ -7,6 +7,7 @@ import store from '../index';
 
 
 // todo think about changes 
+// todo change names 
 // test version of changing user status 
 
 const changeUserResponsibility = (responsibility) => {
@@ -14,7 +15,6 @@ const changeUserResponsibility = (responsibility) => {
         type: UPDATERESPONSIBILITYARRAY,
         payload: responsibility
     }
-
 }
 
 
@@ -40,6 +40,19 @@ const errorOnLoad = () => {
     return { type: GETRESPONSIBILITYERROR }
 }
 
-export { getAllResponsibility, changeUserResponsibility };
+const changeResponsibilitySectionVisibility = (newArray) => {
+    return {
+        type: CHANGERESPONSIBILITYSECIONVISIBILITY,
+        payload: newArray
+    }
+}
+const addResponsibilityLine = (newArray) => {
+    return {
+        type: ADDRESPONSIBILITYLINE,
+        payload: newArray,
+    }
+}
+
+export { getAllResponsibility, changeUserResponsibility, changeResponsibilitySectionVisibility, addResponsibilityLine };
 
 

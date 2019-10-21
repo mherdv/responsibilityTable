@@ -1,4 +1,4 @@
-import { LOADUSERS, GETUSERSERROR, SETALLUSERS } from "../types";
+import { LOADUSERS, GETUSERSERROR, SETALLUSERS, CHANGEDEPORTMENTVISIBILITYSTATUS } from "../types";
 import Axios from "axios";
 import keys from '../../constants/keys';
 
@@ -13,7 +13,6 @@ const getAllUsers = () => {
         } catch (e) {
             dispatch(errorOnLoad())
         }
-
     }
 }
 
@@ -25,4 +24,11 @@ const errorOnLoad = () => {
     return { type: GETUSERSERROR }
 }
 
-export { getAllUsers };
+const changeDeportmentVisibilityStatus = (users) => {
+    return {
+        type: CHANGEDEPORTMENTVISIBILITYSTATUS,
+        payload: users
+    }
+}
+
+export { getAllUsers, changeDeportmentVisibilityStatus };

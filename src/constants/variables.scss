@@ -3,7 +3,7 @@ $respContainerWidth:210px;
 
 
 @mixin columnStyles {
-  width: 23px;
+  width: 43px;
   border: 1px solid black;
   padding-top: 2px;
   box-sizing: initial;
@@ -14,5 +14,4 @@ $respContainerWidth:210px;
   border-right: none;
   border-bottom: none;
   border-top: none;
-
 }

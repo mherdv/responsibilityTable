@@ -1,44 +1,266 @@
 {
     "users": [
         {
-            "deportamentName": "incoming",
+            "show": 1,
+            "deportamentName": "Տնորինություն",
             "users": [
                 {
-                    "fullName": "Mher Gharibyan",
+                    "fullName": "Հայկ Գրիգորյան",
                     "id": "1"
                 },
                 {
-                    "fullName": "Mher Gharibyan",
+                    "fullName": "Մարինա Կպրյան",
                     "id": "2"
                 },
                 {
-                    "fullName": "Mher Gharibyan",
+                    "fullName": "Արմեն Գրիգորյան",
                     "id": "3"
-                },
-                {
-                    "fullName": "Mher Gharibyan",
-                    "id": "4"
                 }
             ]
         },
         {
-            "deportamentName": "programmers",
+            "show": 1,
+            "deportamentName": "հաշվապահություն",
             "users": [
                 {
-                    "fullName": "Mher Gharibyan",
+                    "fullName": " Քրիստինե Բաբայան",
                     "id": "5"
                 },
                 {
-                    "fullName": "Mher Gharibyan",
+                    "fullName": "Քրիստինե Շառոյան",
                     "id": "6"
                 },
                 {
-                    "fullName": "Mher Gharibyan",
+                    "fullName": "Գայանե Սարգսյան",
                     "id": "7"
                 },
                 {
-                    "fullName": "Mher Gharibyan",
+                    "fullName": "Մարիա Գասպարյան",
                     "id": "8"
+                },
+                {
+                    "fullName": "Քնար Մուղնեցյան",
+                    "id": "9"
+                },
+                {
+                    "fullName": "Արփի Ղանդիլյան",
+                    "id": "10"
+                },
+                {
+                    "fullName": "Մարինա Պողոսյան",
+                    "id": "11"
+                },
+                {
+                    "fullName": "Սաթենիկ Մուրադյան",
+                    "id": "12"
+                },
+                {
+                    "fullName": " Սամսոն Սիմոնյան",
+                    "id": "13"
+                }
+            ]
+        },
+        {
+            "show": 1,
+            "deportamentName": "Ավիատոմսեր",
+            "users": [
+                {
+                    "fullName": "Անիկ Եգորյան",
+                    "id": "14"
+                },
+                {
+                    "fullName": "Գայանե Կոծինյան",
+                    "id": "15"
+                },
+                {
+                    "fullName": "Լուսինե Սահակյան",
+                    "id": "16"
+                },
+                {
+                    "fullName": "Անժելա Հովհաննիսյան",
+                    "id": "17"
+                },
+                {
+                    "fullName": "Նարինե Գասպարյան",
+                    "id": "18"
+                },
+                {
+                    "fullName": "Ջեմմա Մաթոսյան",
+                    "id": "19"
+                },
+                {
+                    "fullName": "Սվետլաննա Մովսեսյան",
+                    "id": "20"
+                },
+                {
+                    "fullName": "Վարդանուշ Մարտիրոսյան",
+                    "id": "21"
+                },
+                {
+                    "fullName": "Նարա Գևորգյան",
+                    "id": "22"
+                }
+            ]
+        },
+        {
+            "show": 1,
+            "deportamentName": "ներգնա ",
+            "users": [
+                {
+                    "fullName": "Քրիստինա Ղարիբյան",
+                    "id": "23"
+                },
+                {
+                    "fullName": "Հակոբ Կպրյան",
+                    "id": "24"
+                },
+                {
+                    "fullName": "Արշակ Մկրտչյան",
+                    "id": "25"
+                },
+                {
+                    "fullName": "Հայկ Հարությունյան",
+                    "id": "26"
+                },
+                {
+                    "fullName": "Լիլիթ Հակոբյան",
+                    "id": "27"
+                },
+                {
+                    "fullName": "Գոհար Աշուղ-Աթոյան",
+                    "id": "28"
+                },
+                {
+                    "fullName": "Ալեքսանդր Կուզնեցով",
+                    "id": "29"
+                },
+                {
+                    "fullName": "Լևոն Գալստյան",
+                    "id": "30"
+                },
+                {
+                    "fullName": "Արմինե Ենգոյան",
+                    "id": "31"
+                },
+                {
+                    "fullName": "Արևիկ Թադևոսյան",
+                    "id": "32"
+                },
+                {
+                    "fullName": "Նինա Դադայան",
+                    "id": "33"
+                },
+                {
+                    "fullName": "Լուսինե Թորոսյան",
+                    "id": "34"
+                },
+                {
+                    "fullName": "Արտուր Մանուչարյան",
+                    "id": "35"
+                }
+            ]
+        },
+        {
+            "show": 1,
+            "deportamentName": "Արտագնա ",
+            "users": [
+                {
+                    "fullName": "Ռուբինա Հովհաննիսյան",
+                    "id": "36"
+                },
+                {
+                    "fullName": "Ելենա Բաբայան",
+                    "id": "37"
+                },
+                {
+                    "fullName": "Նաիրա Մինասյան",
+                    "id": "38"
+                }
+            ]
+        },
+        {
+            "show": 1,
+            "deportamentName": "բեռներ ",
+            "users": [
+                {
+                    "fullName": "Սիրանուշ Թորոսյան",
+                    "id": "39"
+                },
+                {
+                    "fullName": "Նարեկ Սարգսյան",
+                    "id": "40"
+                }
+            ]
+        },
+        {
+            "show": 1,
+            "deportamentName": "Սպասարկող անձնակազմ ",
+            "users": [
+                {
+                    "fullName": "Դիանա Գրիգորյան",
+                    "id": "41"
+                },
+                {
+                    "fullName": "Հմայակ Պետրոսյան",
+                    "id": "42"
+                },
+                {
+                    "fullName": "Լիանա Զաքարյան",
+                    "id": "43"
+                },
+                {
+                    "fullName": "Սոնա Ալեքսանյանց",
+                    "id": "44"
+                },
+                {
+                    "fullName": "Մարգարիտա Սարգսյան",
+                    "id": "45"
+                },
+                {
+                    "fullName": "Կարեն Սահակյան",
+                    "id": "46"
+                },
+                {
+                    "fullName": "Համլետ Մարուքյան",
+                    "id": "47"
+                },
+                {
+                    "fullName": "Աննա Տոռոզյան",
+                    "id": "48"
+                },
+                {
+                    "fullName": "Պետրոս Կպրյան",
+                    "id": "49"
+                },
+                {
+                    "fullName": "Հովհաննես Թորոսյան",
+                    "id": "50"
+                },
+                {
+                    "fullName": "Արթուր Հարությունյան",
+                    "id": "51"
+                }
+            ]
+        },
+        {
+            "show": 1,
+            "deportamentName": "Ծրագրավորողներ ",
+            "users": [
+                {
+                    "fullName": "Վարդան Մովսիսյան",
+                    "id": "52"
+                },
+                {
+                    "fullName": "Աստղիկ Հովհաննիսյան",
+                    "id": "53"
+                },
+                {
+                    "fullName": "Մարի Կարապետյան",
+                    "id": "54"
+                },
+                {
+                    "fullName": "Մհեր Ղարիբյան",
+                    "id": "55"
                 }
             ]
         }
