@@ -1,10 +1,23 @@
-import React, { memo } from 'react';
+import React, { memo, useState } from 'react';
+import classes from './discriptionText.module.scss'
 
-const DescriptionText = memo(({ text, className }) => {
+const DescriptionText = memo(({ text, className, onInput }) => {
+    const [focused, setFocused] = useState(false);
+    function onKeyDown(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault()
+        }
+    }
     return (
-        <p className={className || null}>
+        <p className={focused ? classes.focused : '' + className || ''}
+            contenteditable="true"
+            onInput={onInput}
+            onKeyDown={onKeyDown}
+            onFocus={() => setFocused(true)}
+            onBlur={() => setFocused(false)}
+        >
             {text}
-        </p>
+        </p >
     );
 }, (next, prev) => {
     return !(next.text !== prev.text)

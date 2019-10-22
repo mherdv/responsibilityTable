@@ -4,7 +4,7 @@ import ResponsibilityCheckboxes from "../ResponsibilityCheckboxes/Responsibility
 
 
 
-const OneRow = memo(({
+const OneRow = ({
     classes,
     name,
     usersArray,
@@ -12,30 +12,18 @@ const OneRow = memo(({
     changeResponsibility,
     rowIndex,
     containerIndex,
-    removeLine
+    removeLine,
+    onDescriptionChange
 }) => {
 
     const description = useMemo(() => {
-        return <DescriptionText className={classes.checkboxRowTitle} text={name} />
-    }, [name])
+        return <DescriptionText className={classes.checkboxRowTitle} text={name} onInput={onDescriptionChange} />
+    }, [name, onDescriptionChange])
 
     return <div className={classes.checkboxRowWrapper} >
         <button onClick={removeLine}>remove</button>
         {description}
         <ResponsibilityCheckboxes array={usersArray} containerIndex={containerIndex} rowIndex={rowIndex} usersLength={Object.keys(users).length} users={users} changeResponsibility={changeResponsibility} />
     </div>
-}, (next, prev) => {
-
-    // console.log(1)
-    // if (next.users !== prev.users) {
-    //     console.log(6456)
-    //     return false;
-    // }
-    // for (let i = 0; i < next.usersArray.length; i++) {
-    //     if (next.usersArray[i].show !== prev.usersArray[i].show) {
-    //         return false
-    //     }
-    // }
-    // return !(next.usersLength !== prev.usersLength)
-})
+}
 export default OneRow;

@@ -61,6 +61,12 @@ const Responsibility = ({ dispatch, responsibilityArray, usersArray, loading, er
         window.dispatchEvent(new Event('scroll'))
     }
 
+    function onDescriptionChange(event) {
+
+        // validate value 
+        console.log(event.target.innerHTML.trim())
+    }
+
     useEffect(() => {
         dispatch(getAllResponsibilityAction());
     }, [])
@@ -103,6 +109,7 @@ const Responsibility = ({ dispatch, responsibilityArray, usersArray, loading, er
                                             rowIndex={index}
                                             containerIndex={containerIndex}
                                             classes={classes}
+                                            onDescriptionChange={onDescriptionChange}
                                             removeLine={() => {
                                                 removeResponsibility(responsibilityArray, containerIndex, index)
                                             }}

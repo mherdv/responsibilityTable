@@ -19,7 +19,8 @@ const ResponsibilityCheckboxes = memo(({ array, users, changeResponsibility, row
                                 checked={!!users[user.id]}
                                 onChange={(event) =>
                                     changeResponsibility({
-                                        event, userId: user.id,
+                                        event,
+                                        userId: user.id,
                                         rowIndex,
                                         containerIndex
                                     })}

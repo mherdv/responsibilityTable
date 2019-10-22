@@ -28,7 +28,9 @@ const Checkbox = memo(({ checked, onChange }) => {
         </div>
     );
 }, (next, prev) => {
+    if (next.rowIndex != prev.rowIndex) return false;
     return !(next.checked !== prev.checked)
+
 });
 
 export default Checkbox;
