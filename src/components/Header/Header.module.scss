@@ -1,0 +1,59 @@
+
+@import '../../constants/variables.scss';
+
+
+header{
+
+    margin-left: $respContainerWidth;
+    padding-left: 1px;
+    display: flex;
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 2;
+    width: fit-content;
+    &+ div{
+        width: fit-content;
+    }
+}
+.deportament{
+    
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    border-left: none;
+    border: 1px solid black;
+    border-left: none;
+    &:first-child{
+
+        border-left: 1px solid black;
+    }
+    &> h4{
+
+        padding: 10px 0;
+        max-width: fit-content;
+        word-break: break-all;
+        margin: auto;
+    }
+    &>div{
+        
+        writing-mode: vertical-lr;
+        text-orientation: mixed;
+        min-height: 160px;
+        &>p{
+
+            @include columnStyles;
+            border-top: 1px solid black;
+            border-bottom: none;
+            white-space: nowrap;
+            &:last-child{
+
+                border-right: none;
+            }
+            &:first-child{
+
+                border-left: none;
+            }
+        }
+    }
+}

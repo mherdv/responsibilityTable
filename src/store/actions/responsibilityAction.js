@@ -1,4 +1,4 @@
-import { LOADRESPONSIBILITY, GETRESPONSIBILITYERROR, SETALLRESPONSIBILITY, UPDATERESPONSIBILITYARRAY, CHANGERESPONSIBILITYSECIONVISIBILITY, ADDRESPONSIBILITYLINE } from "../types";
+import { LOADRESPONSIBILITY, GETRESPONSIBILITYERROR, SETALLRESPONSIBILITY, UPDATERESPONSIBILITYARRAY, CHANGERESPONSIBILITYSECIONVISIBILITY, ADDRESPONSIBILITYLINE, REMOVERESPONSIBILITYLINE } from "../types";
 import Axios from "axios";
 import keys from '../../constants/keys';
 import store from '../index';
@@ -10,7 +10,7 @@ import store from '../index';
 // todo change names 
 // test version of changing user status 
 
-const changeUserResponsibility = (responsibility) => {
+const changeUserResponsibilityAction = (responsibility) => {
     return {
         type: UPDATERESPONSIBILITYARRAY,
         payload: responsibility
@@ -18,41 +18,49 @@ const changeUserResponsibility = (responsibility) => {
 }
 
 
-const getAllResponsibility = () => {
+const getAllResponsibilityAction = () => {
 
     return async (dispatch) => {
-        dispatch(loadingResponsibility())
+        dispatch(loadingResponsibilityAction())
         try {
             const response = await Axios.get(`${keys.HOST}/responsibility.json`);
-            const responsibility = response.data.responsibilitysArray;
+            const responsibility = response.data.responsibilitiesArray;
             dispatch({ type: SETALLRESPONSIBILITY, payload: responsibility })
         } catch (e) {
-            dispatch(errorOnLoad())
+            dispatch(errorOnLoadAction())
         }
     }
 }
 
-const loadingResponsibility = () => {
+const loadingResponsibilityAction = () => {
     return { type: LOADRESPONSIBILITY }
 }
 
-const errorOnLoad = () => {
+const errorOnLoadAction = () => {
     return { type: GETRESPONSIBILITYERROR }
 }
 
-const changeResponsibilitySectionVisibility = (newArray) => {
+const changeResponsibilitySectionVisibilityAction = (newArray) => {
     return {
         type: CHANGERESPONSIBILITYSECIONVISIBILITY,
         payload: newArray
     }
 }
-const addResponsibilityLine = (newArray) => {
+
+const addResponsibilityLineAction = (newArray) => {
     return {
         type: ADDRESPONSIBILITYLINE,
         payload: newArray,
     }
 }
 
-export { getAllResponsibility, changeUserResponsibility, changeResponsibilitySectionVisibility, addResponsibilityLine };
+const removeResponsibilityLineAction = (newArray) => {
+    return {
+        type: REMOVERESPONSIBILITYLINE,
+        payload: newArray
+    }
+}
+
+export { getAllResponsibilityAction, changeUserResponsibilityAction, changeResponsibilitySectionVisibilityAction, addResponsibilityLineAction, removeResponsibilityLineAction };
 
 

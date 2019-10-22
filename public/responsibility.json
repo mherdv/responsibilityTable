@@ -1,10 +1,10 @@
 {
-    "responsibilitysArray": [
+    "responsibilitiesArray": [
         {
             "name": "տեխնիկական ապահովում",
             "id": 1,
             "show": 1,
-            "responsibilitys": [
+            "responsibilities": [
                 {
                     "id": 1,
                     "name": "հետեվել տեխնիկային",
@@ -21,7 +21,7 @@
                         "1": true,
                         "2": true,
                         "3": true,
-                        "4": true
+                        "5": true
                     }
                 },
                 {
@@ -40,7 +40,7 @@
                         "1": true,
                         "2": true,
                         "3": true,
-                        "4": true
+                        "5": true
                     }
                 }
             ]
@@ -49,7 +49,7 @@
             "name": "տեխնիկական ապահովում",
             "id": 2,
             "show": 1,
-            "responsibilitys": [
+            "responsibilities": [
                 {
                     "id": 5,
                     "name": "հետեվել տեխնիկային 11",
@@ -66,7 +66,7 @@
                         "1": true,
                         "2": true,
                         "3": true,
-                        "4": true
+                        "5": true
                     }
                 },
                 {
@@ -85,7 +85,7 @@
                         "1": true,
                         "2": true,
                         "3": true,
-                        "4": true
+                        "5": true
                     }
                 }
             ]

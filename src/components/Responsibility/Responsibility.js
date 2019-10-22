@@ -1,8 +1,15 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import store from '../../store';
 import LazyLoad from 'react-lazyload';
 
-import { getAllResponsibility, changeUserResponsibility, changeResponsibilitySectionVisibility, addResponsibilityLine } from '../../store/actions/responsibilityAction';
+import {
+    getAllResponsibilityAction,
+    changeUserResponsibilityAction,
+    changeResponsibilitySectionVisibilityAction,
+    addResponsibilityLineAction,
+    removeResponsibilityLineAction
+} from '../../store/actions/responsibilityAction';
 import classes from './responsibility.module.scss';
 // import { iterationCopy, jsonCopy } from '../../utils/cloningObject';
 
@@ -16,25 +23,19 @@ const Responsibility = ({ dispatch, responsibilityArray, usersArray, loading, er
 
 
     // todo change name 
-    function changeResponsibility({ event, userId, usersArray }) {
-        console.log(usersArray, responsibilityArray)
-        // here i change in real store object
-        if (!event.target.checked)
-            delete usersArray[userId]
-        else {
-            usersArray[userId] = true
-        }
-        // todo return to this place 
-        // then i clone object to add it to action 
-        // there is a way for deep cloning that i  dunot wont to use iterationCopy(responsibilityArray)
-        // im simple go tu clone array  on hingher lever 
-        dispatch(changeUserResponsibility([...responsibilityArray]))
+    function changeResponsibility({ userId, rowIndex, containerIndex }) {
+
+        const { responsibilityArray } = store.getState().responsibility;
+        const users = responsibilityArray[containerIndex].responsibilities[rowIndex].users;
+
+        users[userId] = !users[userId];
+        dispatch(changeUserResponsibilityAction([...responsibilityArray]))
     }
 
     function toggleResponsibilitySection(index) {
         const newArr = iterationCopy(responsibilityArray);
         newArr[index].show = !newArr[index].show;
-        dispatch(changeResponsibilitySectionVisibility(newArr))
+        dispatch(changeResponsibilitySectionVisibilityAction(newArr))
     }
 
 
@@ -44,13 +45,24 @@ const Responsibility = ({ dispatch, responsibilityArray, usersArray, loading, er
 
         // todo unique id shod come from server after adding 
 
-        newArr[index].responsibilitys.push({ id: '_' + Math.random().toString(36).substr(2, 9), name: description, users: {} });
-        dispatch(addResponsibilityLine(newArr))
+        newArr[index].responsibilities.push({ id: '_' + Math.random().toString(36).substr(2, 9), name: description, users: {} });
+        dispatch(addResponsibilityLineAction(newArr))
 
     }
 
+    function removeResponsibility(responsibilityArray, containerIndex, index) {
+
+        const newArr = iterationCopy(responsibilityArray);
+        newArr[containerIndex].responsibilities.splice(index, 1);
+        dispatch(removeResponsibilityLineAction(newArr));
+
+        // this is for LazyLoad  component during remove
+        // todo change this logic 
+        window.dispatchEvent(new Event('scroll'))
+    }
+
     useEffect(() => {
-        dispatch(getAllResponsibility());
+        dispatch(getAllResponsibilityAction());
     }, [])
 
     return (
@@ -64,34 +76,40 @@ const Responsibility = ({ dispatch, responsibilityArray, usersArray, loading, er
             </div>
 
 
-            {responsibilityArray.map(({ id, responsibilitys, name }, index) => {
-
+            {responsibilityArray.map(({ id, responsibilities, name }, containerIndex) => {
+                // responsibilityArray containerIndex responsibilityIndex
                 return <div key={`${id}__responsibilityRows_`}>
 
                     <ButtonsController
-                        name={name} onClick={() => toggleResponsibilitySection(index)}
+                        name={name} onClick={() => toggleResponsibilitySection(containerIndex)}
                         classes={classes}
-                        addResponsibility={(description) => addResponsibility(responsibilityArray, description, index)} />
+                        addResponsibility={(description) => addResponsibility(responsibilityArray, description, containerIndex)} />
 
                     {/* todo separate to component */}
+
                     <div className={classes.section}>
-                        {responsibilityArray[index].show ?
-                            // <LazyLoad offset={10} >
-                            responsibilitys.map(({ users, name, id }) => {
+                        {responsibilityArray[containerIndex].show ?
+
+                            responsibilities.map(({ users, name, id }, index) => {
                                 return (
-                                    <OneRow
-                                        key={`${id}__checkboxContainer`}
-                                        name={name}
-                                        usersArray={usersArray}
-                                        usersLength={Object.keys(users).length}
-                                        responsibilityArray={responsibilityArray}
-                                        users={users}
-                                        changeResponsibility={changeResponsibility}
-                                        classes={classes}
-                                    />
+                                    <LazyLoad offset={0} height={20} key={`${id}__checkboxContainer`}>
+                                        <OneRow
+                                            name={name}
+                                            usersArray={usersArray}
+                                            usersLength={Object.keys(users).length}
+                                            responsibilityArray={responsibilityArray}
+                                            users={users}
+                                            changeResponsibility={changeResponsibility}
+                                            rowIndex={index}
+                                            containerIndex={containerIndex}
+                                            classes={classes}
+                                            removeLine={() => {
+                                                removeResponsibility(responsibilityArray, containerIndex, index)
+                                            }}
+                                        />
+                                    </LazyLoad>
                                 )
                             })
-                            // </LazyLoad>
                             : null}
                     </div>
                 </div>

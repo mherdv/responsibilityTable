@@ -1,0 +1,21 @@
+
+.container{
+    display: inline-flex;
+    margin: 10px;
+    align-items: center;
+    left: 0;
+    position: sticky;
+
+    button{
+        padding:0 10px;
+        height: 100%;
+    }
+}
+
+.responsibilityTitle{
+
+    margin:10px 0;
+    padding-left: 10px;
+    font-size: 20px;
+    display: inline-block;
+}

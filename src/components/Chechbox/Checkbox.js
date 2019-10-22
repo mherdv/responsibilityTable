@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 // import store from '../../store';
-// import { changeUserResponsibility } from '../../store/actions/responsibilityAction';
+// import { changeUserResponsibilityAction } from '../../store/actions/responsibilityAction';
 
 // // todo change name 
 // // function changeResponsibility({ event, userId, usersArray }) {
@@ -16,10 +16,11 @@ import React, { memo } from 'react';
 // //     // then i clone object to add it to action 
 // //     // there is a way for deep cloning that i  dunot wont to use iterationCopy(responsibilityArray)
 // //     // im simple go tu clone array  on hingher lever 
-// //     store.dispatch(changeUserResponsibility([...responsibilityArray]))
+// //     store.dispatch(changeUserResponsibilityAction([...responsibilityArray]))
 // // }
 
 const Checkbox = memo(({ checked, onChange }) => {
+
     return (
         <div>
             <input type="checkbox" checked={checked}
@@ -27,7 +28,7 @@ const Checkbox = memo(({ checked, onChange }) => {
         </div>
     );
 }, (next, prev) => {
-    // return !(next.checked !== prev.checked)
+    return !(next.checked !== prev.checked)
 });
 
 export default Checkbox;

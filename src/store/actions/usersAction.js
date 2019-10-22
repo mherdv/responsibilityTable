@@ -3,32 +3,32 @@ import Axios from "axios";
 import keys from '../../constants/keys';
 
 
-const getAllUsers = () => {
+const getAllUsersAction = () => {
     return async (dispatch) => {
-        dispatch(LoadingUsers())
+        dispatch(LoadingUsersAction())
         try {
             const response = await Axios.get(`${keys.HOST}/users.json`);
             const users = response.data.users
             dispatch({ type: SETALLUSERS, payload: users })
         } catch (e) {
-            dispatch(errorOnLoad())
+            dispatch(errorOnLoadAction())
         }
     }
 }
 
-const LoadingUsers = () => {
+const LoadingUsersAction = () => {
     return { type: LOADUSERS }
 }
 
-const errorOnLoad = () => {
+const errorOnLoadAction = () => {
     return { type: GETUSERSERROR }
 }
 
-const changeDeportmentVisibilityStatus = (users) => {
+const changeDeportmentVisibilityStatusAction = (users) => {
     return {
         type: CHANGEDEPORTMENTVISIBILITYSTATUS,
         payload: users
     }
 }
 
-export { getAllUsers, changeDeportmentVisibilityStatus };
+export { getAllUsersAction, changeDeportmentVisibilityStatusAction };
