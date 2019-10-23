@@ -1,12 +1,13 @@
-import React, { memo, useMemo } from "react";
-import DescriptionText from "../DescriptionText";
+import React, { useMemo } from "react";
 import ResponsibilityCheckboxes from "../ResponsibilityCheckboxes/ResponsibilityCheckboxes";
+import EditableText from "../EditableText";
+
+import classes from './oneRow.module.scss';
 
 
 
 const OneRow = ({
-    classes,
-    name,
+    description,
     usersArray,
     users,
     changeResponsibility,
@@ -16,14 +17,23 @@ const OneRow = ({
     onDescriptionChange
 }) => {
 
-    const description = useMemo(() => {
-        return <DescriptionText className={classes.checkboxRowTitle} text={name} onInput={onDescriptionChange} />
-    }, [name, onDescriptionChange])
+    return (
+        <div className={classes.checkboxRowWrapper} >
 
-    return <div className={classes.checkboxRowWrapper} >
-        <button onClick={removeLine}>remove</button>
-        {description}
-        <ResponsibilityCheckboxes array={usersArray} containerIndex={containerIndex} rowIndex={rowIndex} usersLength={Object.keys(users).length} users={users} changeResponsibility={changeResponsibility} />
-    </div>
+            <button onClick={removeLine}>remove</button>
+            {/* todo check the  performance*/}
+            <EditableText
+                className={classes.EditableText} text={description}
+                onBlur={(event) => onDescriptionChange(event, containerIndex, rowIndex)} />
+            <ResponsibilityCheckboxes
+                array={usersArray}
+                containerIndex={containerIndex}
+                rowIndex={rowIndex}
+                usersLength={Object.keys(users).length}
+                users={users}
+                changeResponsibility={changeResponsibility}
+            />
+        </div>
+    )
 }
 export default OneRow;

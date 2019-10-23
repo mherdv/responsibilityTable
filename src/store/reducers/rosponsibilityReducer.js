@@ -1,4 +1,4 @@
-import { LOADRESPONSIBILITY, GETRESPONSIBILITYERROR, SETALLRESPONSIBILITY, UPDATERESPONSIBILITYARRAY, CHANGERESPONSIBILITYSECIONVISIBILITY, ADDRESPONSIBILITYLINE, REMOVERESPONSIBILITYLINE } from "../types";
+import { LOADRESPONSIBILITY, GETRESPONSIBILITYERROR, SETALLRESPONSIBILITY, UPDATERESPONSIBILITYARRAY, CHANGERESPONSIBILITYSECIONVISIBILITY, ADDRESPONSIBILITYLINE, REMOVERESPONSIBILITYLINE, SETNEWRESPONSIBILITYDESCRIPTION, TOGGLEDESCRIPTIONFULLHEIGHT, REMOVERESPONSIBILITYSECTION, ADDRESPONSIBILITYSECTION, CHAGESECTIONTITLE } from "../types";
 
 const initialState = {
     loading: false,
@@ -18,10 +18,19 @@ function responsobilityReducer(state = initialState, action) {
             return { ...state, responsibilityArray: action.payload };
         case CHANGERESPONSIBILITYSECIONVISIBILITY:
             return { ...state, responsibilityArray: action.payload };
-
         case ADDRESPONSIBILITYLINE:
             return { ...state, responsibilityArray: action.payload };
         case REMOVERESPONSIBILITYLINE:
+            return { ...state, responsibilityArray: action.payload };
+        case SETNEWRESPONSIBILITYDESCRIPTION:
+            return { ...state, responsibilityArray: action.payload };
+        case TOGGLEDESCRIPTIONFULLHEIGHT:
+            return { ...state, responsibilityArray: action.payload };
+        case REMOVERESPONSIBILITYSECTION:
+            return { ...state, responsibilityArray: action.payload };
+        case ADDRESPONSIBILITYSECTION:
+            return { ...state, responsibilityArray: action.payload };
+        case CHAGESECTIONTITLE:
             return { ...state, responsibilityArray: action.payload };
         default:
             return state;

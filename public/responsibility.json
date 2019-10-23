@@ -6,8 +6,8 @@
             "show": 1,
             "responsibilities": [
                 {
-                    "id": 1,
-                    "name": "հետեվել տեխնիկային",
+                    "id": "_0",
+                    "description": "someName0",
                     "users": {
                         "1": true,
                         "2": true,
@@ -15,18 +15,8 @@
                     }
                 },
                 {
-                    "id": 2,
-                    "name": "ապահովել ծրագրերի աշխատանքը",
-                    "users": {
-                        "1": true,
-                        "2": true,
-                        "3": true,
-                        "5": true
-                    }
-                },
-                {
-                    "id": 4,
-                    "name": "inchvor partakanutyun 1",
+                    "id": "_1",
+                    "description": "someName1",
                     "users": {
                         "1": true,
                         "2": true,
@@ -34,13 +24,1785 @@
                     }
                 },
                 {
-                    "id": 5,
-                    "name": "inchvor partakanutyun 2",
+                    "id": "_2",
+                    "description": "someName2",
                     "users": {
                         "1": true,
                         "2": true,
-                        "3": true,
-                        "5": true
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_3",
+                    "description": "someName3",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_4",
+                    "description": "someName4",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_5",
+                    "description": "someName5",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_6",
+                    "description": "someName6",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_7",
+                    "description": "someName7",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_8",
+                    "description": "someName8",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_9",
+                    "description": "someName9",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_10",
+                    "description": "someName10",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_11",
+                    "description": "someName11",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_12",
+                    "description": "someName12",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_13",
+                    "description": "someName13",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_14",
+                    "description": "someName14",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_15",
+                    "description": "someName15",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_16",
+                    "description": "someName16",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_17",
+                    "description": "someName17",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_18",
+                    "description": "someName18",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_19",
+                    "description": "someName19",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_20",
+                    "description": "someName20",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_21",
+                    "description": "someName21",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_22",
+                    "description": "someName22",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_23",
+                    "description": "someName23",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_24",
+                    "description": "someName24",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_25",
+                    "description": "someName25",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_26",
+                    "description": "someName26",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_27",
+                    "description": "someName27",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_28",
+                    "description": "someName28",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_29",
+                    "description": "someName29",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_30",
+                    "description": "someName30",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_31",
+                    "description": "someName31",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_32",
+                    "description": "someName32",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_33",
+                    "description": "someName33",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_34",
+                    "description": "someName34",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_35",
+                    "description": "someName35",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_36",
+                    "description": "someName36",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_37",
+                    "description": "someName37",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_38",
+                    "description": "someName38",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_39",
+                    "description": "someName39",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_40",
+                    "description": "someName40",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_41",
+                    "description": "someName41",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_42",
+                    "description": "someName42",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_43",
+                    "description": "someName43",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_44",
+                    "description": "someName44",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_45",
+                    "description": "someName45",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_46",
+                    "description": "someName46",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_47",
+                    "description": "someName47",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_48",
+                    "description": "someName48",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_49",
+                    "description": "someName49",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_50",
+                    "description": "someName50",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_51",
+                    "description": "someName51",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_52",
+                    "description": "someName52",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_53",
+                    "description": "someName53",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_54",
+                    "description": "someName54",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_55",
+                    "description": "someName55",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_56",
+                    "description": "someName56",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_57",
+                    "description": "someName57",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_58",
+                    "description": "someName58",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_59",
+                    "description": "someName59",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_60",
+                    "description": "someName60",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_61",
+                    "description": "someName61",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_62",
+                    "description": "someName62",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_63",
+                    "description": "someName63",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_64",
+                    "description": "someName64",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_65",
+                    "description": "someName65",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_66",
+                    "description": "someName66",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_67",
+                    "description": "someName67",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_68",
+                    "description": "someName68",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_69",
+                    "description": "someName69",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_70",
+                    "description": "someName70",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_71",
+                    "description": "someName71",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_72",
+                    "description": "someName72",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_73",
+                    "description": "someName73",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_74",
+                    "description": "someName74",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_75",
+                    "description": "someName75",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_76",
+                    "description": "someName76",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_77",
+                    "description": "someName77",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_78",
+                    "description": "someName78",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_79",
+                    "description": "someName79",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_80",
+                    "description": "someName80",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_81",
+                    "description": "someName81",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_82",
+                    "description": "someName82",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_83",
+                    "description": "someName83",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_84",
+                    "description": "someName84",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_85",
+                    "description": "someName85",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_86",
+                    "description": "someName86",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_87",
+                    "description": "someName87",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_88",
+                    "description": "someName88",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_89",
+                    "description": "someName89",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_90",
+                    "description": "someName90",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_91",
+                    "description": "someName91",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_92",
+                    "description": "someName92",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_93",
+                    "description": "someName93",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_94",
+                    "description": "someName94",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_95",
+                    "description": "someName95",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_96",
+                    "description": "someName96",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_97",
+                    "description": "someName97",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_98",
+                    "description": "someName98",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_99",
+                    "description": "someName99",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_100",
+                    "description": "someName100",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_101",
+                    "description": "someName101",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_102",
+                    "description": "someName102",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_103",
+                    "description": "someName103",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_104",
+                    "description": "someName104",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_105",
+                    "description": "someName105",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_106",
+                    "description": "someName106",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_107",
+                    "description": "someName107",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_108",
+                    "description": "someName108",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_109",
+                    "description": "someName109",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_110",
+                    "description": "someName110",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_111",
+                    "description": "someName111",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_112",
+                    "description": "someName112",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_113",
+                    "description": "someName113",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_114",
+                    "description": "someName114",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_115",
+                    "description": "someName115",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_116",
+                    "description": "someName116",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_117",
+                    "description": "someName117",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_118",
+                    "description": "someName118",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_119",
+                    "description": "someName119",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_120",
+                    "description": "someName120",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_121",
+                    "description": "someName121",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_122",
+                    "description": "someName122",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_123",
+                    "description": "someName123",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_124",
+                    "description": "someName124",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_125",
+                    "description": "someName125",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_126",
+                    "description": "someName126",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_127",
+                    "description": "someName127",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_128",
+                    "description": "someName128",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_129",
+                    "description": "someName129",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_130",
+                    "description": "someName130",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_131",
+                    "description": "someName131",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_132",
+                    "description": "someName132",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_133",
+                    "description": "someName133",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_134",
+                    "description": "someName134",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_135",
+                    "description": "someName135",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_136",
+                    "description": "someName136",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_137",
+                    "description": "someName137",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_138",
+                    "description": "someName138",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_139",
+                    "description": "someName139",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_140",
+                    "description": "someName140",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_141",
+                    "description": "someName141",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_142",
+                    "description": "someName142",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_143",
+                    "description": "someName143",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_144",
+                    "description": "someName144",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_145",
+                    "description": "someName145",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_146",
+                    "description": "someName146",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_147",
+                    "description": "someName147",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_148",
+                    "description": "someName148",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_149",
+                    "description": "someName149",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_150",
+                    "description": "someName150",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_151",
+                    "description": "someName151",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_152",
+                    "description": "someName152",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_153",
+                    "description": "someName153",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_154",
+                    "description": "someName154",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_155",
+                    "description": "someName155",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_156",
+                    "description": "someName156",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_157",
+                    "description": "someName157",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_158",
+                    "description": "someName158",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_159",
+                    "description": "someName159",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_160",
+                    "description": "someName160",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_161",
+                    "description": "someName161",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_162",
+                    "description": "someName162",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_163",
+                    "description": "someName163",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_164",
+                    "description": "someName164",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_165",
+                    "description": "someName165",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_166",
+                    "description": "someName166",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_167",
+                    "description": "someName167",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_168",
+                    "description": "someName168",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_169",
+                    "description": "someName169",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_170",
+                    "description": "someName170",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_171",
+                    "description": "someName171",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_172",
+                    "description": "someName172",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_173",
+                    "description": "someName173",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_174",
+                    "description": "someName174",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_175",
+                    "description": "someName175",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_176",
+                    "description": "someName176",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_177",
+                    "description": "someName177",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_178",
+                    "description": "someName178",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_179",
+                    "description": "someName179",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_180",
+                    "description": "someName180",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_181",
+                    "description": "someName181",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_182",
+                    "description": "someName182",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_183",
+                    "description": "someName183",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_184",
+                    "description": "someName184",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_185",
+                    "description": "someName185",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_186",
+                    "description": "someName186",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_187",
+                    "description": "someName187",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_188",
+                    "description": "someName188",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_189",
+                    "description": "someName189",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_190",
+                    "description": "someName190",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_191",
+                    "description": "someName191",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_192",
+                    "description": "someName192",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_193",
+                    "description": "someName193",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_194",
+                    "description": "someName194",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_195",
+                    "description": "someName195",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_196",
+                    "description": "someName196",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_197",
+                    "description": "someName197",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_198",
+                    "description": "someName198",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
+                    }
+                },
+                {
+                    "id": "_199",
+                    "description": "someName199",
+                    "users": {
+                        "1": true,
+                        "2": true,
+                        "3": true
                     }
                 }
             ]
@@ -52,7 +1814,7 @@
             "responsibilities": [
                 {
                     "id": 5,
-                    "name": "հետեվել տեխնիկային 11",
+                    "description": "sհետեվել տեխնիկային 11",
                     "users": {
                         "1": true,
                         "2": true,
@@ -61,7 +1823,7 @@
                 },
                 {
                     "id": 6,
-                    "name": "ապահովել ծրագրերի աշխատանքը 12",
+                    "description": "sպահովել ծրագրերի աշխատանքը 12",
                     "users": {
                         "1": true,
                         "2": true,
@@ -71,7 +1833,7 @@
                 },
                 {
                     "id": 7,
-                    "name": "inchvor partakanutyun 13",
+                    "description": "snchvor partakanutyun 13",
                     "users": {
                         "1": true,
                         "2": true,
@@ -80,7 +1842,7 @@
                 },
                 {
                     "id": 8,
-                    "name": "inchvor partakanutyun 24",
+                    "description": "snchvor partakanutyun 24",
                     "users": {
                         "1": true,
                         "2": true,

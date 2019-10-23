@@ -1,19 +1,25 @@
 import React, { useState, useRef } from 'react';
-import DescriptionText from '../DescriptionText';
+import EditableText from '../EditableText';
 import classes from './ButtonsController.module.scss'
 
 const ButtonsController = ({
-    onClick,
+    ShowHideSection,
     name,
-    addResponsibility
+    addResponsibility,
+    openAllDescriptions,
+    toggleDescriptionFullHeight,
+    removeSection,
+    changeSectionName
 }) => {
     const [showForm, setShowForm] = useState(false);
     const input = useRef(null);
 
     return (
         <div className={classes.container}>
-            <DescriptionText text={name} className={classes.responsibilityTitle} />
-            <button style={{ marginLeft: "10px" }} onClick={onClick}>showHide</button>
+            <EditableText text={name} className={classes.responsibilityTitle}
+                onBlur={changeSectionName}
+            />
+            <button style={{ marginLeft: "10px" }} onClick={ShowHideSection}>showHide</button>
             <button style={{ marginLeft: "10px" }} onClick={() => { setShowForm(!showForm) }}>addNew</button>
 
             {showForm ?
@@ -25,6 +31,15 @@ const ButtonsController = ({
 
                     }}>create</button>
                 </div> : null}
+
+            <div className={classes.openAllContainer} onClick={toggleDescriptionFullHeight}>
+                <span> open All</span>
+                <input type="checkbox" checked={openAllDescriptions} />
+            </div>
+
+            <div className={classes.removeSection} onClick={removeSection}>
+                <button>remove this section</button>
+            </div>
 
 
         </div>

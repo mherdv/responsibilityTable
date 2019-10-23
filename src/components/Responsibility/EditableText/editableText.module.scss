@@ -1,6 +1,9 @@
 
 
-
+.container{
+    word-break: break-all;
+    display: inline-block !important;
+}
 .focused {
     white-space: initial !important;
     overflow: initial !important;

@@ -1,7 +1,15 @@
-import { LOADRESPONSIBILITY, GETRESPONSIBILITYERROR, SETALLRESPONSIBILITY, UPDATERESPONSIBILITYARRAY, CHANGERESPONSIBILITYSECIONVISIBILITY, ADDRESPONSIBILITYLINE, REMOVERESPONSIBILITYLINE } from "../types";
+import {
+    LOADRESPONSIBILITY,
+    GETRESPONSIBILITYERROR,
+    SETALLRESPONSIBILITY,
+    UPDATERESPONSIBILITYARRAY,
+    CHANGERESPONSIBILITYSECIONVISIBILITY,
+    ADDRESPONSIBILITYLINE,
+    REMOVERESPONSIBILITYLINE
+} from "../../types";
 import Axios from "axios";
-import keys from '../../constants/keys';
-import store from '../index';
+import keys from '../../../constants/keys';
+import store from '../../index';
 
 
 
@@ -47,20 +55,16 @@ const changeResponsibilitySectionVisibilityAction = (newArray) => {
     }
 }
 
-const addResponsibilityLineAction = (newArray) => {
-    return {
-        type: ADDRESPONSIBILITYLINE,
-        payload: newArray,
-    }
-}
 
-const removeResponsibilityLineAction = (newArray) => {
-    return {
-        type: REMOVERESPONSIBILITYLINE,
-        payload: newArray
-    }
-}
 
-export { getAllResponsibilityAction, changeUserResponsibilityAction, changeResponsibilitySectionVisibilityAction, addResponsibilityLineAction, removeResponsibilityLineAction };
+
+
+
+
+export {
+    getAllResponsibilityAction,
+    changeUserResponsibilityAction,
+    changeResponsibilitySectionVisibilityAction
+};
 
 

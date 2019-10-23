@@ -19,3 +19,18 @@
     font-size: 20px;
     display: inline-block;
 }
+
+.openAllContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    cursor: pointer;
+    span{
+        padding-right: 10px;
+    }
+}
+
+.removeSection{
+    margin-left: 10px;
+}
