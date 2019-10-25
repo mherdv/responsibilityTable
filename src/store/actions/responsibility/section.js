@@ -45,7 +45,7 @@ function addResponsibilitySectionAction(newArray, name, newSection) {
     }
 }
 
-function changeSectionNameAction({ newArray, sectionId, newName }) {
+function changeSectionNameAction({ newArray, sectionId, newName, sectionIndex }) {
     return async function (dispatch) {
         try {
             // const res = await axios.post('/changeName',{
@@ -54,6 +54,7 @@ function changeSectionNameAction({ newArray, sectionId, newName }) {
             // })
 
             // if(res.status === 200){
+            newArray[sectionIndex].name = newName;
             dispatch({
                 type: CHAGESECTIONTITLE,
                 payload: newArray

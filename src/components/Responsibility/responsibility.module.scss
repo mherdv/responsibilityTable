@@ -5,6 +5,9 @@
 // }
 .section{
     background: lightblue;
+    input{
+        z-index: 1;
+    }
 }
 
 .massage{
@@ -19,5 +22,6 @@
     overflow: initial !important;
     text-overflow: initial !important;
 }
+
 // .checkboxRowTitle{}
 // .checkboxRow{}

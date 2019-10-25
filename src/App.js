@@ -6,7 +6,7 @@ import Responsibility from './components/Responsibility';
 import { iterationCopy } from './utils/cloningObject';
 import Header from './components/Header';
 
-const App = memo(({ loading, error, dispatch, usersArray }) => {
+const App = ({ loading, error, dispatch, usersArray }) => {
   // console.log(usersArray)
   useEffect(() => {
     dispatch(getAllUsersAction())
@@ -51,9 +51,7 @@ const App = memo(({ loading, error, dispatch, usersArray }) => {
 
     </div>
   );
-}, (next, prev) => {
-  // console.log(next.usersArray, prev.usersArray)
-})
+}
 
 
 function mapStateToProps(store) {

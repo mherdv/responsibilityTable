@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React from "react";
 import ResponsibilityCheckboxes from "../ResponsibilityCheckboxes/ResponsibilityCheckboxes";
 import EditableText from "../EditableText";
 
@@ -20,11 +20,14 @@ const OneRow = ({
     return (
         <div className={classes.checkboxRowWrapper} >
 
-            <button onClick={removeLine}>remove</button>
-            {/* todo check the  performance*/}
-            <EditableText
-                className={classes.EditableText} text={description}
-                onBlur={(event) => onDescriptionChange(event, containerIndex, rowIndex)} />
+            <div className={classes.descriptionLeftSide}>
+
+                {/* todo check the  performance*/}
+                <button onClick={removeLine}>remove</button>
+                <EditableText
+                    className={classes.EditableText} text={description}
+                    onBlur={(event) => onDescriptionChange(event, containerIndex, rowIndex)} />
+            </div>
             <ResponsibilityCheckboxes
                 array={usersArray}
                 containerIndex={containerIndex}

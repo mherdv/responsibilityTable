@@ -11,6 +11,7 @@ const EditableText = memo(({ text, className, onInput, onBlur }) => {
             event.preventDefault()
         }
     }
+
     return (
         <ContentEditable className={((focused ? classes.focused + ' ' : '') + className + ' ' || '') + classes.container}
             contentEditable="true"

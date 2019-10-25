@@ -20,7 +20,7 @@ const ButtonsController = ({
                 onBlur={changeSectionName}
             />
             <button style={{ marginLeft: "10px" }} onClick={ShowHideSection}>showHide</button>
-            <button style={{ marginLeft: "10px" }} onClick={() => { setShowForm(!showForm) }}>addNew</button>
+            <button style={{ marginLeft: "10px" }} onClick={() => { setShowForm(!showForm) }}>addNewLine</button>
 
             {showForm ?
                 <div>

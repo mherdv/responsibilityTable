@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import store from '../../store';
-import LazyLoad from 'react-lazyload';
-
+import { List, WindowScroller } from 'react-virtualized';
+import 'react-virtualized/styles.css';
 import {
     getAllResponsibilityAction,
     changeUserResponsibilityAction,
@@ -17,10 +17,10 @@ import { changeResponsibilityDescriptionAction, toggleDescriptionFullHeightActio
 import { removeResponsibilityLineAction, addResponsibilityLineAction } from '../../store/actions/responsibility/responsibilityLine';
 import { removeResponsibilitySectionAction, addResponsibilitySectionAction, changeSectionNameAction } from '../../store/actions/responsibility/section';
 import AddResponsibilityForm from './AddResponsibilityForm';
+import HoverEffect from '../HoverEffect';
 
 
 const Responsibility = ({ dispatch, responsibilityArray, usersArray, loading, error }) => {
-
 
     // todo change name 
     function changeResponsibility({ userId, rowIndex, containerIndex }) {
@@ -36,11 +36,7 @@ const Responsibility = ({ dispatch, responsibilityArray, usersArray, loading, er
         const newArr = iterationCopy(responsibilityArray);
         newArr[index].show = !newArr[index].show;
         dispatch(changeResponsibilitySectionVisibilityAction(newArr));
-        // this is for LazyLoad  component during remove
-        // todo change this logic 
-        setTimeout(() => {
-            window.dispatchEvent(new Event('scroll'))
-        })
+
     }
 
 
@@ -61,10 +57,6 @@ const Responsibility = ({ dispatch, responsibilityArray, usersArray, loading, er
 
         newArr[containerIndex].responsibilities[index].removed = true;
         dispatch(removeResponsibilityLineAction(newArr, id));
-
-        // this is for LazyLoad  component during remove
-        // todo change this logic 
-        window.dispatchEvent(new Event('scroll'))
     }
 
     function onDescriptionChange(event, containerIndex, rowIndex) {
@@ -94,11 +86,7 @@ const Responsibility = ({ dispatch, responsibilityArray, usersArray, loading, er
 
         dispatch(removeResponsibilitySectionAction(newArr, sectionId))
 
-        // this is for LazyLoad  component during remove
-        // todo change this logic 
-        setTimeout(() =>
-            window.dispatchEvent(new Event('scroll'))
-        )
+
     }
 
     function addResponsibilitySection(responsibilityArray, name) {
@@ -117,11 +105,11 @@ const Responsibility = ({ dispatch, responsibilityArray, usersArray, loading, er
         dispatch(addResponsibilitySectionAction(newArr, name, newSection))
     }
 
-    function changeSectionName({ responsibilityArray, sectionIndex, sectionId, newName }) {
+    function changeSectionName({ sectionIndex, sectionId, newName }) {
+        const { responsibilityArray } = store.getState().responsibility;
         const newArray = iterationCopy(responsibilityArray);
 
-
-        // dispatch(changeSectionNameAction({ newArray, sectionId, newName }))
+        dispatch(changeSectionNameAction({ newArray, sectionId, newName, sectionIndex }))
     }
 
 
@@ -139,6 +127,7 @@ const Responsibility = ({ dispatch, responsibilityArray, usersArray, loading, er
                 {error ? "error" : null}
             </div>
 
+            <HoverEffect />
             <AddResponsibilityForm
                 addResponsibilitySection={addResponsibilitySection}
                 responsibilityArray={responsibilityArray}
@@ -155,40 +144,109 @@ const Responsibility = ({ dispatch, responsibilityArray, usersArray, loading, er
                             removeSection={() => removeResponsibilitySection({ responsibilityArray, sectionId: id, sectionIndex: containerIndex })}
                             ShowHideSection={() => toggleResponsibilitySection(containerIndex)}
                             classes={classes}
-                            addResponsibility={(description) => addResponsibilityLine({ responsibilityArray, description, containerIndex, containerId: id })}
+                            addResponsibility={(description) => addResponsibilityLine({
+                                responsibilityArray,
+                                description,
+                                containerIndex,
+                                containerId: id
+                            })}
+
                             toggleDescriptionFullHeight={() => toggleDescriptionFullHeight(responsibilityArray, containerIndex)}
                             openAllDescriptions={descriptionsAreOpened}
 
-                            changeSectionName={(event) => changeSectionName({ responsibilityArray, sectionId: id, sectionIndex: containerIndex, newName: event.current.innerText })}
+                            changeSectionName={(event) => {
+                                changeSectionName({
+                                    responsibilityArray,
+                                    sectionId: id,
+                                    sectionIndex: containerIndex,
+                                    newName: event.target.innerText
+                                })
+                            }}
                         />
 
                         {/* todo separate to component */}
 
                         <div className={classes.section + ' ' + (!!descriptionsAreOpened ? classes.openAllDescriptions : '')}>
                             {responsibilityArray[containerIndex].show ?
+                                <WindowScroller>
+                                    {({ height, isScrolling, registerChild, scrollTop }) => (
+                                        <div>
 
-                                responsibilities.map(({ users, description, id, removed }, index) => {
-                                    return (
-                                        !removed ?
-                                            <LazyLoad offset={0} height={20} key={`${id}__checkboxContainer`}>
-                                                <OneRow
-                                                    description={description}
-                                                    usersArray={usersArray}
-                                                    usersLength={Object.keys(users).length}
-                                                    responsibilityArray={responsibilityArray}
-                                                    users={users}
-                                                    changeResponsibility={changeResponsibility}
-                                                    rowIndex={index}
-                                                    containerIndex={containerIndex}
-                                                    classes={classes}
-                                                    onDescriptionChange={onDescriptionChange}
-                                                    removeLine={() => {
-                                                        removeResponsibility(responsibilityArray, containerIndex, index, id)
+                                            <div ref={registerChild}>
+                                                <List
+                                                    autoHeight
+                                                    height={height}
+                                                    isScrolling={isScrolling}
+                                                    rowCount={responsibilities.length}
+                                                    rowHeight={30}
+                                                    rowRenderer={(props) => {
+                                                        // console.log(1)
+                                                        const { index } = props;
+                                                        if (!responsibilities[index]) return null
+                                                        const { users, description, id, removed } = responsibilities[index];
+                                                        // console.log(props)
+                                                        return props.isVisible ?
+                                                            <div style={props.style} key={props.key} >
+                                                                {!removed ?
+
+                                                                    <OneRow
+                                                                        description={description}
+                                                                        usersArray={usersArray}
+                                                                        key={`${id}__checkboxContainer`}
+                                                                        usersLength={Object.keys(users).length}
+                                                                        responsibilityArray={responsibilityArray}
+                                                                        users={users}
+                                                                        changeResponsibility={changeResponsibility}
+                                                                        rowIndex={index}
+                                                                        containerIndex={containerIndex}
+                                                                        classes={classes}
+                                                                        onDescriptionChange={onDescriptionChange}
+                                                                        removeLine={() => {
+                                                                            removeResponsibility(responsibilityArray, containerIndex, index, id)
+                                                                        }}
+                                                                    />
+                                                                    : null}
+                                                            </div> : null
                                                     }}
+
+                                                    overscanRowCount={0}
+                                                    scrollTop={scrollTop}
+                                                    width={document.querySelector('header').offsetWidth + 210}
                                                 />
-                                            </LazyLoad> : null
-                                    )
-                                })
+                                            </div>
+                                        </div>
+                                    )}
+                                </WindowScroller>
+
+
+                                // responsibilities.map(({ users, description, id, removed }, index) => {
+                                //     // todo think about fast rendering not changing unmountIfInvisible 
+                                //     return (!removed ?
+                                //         // <LazyLoad offset={150}
+                                //         //     height={30}
+
+                                //         //     unmountIfInvisible={true}
+                                //         // // placeholder={<div style={{ height: "30px" }}>loading</div>}
+                                //         // >
+                                //         <OneRow
+                                //             description={description}
+                                //             usersArray={usersArray}
+                                //             key={`${id}__checkboxContainer`}
+                                //             usersLength={Object.keys(users).length}
+                                //             responsibilityArray={responsibilityArray}
+                                //             users={users}
+                                //             changeResponsibility={changeResponsibility}
+                                //             rowIndex={index}
+                                //             containerIndex={containerIndex}
+                                //             classes={classes}
+                                //             onDescriptionChange={onDescriptionChange}
+                                //             removeLine={() => {
+                                //                 removeResponsibility(responsibilityArray, containerIndex, index, id)
+                                //             }}
+                                //         /> : null
+                                //         // </LazyLoad> : null
+                                //     )
+                                // })
                                 : null}
                         </div>
                     </div> : null

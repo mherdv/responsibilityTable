@@ -17,14 +17,18 @@
         white-space: nowrap;
         overflow: hidden;
         min-width: 210px;
-        position: sticky;
-        left: 0;
+      
         &:hover{
 
             white-space:initial;
             overflow: visible;
             text-overflow:none;
         }
+    }
+    .descriptionLeftSide{
+        position: sticky;
+        left: 0;
+        z-index: 2;
     }
     &>div{
 

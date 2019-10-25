@@ -1,19 +1,20 @@
-import React, { memo } from 'react';
+import React from 'react';
 import classes from './ResponsibilityCheckboxes.module.scss';
 import Checkbox from '../../Chechbox';
 
 
-const ResponsibilityCheckboxes = memo(({ array, users, changeResponsibility, rowIndex, containerIndex }) => {
+const ResponsibilityCheckboxes = ({ array, users, changeResponsibility, rowIndex, containerIndex }) => {
     return (
         // responsibilityWrapperIndex
-        <div className={classes.checkboxRow}>
+
+        <div className={classes.checkboxRow} data-selector={'row'}>
             {
                 array.map((deportment, index) => {
                     return deportment.show ?
                         deportment.users.map((user) => {
                             // console.log(users, index)
                             return <Checkbox
-                                key={`checkbox___${user.id}`}
+                                key={`checkbox___${user.id}_`}
                                 rowIndex={rowIndex}
                                 responsibilityIndex={index}
                                 checked={!!users[user.id]}
@@ -28,11 +29,9 @@ const ResponsibilityCheckboxes = memo(({ array, users, changeResponsibility, row
                         }) : null
                 })
             }
+            {/* <MyComponent /> */}
         </div>
     );
-}, (next, prev) => {
-
-    // return !(next.users !== prev.users)
-});
+};
 
 export default ResponsibilityCheckboxes;
