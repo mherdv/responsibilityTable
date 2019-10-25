@@ -172,81 +172,61 @@ const Responsibility = ({ dispatch, responsibilityArray, usersArray, loading, er
                                     {({ height, isScrolling, registerChild, scrollTop }) => (
                                         <div>
 
-                                            <div ref={registerChild}>
+                                            <div
+                                                ref={registerChild}
+                                            >
                                                 <List
                                                     autoHeight
                                                     height={height}
                                                     isScrolling={isScrolling}
                                                     rowCount={responsibilities.length}
-                                                    rowHeight={30}
-                                                    rowRenderer={(props) => {
-                                                        // console.log(1)
-                                                        const { index } = props;
-                                                        if (!responsibilities[index]) return null
-                                                        const { users, description, id, removed } = responsibilities[index];
-                                                        // console.log(props)
-                                                        return props.isVisible ?
-                                                            <div style={props.style} key={props.key} >
-                                                                {!removed ?
 
-                                                                    <OneRow
-                                                                        description={description}
-                                                                        usersArray={usersArray}
-                                                                        key={`${id}__checkboxContainer`}
-                                                                        usersLength={Object.keys(users).length}
-                                                                        responsibilityArray={responsibilityArray}
-                                                                        users={users}
-                                                                        changeResponsibility={changeResponsibility}
-                                                                        rowIndex={index}
-                                                                        containerIndex={containerIndex}
-                                                                        classes={classes}
-                                                                        onDescriptionChange={onDescriptionChange}
-                                                                        removeLine={() => {
-                                                                            removeResponsibility(responsibilityArray, containerIndex, index, id)
-                                                                        }}
-                                                                    />
-                                                                    : null}
-                                                            </div> : null
-                                                    }}
+                                                    rowHeight={({ index }) => {
+                                                        if (responsibilities[index].removed) {
+                                                            return 0;
+                                                        }
+                                                        return 30
+                                                    }
+                                                    }
+                                                    rowRenderer={
+                                                        (props) => {
 
-                                                    overscanRowCount={0}
+                                                            if (!responsibilities[props.index]) return false
+                                                            const { users, description, id, removed } = responsibilities[props.index];
+                                                            // console.log(props)
+                                                            return props.isVisible && !removed ?
+                                                                <div style={{ ...props.style, position: 'absolute' }} key={props.key} >
+                                                                    {!removed ?
+
+                                                                        <OneRow
+                                                                            description={description}
+                                                                            usersArray={usersArray}
+                                                                            key={`${id}__checkboxContainer`}
+                                                                            usersLength={Object.keys(users).length}
+                                                                            responsibilityArray={responsibilityArray}
+                                                                            users={users}
+                                                                            changeResponsibility={changeResponsibility}
+                                                                            rowIndex={props.index}
+                                                                            containerIndex={containerIndex}
+                                                                            classes={classes}
+                                                                            onDescriptionChange={onDescriptionChange}
+                                                                            removeLine={() => {
+                                                                                removeResponsibility(responsibilityArray, containerIndex, props.index, id)
+                                                                            }}
+                                                                        />
+                                                                        : false}
+                                                                </div> : false
+                                                        }
+                                                    }
+
+                                                    overcanRowCount={10}
                                                     scrollTop={scrollTop}
-                                                    width={document.querySelector('header').offsetWidth + 210}
+                                                    width={document.querySelector('header').offsetWidth + 300}
                                                 />
                                             </div>
                                         </div>
                                     )}
                                 </WindowScroller>
-
-
-                                // responsibilities.map(({ users, description, id, removed }, index) => {
-                                //     // todo think about fast rendering not changing unmountIfInvisible 
-                                //     return (!removed ?
-                                //         // <LazyLoad offset={150}
-                                //         //     height={30}
-
-                                //         //     unmountIfInvisible={true}
-                                //         // // placeholder={<div style={{ height: "30px" }}>loading</div>}
-                                //         // >
-                                //         <OneRow
-                                //             description={description}
-                                //             usersArray={usersArray}
-                                //             key={`${id}__checkboxContainer`}
-                                //             usersLength={Object.keys(users).length}
-                                //             responsibilityArray={responsibilityArray}
-                                //             users={users}
-                                //             changeResponsibility={changeResponsibility}
-                                //             rowIndex={index}
-                                //             containerIndex={containerIndex}
-                                //             classes={classes}
-                                //             onDescriptionChange={onDescriptionChange}
-                                //             removeLine={() => {
-                                //                 removeResponsibility(responsibilityArray, containerIndex, index, id)
-                                //             }}
-                                //         /> : null
-                                //         // </LazyLoad> : null
-                                //     )
-                                // })
                                 : null}
                         </div>
                     </div> : null
