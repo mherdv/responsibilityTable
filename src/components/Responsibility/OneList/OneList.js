@@ -48,7 +48,7 @@ const OneList = ({
                                     if (!responsibilities[props.index]) return false
                                     const { users, description, id, removed } = responsibilities[props.index];
                                     return (
-                                        props.isVisible && props.style.height != 0 ?
+                                        props.style.height != 0 ?
                                             <div
                                                 style={{
                                                     ...props.style
@@ -69,10 +69,13 @@ const OneList = ({
                                                     classes={classes}
                                                     onDescriptionChange={onDescriptionChange}
                                                     removed={removed}
+
                                                     onInput={(event) => {
-                                                        console.log(event)
-                                                        console.log(event.currentTarget)
+                                                        // console.log(event)
+                                                        // console.log(event.currentTarget)
+                                                        // list.current.recomputeRowHeights()
                                                     }}
+
                                                     removeLine={() => {
                                                         removeResponsibility(responsibilityArray, containerIndex, props.index, id);
                                                         list.current.recomputeRowHeights(props.index)

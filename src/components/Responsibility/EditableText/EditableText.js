@@ -5,6 +5,8 @@ import ContentEditable from "react-contenteditable";
 
 const EditableText = memo(({ text, className, onInput, onBlur }) => {
 
+
+    // on height change dispatch to change parent height 
     const [focused, setFocused] = useState(false);
     function onKeyDown(event) {
         if (event.keyCode === 13) {
