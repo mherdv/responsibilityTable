@@ -18,21 +18,18 @@ const OneList = ({
 }) => {
 
     const list = useRef(null)
-    const [counter, setCounter] = useState(0);
 
 
 
     useEffect(() => {
         list.current.forceUpdateGrid()
-        console.log(list.current);
 
     })
     return (
 
-        <WindowScroller counter={counter}>
+        <WindowScroller >
             {({ height, isScrolling, registerChild, scrollTop }) => (
                 <div>
-
                     <div
                         ref={registerChild}
                     >
@@ -54,7 +51,6 @@ const OneList = ({
 
                                     if (!responsibilities[props.index]) return false
                                     const { users, description, id, removed } = responsibilities[props.index];
-                                    // console.log(props)
                                     return props.isVisible ?
                                         <div
                                             className={removed ? classes.removed : null}
@@ -80,9 +76,7 @@ const OneList = ({
                                                 removed={removed}
                                                 removeLine={() => {
                                                     removeResponsibility(responsibilityArray, containerIndex, props.index, id);
-                                                    setCounter(counter + 1)
-
-
+                                                    list.current.recomputeRowHeights(props.index)
                                                 }}
                                             />
 

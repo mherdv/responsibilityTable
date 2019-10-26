@@ -17,7 +17,6 @@ const OneRow = ({
     onDescriptionChange,
     removed
 }) => {
-    console.log(removed)
     return (
         <div className={classes.checkboxRowWrapper} >
 
