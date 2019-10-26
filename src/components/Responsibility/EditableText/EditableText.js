@@ -11,14 +11,15 @@ const EditableText = memo(({ text, className, onInput, onBlur }) => {
             event.preventDefault()
         }
     }
-
     return (
         <ContentEditable className={((focused ? classes.focused + ' ' : '') + className + ' ' || '') + classes.container}
             contentEditable="true"
             html={text}
             onKeyDown={onKeyDown}
             onFocus={() => setFocused(true)}
-            onInput={onInput || null}
+            onChange={(event) => {
+                onInput(event)
+            }}
             onBlur={(event) => {
                 onBlur && onBlur(event);
                 setFocused(false);
@@ -26,7 +27,6 @@ const EditableText = memo(({ text, className, onInput, onBlur }) => {
         />
     );
 }, (next, prev) => {
-
     return !(next.text !== prev.text)
 });
 

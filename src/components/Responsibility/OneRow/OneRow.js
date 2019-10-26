@@ -15,8 +15,10 @@ const OneRow = ({
     containerIndex,
     removeLine,
     onDescriptionChange,
-    removed
+    removed,
+    onInput
 }) => {
+
     return (
         <div className={classes.checkboxRowWrapper} >
 
@@ -26,7 +28,9 @@ const OneRow = ({
                 <button onClick={removeLine}>remove</button>
                 <EditableText
                     className={classes.EditableText} text={description}
-                    onBlur={(event) => onDescriptionChange(event, containerIndex, rowIndex)} />
+                    onBlur={(event) => onDescriptionChange(event, containerIndex, rowIndex)}
+                    onInput={onInput}
+                />
             </div>
             <ResponsibilityCheckboxes
                 disabledAll={removed}
