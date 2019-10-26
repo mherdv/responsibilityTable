@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 
 import { List, WindowScroller } from 'react-virtualized';
 import OneRow from '../OneRow';
@@ -57,10 +57,7 @@ const OneList = ({
                                             style={{
                                                 ...props.style
                                             }}
-
                                             key={props.key} >
-
-
                                             <OneRow
                                                 description={description}
                                                 usersArray={usersArray}
