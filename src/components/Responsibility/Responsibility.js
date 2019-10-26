@@ -17,6 +17,7 @@ import { changeResponsibilityDescriptionAction, toggleDescriptionFullHeightActio
 import { removeResponsibilityLineAction, addResponsibilityLineAction } from '../../store/actions/responsibility/responsibilityLine';
 import { removeResponsibilitySectionAction, addResponsibilitySectionAction, changeSectionNameAction } from '../../store/actions/responsibility/section';
 import AddResponsibilityForm from './AddResponsibilityForm';
+import HoverEffect from '../HoverEffect/HoverEffect';
 
 
 const Responsibility = ({ dispatch, responsibilityArray, usersArray, loading, error }) => {
@@ -132,6 +133,8 @@ const Responsibility = ({ dispatch, responsibilityArray, usersArray, loading, er
     return (
         <div className={classes.container}>
 
+            <HoverEffect />
+
             {/* todo add normal preloader  */}
             <div className={classes.massage}>
 
@@ -170,7 +173,9 @@ const Responsibility = ({ dispatch, responsibilityArray, usersArray, loading, er
                                 responsibilities.map(({ users, description, id, removed }, index) => {
                                     return (
                                         !removed ?
-                                            <LazyLoad offset={0} height={20} key={`${id}__checkboxContainer`}>
+                                            <LazyLoad offset={0} height={30} key={`${id}__checkboxContainer`}
+                                            // unmountIfInvisible={true}
+                                            >
                                                 <OneRow
                                                     description={description}
                                                     usersArray={usersArray}

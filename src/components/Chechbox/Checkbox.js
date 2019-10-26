@@ -3,7 +3,7 @@ import React, { memo } from 'react';
 const Checkbox = memo(({ checked, onChange }) => {
 
     return (
-        <div>
+        <div className={'checkboxWrapper'}>
             <input type="checkbox" checked={checked}
                 onChange={onChange} />
         </div>
