@@ -170,10 +170,8 @@ const Responsibility = ({ dispatch, responsibilityArray, usersArray, loading, er
                         <div className={classes.section + ' ' + (!!descriptionsAreOpened ? classes.openAllDescriptions : '')}>
                             {responsibilityArray[containerIndex].show ?
 
-
+                                // todo remove section 
                                 <OneList
-
-
                                     responsibilities={responsibilities}
                                     classes={classes}
                                     usersArray={usersArray}

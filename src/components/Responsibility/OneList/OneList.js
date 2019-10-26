@@ -53,11 +53,12 @@ const OneList = ({
                                     const { users, description, id, removed } = responsibilities[props.index];
                                     return props.isVisible ?
                                         <div
-                                            className={removed ? classes.removed : null}
                                             style={{
                                                 ...props.style
                                             }}
                                             key={props.key} >
+
+                                            {/* change size on typing */}
                                             <OneRow
                                                 description={description}
                                                 usersArray={usersArray}
