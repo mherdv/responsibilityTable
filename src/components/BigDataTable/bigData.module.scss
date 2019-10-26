@@ -1,0 +1,36 @@
+.container {
+    text-align: center;
+    *{
+      box-sizing: border-box;
+    }
+}
+
+
+.header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.link {
+  color: #09d3ac;
+}
+
+.item {
+  height: 100%;
+  display: flex;
+  // justify-content: center;
+  align-items: center;
+  // border: 1px solid #eee;
+  &:hover {
+    background-color: rgba(0, 0, 0, .2);
+  }
+}
+.hoveredItem {
+  background-color: rgba(0, 0, 0, .1);
+}

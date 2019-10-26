@@ -194,9 +194,19 @@ const Responsibility = ({ dispatch, responsibilityArray, usersArray, loading, er
                                                             if (!responsibilities[props.index]) return false
                                                             const { users, description, id, removed } = responsibilities[props.index];
                                                             // console.log(props)
-                                                            return props.isVisible && !removed ?
-                                                                <div style={{ ...props.style, position: 'absolute' }} key={props.key} >
+                                                            return props.isVisible ?
+                                                                <div
+                                                                    className={removed ? 'removed' : null}
+                                                                    style={{
+                                                                        ...props.style, position: 'relative',
+                                                                        height: '0',
+                                                                        marginTop: removed ? '-30px' : ''
+                                                                    }}
+
+                                                                    key={props.key} >
+
                                                                     {!removed ?
+
 
                                                                         <OneRow
                                                                             description={description}
@@ -214,7 +224,9 @@ const Responsibility = ({ dispatch, responsibilityArray, usersArray, loading, er
                                                                                 removeResponsibility(responsibilityArray, containerIndex, props.index, id)
                                                                             }}
                                                                         />
-                                                                        : false}
+                                                                        : null}
+
+
                                                                 </div> : false
                                                         }
                                                     }

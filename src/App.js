@@ -5,6 +5,7 @@ import { getAllUsersAction, changeDeportmentVisibilityStatusAction } from './sto
 import Responsibility from './components/Responsibility';
 import { iterationCopy } from './utils/cloningObject';
 import Header from './components/Header';
+import BigDataTable from './components/BigDataTable';
 
 const App = ({ loading, error, dispatch, usersArray }) => {
   // console.log(usersArray)
@@ -48,6 +49,10 @@ const App = ({ loading, error, dispatch, usersArray }) => {
           )
         })}
       </footer>
+
+
+
+      {/* <BigDataTable rowCount={1000} columnCount={1000} /> */}
 
     </div>
   );
