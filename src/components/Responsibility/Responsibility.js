@@ -18,6 +18,7 @@ import { removeResponsibilityLineAction, addResponsibilityLineAction } from '../
 import { removeResponsibilitySectionAction, addResponsibilitySectionAction, changeSectionNameAction } from '../../store/actions/responsibility/section';
 import AddResponsibilityForm from './AddResponsibilityForm';
 import HoverEffect from '../HoverEffect';
+import OneList from './OneList/OneList';
 
 
 const Responsibility = ({ dispatch, responsibilityArray, usersArray, loading, error }) => {
@@ -168,77 +169,21 @@ const Responsibility = ({ dispatch, responsibilityArray, usersArray, loading, er
 
                         <div className={classes.section + ' ' + (!!descriptionsAreOpened ? classes.openAllDescriptions : '')}>
                             {responsibilityArray[containerIndex].show ?
-                                <WindowScroller>
-                                    {({ height, isScrolling, registerChild, scrollTop }) => (
-                                        <div>
-
-                                            <div
-                                                ref={registerChild}
-                                            >
-                                                <List
-                                                    autoHeight
-                                                    height={height}
-                                                    isScrolling={isScrolling}
-                                                    rowCount={responsibilities.length}
-
-                                                    rowHeight={({ index }) => {
-                                                        if (responsibilities[index].removed) {
-                                                            return 0;
-                                                        }
-                                                        return 30
-                                                    }
-                                                    }
-                                                    rowRenderer={
-                                                        (props) => {
-
-                                                            if (!responsibilities[props.index]) return false
-                                                            const { users, description, id, removed } = responsibilities[props.index];
-                                                            // console.log(props)
-                                                            return props.isVisible ?
-                                                                <div
-                                                                    className={removed ? 'removed' : null}
-                                                                    style={{
-                                                                        ...props.style, position: 'relative',
-                                                                        height: '0',
-                                                                        marginTop: removed ? '-30px' : ''
-                                                                    }}
-
-                                                                    key={props.key} >
-
-                                                                    {!removed ?
 
 
-                                                                        <OneRow
-                                                                            description={description}
-                                                                            usersArray={usersArray}
-                                                                            key={`${id}__checkboxContainer`}
-                                                                            usersLength={Object.keys(users).length}
-                                                                            responsibilityArray={responsibilityArray}
-                                                                            users={users}
-                                                                            changeResponsibility={changeResponsibility}
-                                                                            rowIndex={props.index}
-                                                                            containerIndex={containerIndex}
-                                                                            classes={classes}
-                                                                            onDescriptionChange={onDescriptionChange}
-                                                                            removeLine={() => {
-                                                                                removeResponsibility(responsibilityArray, containerIndex, props.index, id)
-                                                                            }}
-                                                                        />
-                                                                        : null}
+                                <OneList
 
 
-                                                                </div> : false
-                                                        }
-                                                    }
+                                    responsibilities={responsibilities}
+                                    classes={classes}
+                                    usersArray={usersArray}
+                                    responsibilityArray={responsibilityArray}
+                                    changeResponsibility={changeResponsibility}
+                                    containerIndex={containerIndex}
+                                    onDescriptionChange={onDescriptionChange}
+                                    removeResponsibility={removeResponsibility}
+                                />
 
-                                                    overcanRowCount={10}
-                                                    scrollTop={scrollTop}
-                                                    width={document.querySelector('header').offsetWidth + 300}
-                                                />
-                                            </div>
-                                        </div>
-                                    )}
-                                </WindowScroller>
                                 : null}
                         </div>
                     </div> : null

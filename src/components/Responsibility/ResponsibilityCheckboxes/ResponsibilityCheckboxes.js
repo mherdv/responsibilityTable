@@ -3,9 +3,9 @@ import classes from './ResponsibilityCheckboxes.module.scss';
 import Checkbox from '../../Chechbox';
 
 
-const ResponsibilityCheckboxes = ({ array, users, changeResponsibility, rowIndex, containerIndex }) => {
+const ResponsibilityCheckboxes = ({ array, users, changeResponsibility, rowIndex, containerIndex, disabledAll }) => {
+
     return (
-        // responsibilityWrapperIndex
 
         <div className={classes.checkboxRow} data-selector={'row'}>
             {
@@ -18,13 +18,14 @@ const ResponsibilityCheckboxes = ({ array, users, changeResponsibility, rowIndex
                                 rowIndex={rowIndex}
                                 responsibilityIndex={index}
                                 checked={!!users[user.id]}
+                                disabled={disabledAll}
                                 onChange={(event) =>
-                                    changeResponsibility({
+                                    !disabledAll ? changeResponsibility({
                                         event,
                                         userId: user.id,
                                         rowIndex,
                                         containerIndex
-                                    })}
+                                    }) : null}
                             />
                         }) : null
                 })

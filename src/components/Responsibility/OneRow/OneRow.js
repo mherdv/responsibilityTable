@@ -14,9 +14,10 @@ const OneRow = ({
     rowIndex,
     containerIndex,
     removeLine,
-    onDescriptionChange
+    onDescriptionChange,
+    removed
 }) => {
-
+    console.log(removed)
     return (
         <div className={classes.checkboxRowWrapper} >
 
@@ -29,6 +30,7 @@ const OneRow = ({
                     onBlur={(event) => onDescriptionChange(event, containerIndex, rowIndex)} />
             </div>
             <ResponsibilityCheckboxes
+                disabledAll={removed}
                 array={usersArray}
                 containerIndex={containerIndex}
                 rowIndex={rowIndex}
