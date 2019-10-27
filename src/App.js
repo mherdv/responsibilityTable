@@ -6,6 +6,16 @@ import Responsibility from './components/Responsibility';
 import { iterationCopy } from './utils/cloningObject';
 import Header from './components/Header';
 
+
+window.addEventListener('scroll', () => {
+
+  document
+    .documentElement
+    .style
+    .setProperty('--scrollLeft', document.documentElement.scrollLeft + "px");
+
+})
+
 const App = ({ loading, error, dispatch, usersArray }) => {
   // console.log(usersArray)
   useEffect(() => {

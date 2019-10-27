@@ -26,8 +26,9 @@
         }
     }
     .descriptionLeftSide{
+        
         position: sticky;
-        left: 0;
+        left: var(--scrollLeft,0);
         z-index: 2;
     }
     &>div{

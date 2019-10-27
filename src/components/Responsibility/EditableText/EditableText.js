@@ -12,7 +12,7 @@ const EditableText = memo(({ text, className, onInput, onBlur, rowHeightChange }
 
     const [focused, setFocused] = useState(false);
 
-    const textArea = useRef(null)
+    const textArea = useRef(null);
 
     useEffect(() => {
 
@@ -23,9 +23,8 @@ const EditableText = memo(({ text, className, onInput, onBlur, rowHeightChange }
     useEffect(() => {
         rowHeightChange && textArea.current &&
             rowHeightChange({ currentTarget: textArea.current.el.current });
-    }, [
-        focused
-    ])
+    }, [focused])
+
     function onKeyDown(event) {
         if (event.keyCode === 13) {
             event.preventDefault()
@@ -55,6 +54,7 @@ const EditableText = memo(({ text, className, onInput, onBlur, rowHeightChange }
                 onBlur && onBlur(event);
 
                 // todo change this logic
+                rowHeightChange && rowHeightChange(event)
 
 
             }}
