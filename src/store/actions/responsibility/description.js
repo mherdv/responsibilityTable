@@ -1,5 +1,5 @@
 import axios from "axios";
-import { SETNEWRESPONSIBILITYDESCRIPTION, TOGGLEDESCRIPTIONFULLHEIGHT } from "../../types";
+import { SETNEWRESPONSIBILITYDESCRIPTION, TOGGLEDESCRIPTIONFULLHEIGHT, DESCRIPTIONHEIGHTCHANGE } from "../../types";
 
 const CancelToken = axios.CancelToken;
 const source = CancelToken.source();
@@ -41,7 +41,18 @@ const toggleDescriptionFullHeightAction = (newArray) => {
         payload: newArray
     }
 }
-export { changeResponsibilityDescriptionAction, toggleDescriptionFullHeightAction };
+
+
+const descriptionHeightChangeAction = (newArray) => {
+    return {
+
+        type: DESCRIPTIONHEIGHTCHANGE,
+        payload: newArray
+    }
+}
+
+
+export { changeResponsibilityDescriptionAction, toggleDescriptionFullHeightAction, descriptionHeightChangeAction };
 
 
 

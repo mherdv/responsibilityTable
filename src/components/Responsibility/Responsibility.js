@@ -13,7 +13,7 @@ import classes from './responsibility.module.scss';
 import OneRow from './OneRow';
 import { iterationCopy } from '../../utils/cloningObject';
 import ButtonsController from './ButtonsController';
-import { changeResponsibilityDescriptionAction, toggleDescriptionFullHeightAction } from '../../store/actions/responsibility/description';
+import { changeResponsibilityDescriptionAction, toggleDescriptionFullHeightAction, descriptionHeightChangeAction } from '../../store/actions/responsibility/description';
 import { removeResponsibilityLineAction, addResponsibilityLineAction } from '../../store/actions/responsibility/responsibilityLine';
 import { removeResponsibilitySectionAction, addResponsibilitySectionAction, changeSectionNameAction } from '../../store/actions/responsibility/section';
 import AddResponsibilityForm from './AddResponsibilityForm';
@@ -30,7 +30,10 @@ const Responsibility = ({ dispatch, responsibilityArray, usersArray, loading, er
         const users = responsibilityArray[containerIndex].responsibilities[rowIndex].users;
 
         users[userId] = !users[userId];
+
         dispatch(changeUserResponsibilityAction([...responsibilityArray]))
+
+        // todo send change request to server 
     }
 
     function toggleResponsibilitySection(index) {
@@ -60,7 +63,7 @@ const Responsibility = ({ dispatch, responsibilityArray, usersArray, loading, er
         dispatch(removeResponsibilityLineAction(newArr, id));
     }
 
-    function onDescriptionChange(event, containerIndex, rowIndex) {
+    async function onDescriptionChange(event, containerIndex, rowIndex) {
         const { responsibilityArray } = store.getState().responsibility;
         const newArr = iterationCopy(responsibilityArray);
         const row = newArr[containerIndex].responsibilities[rowIndex];
@@ -68,7 +71,7 @@ const Responsibility = ({ dispatch, responsibilityArray, usersArray, loading, er
         const text = event.currentTarget.innerText.trim();
         row.description = text;
 
-        dispatch(changeResponsibilityDescriptionAction(newArr, rowId, text))
+        await dispatch(changeResponsibilityDescriptionAction(newArr, rowId, text))
     }
 
     function toggleDescriptionFullHeight(responsibilityArray, index) {
@@ -111,6 +114,17 @@ const Responsibility = ({ dispatch, responsibilityArray, usersArray, loading, er
         const newArray = iterationCopy(responsibilityArray);
 
         dispatch(changeSectionNameAction({ newArray, sectionId, newName, sectionIndex }))
+    }
+
+
+    function descriptionHeightChange({ containerIndex, rowIndex, height }) {
+        const { responsibilityArray } = store.getState().responsibility;
+        const newArr = iterationCopy(responsibilityArray);
+
+        newArr[containerIndex].responsibilities[rowIndex].height = height;
+
+        dispatch(descriptionHeightChangeAction(newArr));
+
     }
 
 
@@ -178,6 +192,8 @@ const Responsibility = ({ dispatch, responsibilityArray, usersArray, loading, er
                                     containerIndex={containerIndex}
                                     onDescriptionChange={onDescriptionChange}
                                     removeResponsibility={removeResponsibility}
+
+                                    descriptionHeightChange={descriptionHeightChange}
                                 />
 
                                 : null}

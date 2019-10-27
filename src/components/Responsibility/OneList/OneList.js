@@ -14,6 +14,7 @@ const OneList = ({
     containerIndex,
     onDescriptionChange,
     removeResponsibility,
+    descriptionHeightChange,
     scrollTop
 }) => {
 
@@ -40,7 +41,8 @@ const OneList = ({
                                 if (responsibilities[index].removed) {
                                     return 0;
                                 }
-                                return 30
+
+                                return responsibilities[index].height || 30
                             }}
                             rowRenderer={
                                 (props) => {
@@ -50,12 +52,17 @@ const OneList = ({
                                     return (
                                         props.style.height != 0 ?
                                             <div
+                                                className={'rowContainer'}
                                                 style={{
                                                     ...props.style
                                                 }}
                                                 key={props.key} >
 
-                                                {/* change size on typing */}
+
+                                                {/* todo change size on typing */}
+
+                                                {/* todo fix position sticky */}
+
                                                 <OneRow
                                                     description={description}
                                                     usersArray={usersArray}
@@ -69,12 +76,37 @@ const OneList = ({
                                                     classes={classes}
                                                     onDescriptionChange={onDescriptionChange}
                                                     removed={removed}
-
                                                     onInput={(event) => {
-                                                        // console.log(event)
-                                                        // console.log(event.currentTarget)
+
+                                                        const currentTarget = event.currentTarget;
+                                                        const currentTargetHeight = currentTarget.offsetHeight;
+                                                        const parentRowHeight = currentTarget.closest('.rowContainer').offsetHeight;
+
+                                                        if (currentTargetHeight > parentRowHeight + 1 || currentTargetHeight < parentRowHeight - 1) {
+                                                            descriptionHeightChange({ containerIndex, rowIndex: props.index, height: currentTargetHeight + 1 })
+                                                            list.current.recomputeRowHeights(props.index)
+                                                        }
                                                         // list.current.recomputeRowHeights()
                                                     }}
+                                                    rowHeightChange={(event) => {
+
+                                                        const currentTarget = event.currentTarget;
+                                                        const currentTargetHeight = currentTarget.offsetHeight;
+                                                        const parentRowHeight = currentTarget.closest('.rowContainer').offsetHeight;
+
+                                                        if (currentTargetHeight > parentRowHeight || currentTargetHeight < parentRowHeight - 2) {
+
+
+                                                            // console.log(currentTargetHeight, parentRowHeight)
+                                                            descriptionHeightChange({ containerIndex, rowIndex: props.index, height: currentTargetHeight + 2 })
+                                                            list.current.recomputeRowHeights(props.index)
+                                                        }
+
+                                                        // list.current.recomputeRowHeights()
+                                                    }}
+
+
+
 
                                                     removeLine={() => {
                                                         removeResponsibility(responsibilityArray, containerIndex, props.index, id);
