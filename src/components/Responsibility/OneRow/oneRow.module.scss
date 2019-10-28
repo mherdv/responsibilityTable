@@ -28,8 +28,9 @@
     .descriptionLeftSide{
         
         position: sticky;
-        left: var(--scrollLeft,0);
-        z-index: 2;
+        left: 0;
+        z-index: 3;
+        outline: 1px solid;
     }
     &>div{
 

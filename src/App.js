@@ -8,16 +8,20 @@ import Header from './components/Header';
 
 
 window.addEventListener('scroll', () => {
+  let { scrollLeft } = document.documentElement
 
-  document
-    .documentElement
-    .style
-    .setProperty('--scrollLeft', document.documentElement.scrollLeft + "px");
+
+
+  // document.querySelector('header > div').style.marginLeft = - scrollLeft + 'px';
+  // document.querySelector('header').style.left = scrollLeft * 2 + 'px';
+
+
+
 
 })
 
 const App = ({ loading, error, dispatch, usersArray }) => {
-  // console.log(usersArray)
+
   useEffect(() => {
     dispatch(getAllUsersAction())
   }, [dispatch])

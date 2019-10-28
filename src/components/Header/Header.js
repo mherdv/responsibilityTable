@@ -3,6 +3,8 @@ import classes from './Header.module.scss'
 
 const Header = ({ usersArray }) => {
     return (
+
+
         <header>
 
             {usersArray.map((deportament, index) => {
@@ -21,6 +23,7 @@ const Header = ({ usersArray }) => {
                 )
             })}
         </header>
+
     );
 };
 
