@@ -7,18 +7,25 @@ header{
 
     margin-left: $respContainerWidth;
     padding-left: 1px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    position: -webkit-sticky;
     position: sticky;
     background: #fff;
     z-index: 3;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
 
     &+ div{
+        width: -webkit-fit-content;
+        width: -moz-fit-content;
         width: fit-content;
     }
-    transform: translateY(0);
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
     top: 0;
-    overflow: hidden;
 }
 
 .headerContainer{
@@ -28,8 +35,11 @@ header{
 .deportament{
     
     text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
     border-left: none;
     border: 1px solid black;
     border-left: none;
@@ -40,13 +50,19 @@ header{
     &> h4{
 
         padding: 10px 0;
+        max-width: -webkit-fit-content;
+        max-width: -moz-fit-content;
         max-width: fit-content;
         word-break: break-all;
         margin: auto;
     }
     &>div{
         
-        writing-mode: vertical-lr;
+        -webkit-writing-mode: vertical-lr;
+        
+            -ms-writing-mode: tb-lr;
+        
+                writing-mode: vertical-lr;
         text-orientation: mixed;
         min-height: 160px;
         &>p{

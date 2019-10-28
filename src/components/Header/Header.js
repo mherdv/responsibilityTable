@@ -11,7 +11,7 @@ const Header = ({ usersArray }) => {
                 return (
 
                     deportament.show ?
-                        <div style={{ width: deportament.users.length * 44 + "px" }} key={`${deportament.name}_${deportament.id}_${index}`} className={classes.deportament}>
+                        <div style={{ minWidth: deportament.users.length * 44 + "px" }} key={`${deportament.name}_${deportament.id}_${index}`} className={classes.deportament}>
 
                             <h4>{deportament.deportamentName}</h4>
                             <div>

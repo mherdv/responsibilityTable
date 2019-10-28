@@ -7,18 +7,7 @@ import { iterationCopy } from './utils/cloningObject';
 import Header from './components/Header';
 
 
-window.addEventListener('scroll', () => {
-  let { scrollLeft } = document.documentElement
 
-
-
-  // document.querySelector('header > div').style.marginLeft = - scrollLeft + 'px';
-  // document.querySelector('header').style.left = scrollLeft * 2 + 'px';
-
-
-
-
-})
 
 const App = ({ loading, error, dispatch, usersArray }) => {
 
