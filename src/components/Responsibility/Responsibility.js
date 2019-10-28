@@ -1,24 +1,23 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import store from '../../store';
-import { List, WindowScroller } from 'react-virtualized';
+
 import 'react-virtualized/styles.css';
 import {
     getAllResponsibilityAction,
     changeUserResponsibilityAction,
     changeResponsibilitySectionVisibilityAction
 } from '../../store/actions/responsibility/responsibilityAction';
-import classes from './responsibility.module.scss';
-
-import OneRow from './OneRow';
 import { iterationCopy } from '../../utils/cloningObject';
-import ButtonsController from './ButtonsController';
 import { changeResponsibilityDescriptionAction, toggleDescriptionFullHeightAction, descriptionHeightChangeAction } from '../../store/actions/responsibility/description';
 import { removeResponsibilityLineAction, addResponsibilityLineAction } from '../../store/actions/responsibility/responsibilityLine';
 import { removeResponsibilitySectionAction, addResponsibilitySectionAction, changeSectionNameAction } from '../../store/actions/responsibility/section';
+
 import AddResponsibilityForm from './AddResponsibilityForm';
 import HoverEffect from '../HoverEffect';
 import OneList from './OneList/OneList';
+import ButtonsController from './ButtonsController';
+import store from '../../store';
+import classes from './responsibility.module.scss';
 
 
 const Responsibility = ({ dispatch, responsibilityArray, usersArray, loading, error }) => {
@@ -130,6 +129,7 @@ const Responsibility = ({ dispatch, responsibilityArray, usersArray, loading, er
 
     useEffect(() => {
         dispatch(getAllResponsibilityAction());
+        // eslint-disable-next-line
     }, [])
 
     return (
@@ -192,7 +192,7 @@ const Responsibility = ({ dispatch, responsibilityArray, usersArray, loading, er
                                     containerIndex={containerIndex}
                                     onDescriptionChange={onDescriptionChange}
                                     removeResponsibility={removeResponsibility}
-
+                                    openAllDescriptions={descriptionsAreOpened}
                                     descriptionHeightChange={descriptionHeightChange}
                                 />
 

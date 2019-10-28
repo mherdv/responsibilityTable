@@ -1,5 +1,5 @@
-import React, { useEffect, memo } from 'react';
-import classes from './App.module.scss';
+import React, { useEffect } from 'react';
+import './App.scss';
 import { connect } from 'react-redux'
 import { getAllUsersAction, changeDeportmentVisibilityStatusAction } from './store/actions/usersAction';
 import Responsibility from './components/Responsibility';

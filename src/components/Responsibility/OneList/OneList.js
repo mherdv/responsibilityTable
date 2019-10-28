@@ -1,11 +1,9 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
 
 import { List, WindowScroller } from 'react-virtualized';
 import OneRow from '../OneRow';
 
 const OneList = ({
-    height,
-    isScrolling,
     responsibilities,
     classes,
     usersArray,
@@ -15,12 +13,11 @@ const OneList = ({
     onDescriptionChange,
     removeResponsibility,
     descriptionHeightChange,
-    scrollTop
+    openAllDescriptions
 }) => {
 
+
     const list = useRef(null)
-
-
 
     return (
 
@@ -50,16 +47,13 @@ const OneList = ({
                                     if (!responsibilities[props.index]) return false
                                     const { users, description, id, removed } = responsibilities[props.index];
                                     return (
-                                        props.style.height != 0 ?
+                                        props.style.height !== 0 ?
                                             <div
                                                 className={'rowContainer'}
                                                 style={{
                                                     ...props.style
                                                 }}
                                                 key={props.key} >
-
-
-                                                {/* todo change size on typing */}
 
                                                 {/* todo fix position sticky */}
 
@@ -76,18 +70,8 @@ const OneList = ({
                                                     classes={classes}
                                                     onDescriptionChange={onDescriptionChange}
                                                     removed={removed}
-                                                    onInput={(event) => {
-
-                                                        const currentTarget = event.currentTarget;
-                                                        const currentTargetHeight = currentTarget.offsetHeight;
-                                                        const parentRowHeight = currentTarget.closest('.rowContainer').offsetHeight;
-
-                                                        if (currentTargetHeight > parentRowHeight + 1 || currentTargetHeight < parentRowHeight - 1) {
-                                                            descriptionHeightChange({ containerIndex, rowIndex: props.index, height: currentTargetHeight + 1 })
-                                                            list.current.recomputeRowHeights(props.index)
-                                                        }
-                                                        // list.current.recomputeRowHeights()
-                                                    }}
+                                                    openAllDescriptions={openAllDescriptions}
+                                                    onInput={() => { }}
                                                     rowHeightChange={(event) => {
 
                                                         const currentTarget = event.currentTarget;
@@ -96,17 +80,10 @@ const OneList = ({
 
                                                         if (currentTargetHeight > parentRowHeight || currentTargetHeight < parentRowHeight - 2) {
 
-
-                                                            // console.log(currentTargetHeight, parentRowHeight)
                                                             descriptionHeightChange({ containerIndex, rowIndex: props.index, height: currentTargetHeight + 2 })
                                                             list.current.recomputeRowHeights(props.index)
                                                         }
-
-                                                        // list.current.recomputeRowHeights()
                                                     }}
-
-
-
 
                                                     removeLine={() => {
                                                         removeResponsibility(responsibilityArray, containerIndex, props.index, id);

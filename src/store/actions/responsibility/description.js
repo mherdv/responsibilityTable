@@ -1,8 +1,8 @@
 import axios from "axios";
 import { SETNEWRESPONSIBILITYDESCRIPTION, TOGGLEDESCRIPTIONFULLHEIGHT, DESCRIPTIONHEIGHTCHANGE } from "../../types";
 
-const CancelToken = axios.CancelToken;
-const source = CancelToken.source();
+// const CancelToken = axios.CancelToken;
+// const source = CancelToken.source();
 
 const changeResponsibilityDescriptionAction = (newArray, rowId, newName) => {
 

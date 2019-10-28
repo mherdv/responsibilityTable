@@ -9,7 +9,6 @@ const HoverEffect = () => {
 
     useEffect(() => {
         window.addEventListener('scroll', scrollHandler)
-        console.log(1)
         function scrollHandler() {
 
             setStyles({ display: 'none' });

@@ -17,7 +17,8 @@ const OneRow = ({
     onDescriptionChange,
     removed,
     onInput,
-    rowHeightChange
+    rowHeightChange,
+    openAllDescriptions
 }) => {
 
     return (
@@ -28,6 +29,7 @@ const OneRow = ({
                 {/* todo check the  performance*/}
                 <button onClick={removeLine}>remove</button>
                 <EditableText
+                    openAllDescriptions={openAllDescriptions}
                     rowHeightChange={rowHeightChange}
                     className={classes.EditableText} text={description}
                     onBlur={(event) => onDescriptionChange(event, containerIndex, rowIndex)}

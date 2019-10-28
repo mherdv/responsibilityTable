@@ -1,5 +1,6 @@
 function isObject(obj) {
     var type = typeof obj;
+    // eslint-disable-next-line
     return type === 'function' || type === 'object' && !!obj;
 };
 function iterationCopy(src) {

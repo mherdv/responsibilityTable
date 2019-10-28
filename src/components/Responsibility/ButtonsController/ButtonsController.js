@@ -6,14 +6,13 @@ const ButtonsController = ({
     ShowHideSection,
     name,
     addResponsibility,
-    openAllDescriptions,
     toggleDescriptionFullHeight,
     removeSection,
-    changeSectionName
+    changeSectionName,
+    openAllDescriptions
 }) => {
     const [showForm, setShowForm] = useState(false);
     const input = useRef(null);
-
     return (
         <div className={classes.container}>
             <EditableText text={name} className={classes.responsibilityTitle}

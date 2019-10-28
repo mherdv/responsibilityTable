@@ -3,33 +3,33 @@ import classes from './editableText.module.scss';
 
 import ContentEditable from "react-contenteditable";
 
-const EditableText = memo(({ text, className, onInput, onBlur, rowHeightChange }) => {
+const EditableText = memo(({ text, className, onInput, onBlur, rowHeightChange, openAllDescriptions }) => {
 
-    // on height change dispatch to change parent height 
-
-
-    // todo on blur height change dispatch
+    // todo open all if checked show all 
 
     const [focused, setFocused] = useState(false);
-
     const textArea = useRef(null);
+
 
     useEffect(() => {
 
         rowHeightChange && textArea.current &&
             rowHeightChange({ currentTarget: textArea.current.el.current });
+        // eslint-disable-next-line
     }, [])
 
     useEffect(() => {
         rowHeightChange && textArea.current &&
             rowHeightChange({ currentTarget: textArea.current.el.current });
-    }, [focused])
+        // eslint-disable-next-line
+    }, [focused, openAllDescriptions])
 
     function onKeyDown(event) {
         if (event.keyCode === 13) {
             event.preventDefault()
         }
     }
+
     return (
         <ContentEditable
             ref={textArea}
@@ -40,36 +40,23 @@ const EditableText = memo(({ text, className, onInput, onBlur, rowHeightChange }
             onFocus={() => setFocused(true)}
             onChange={(event) => {
                 onInput && onInput(event)
-
-
                 rowHeightChange && rowHeightChange(event)
             }}
             onBlur={(event) => {
                 setFocused(false);
-
-                console.log('mouseBlur', rowHeightChange)
-
-                // const { currentTarget } = event;
-
                 onBlur && onBlur(event);
-
-                // todo change this logic
                 rowHeightChange && rowHeightChange(event)
-
-
             }}
             onMouseEnter={(event) => {
-                console.log('mouseEnter')
                 rowHeightChange && rowHeightChange(event)
             }}
             onMouseLeave={(event) => {
-
-                console.log('mouseLeave')
                 rowHeightChange && rowHeightChange(event)
             }}
         />
     );
 }, (next, prev) => {
+    if (next.openAllDescriptions !== prev.openAllDescriptions) return false
     return !(next.text !== prev.text)
 });
 

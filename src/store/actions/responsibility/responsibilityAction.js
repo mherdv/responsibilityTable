@@ -4,12 +4,10 @@ import {
     SETALLRESPONSIBILITY,
     UPDATERESPONSIBILITYARRAY,
     CHANGERESPONSIBILITYSECIONVISIBILITY,
-    ADDRESPONSIBILITYLINE,
-    REMOVERESPONSIBILITYLINE
 } from "../../types";
 import Axios from "axios";
 import keys from '../../../constants/keys';
-import store from '../../index';
+// import store from '../../index';
 
 
 
