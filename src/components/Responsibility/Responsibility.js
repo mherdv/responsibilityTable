@@ -20,6 +20,15 @@ import store from '../../store';
 import classes from './responsibility.module.scss';
 
 
+// todo add type grout for descriptions  
+// todo add name for descriptions
+// todo on checkbox checking if click 1 it is main responsibility if 2 secondery responsibility if 3 not his responsibility
+// todo add header partly closing avilebility 
+// todo add horizontal scroll avilebility 
+// todo change checkboxes to icons or change color 
+
+
+
 const Responsibility = ({ dispatch, responsibilityArray, usersArray, loading, error }) => {
 
 
