@@ -5,31 +5,57 @@ import {
     UPDATERESPONSIBILITYARRAY,
     CHANGERESPONSIBILITYSECIONVISIBILITY,
 } from "../../types";
-import Axios from "axios";
+import axios from "axios";
 import keys from '../../../constants/keys';
-// import store from '../../index';
+import store from '../../index';
 
 
 
 
-// todo think about changes 
-// todo change names 
-// test version of changing user status 
 
-const changeUserResponsibilityAction = (responsibility) => {
-    return {
-        type: UPDATERESPONSIBILITYARRAY,
-        payload: responsibility
+const changeUserResponsibilityAction = ({ newArray, userId, checked, LastArray }) => {
+    store.dispatch(changeResponsibilityAction(newArray))
+
+
+
+    return async (dispatch) => {
+
+
+        // axios.post('/setResponsibility', {
+        //     userId,
+        //     checked
+        // }).then((res) => {
+
+        //     if (res.status != 200) {
+
+        //     } else {
+        //         alert('there is some error returning last correct version');
+
+        //         dispatch(changeResponsibilityAction(LastArray))
+        //     }
+        // }).catch(err => {
+        //     alert('there is some error returning last correct version');
+
+        //     dispatch(changeResponsibilityAction(LastArray))
+        // })
     }
 }
 
+
+const changeResponsibilityAction = (newArray) => {
+
+    return {
+        type: UPDATERESPONSIBILITYARRAY,
+        payload: newArray
+    }
+}
 
 const getAllResponsibilityAction = () => {
 
     return async (dispatch) => {
         dispatch(loadingResponsibilityAction())
         try {
-            const response = await Axios.get(`${keys.HOST}/responsibility.json`);
+            const response = await axios.get(`${keys.HOST}/responsibility.json`);
             const responsibility = response.data.responsibilitiesArray;
             dispatch({ type: SETALLRESPONSIBILITY, payload: responsibility })
         } catch (e) {

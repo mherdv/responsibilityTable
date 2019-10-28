@@ -5,7 +5,6 @@ import ContentEditable from "react-contenteditable";
 
 const EditableText = memo(({ text, className, onInput, onBlur, rowHeightChange, openAllDescriptions }) => {
 
-    // todo open all if checked show all 
 
     const [focused, setFocused] = useState(false);
     const textArea = useRef(null);

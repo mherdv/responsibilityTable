@@ -1,27 +1,32 @@
 import axios from "axios";
 import { SETNEWRESPONSIBILITYDESCRIPTION, TOGGLEDESCRIPTIONFULLHEIGHT, DESCRIPTIONHEIGHTCHANGE } from "../../types";
+import store from '../../index'
 
 // const CancelToken = axios.CancelToken;
 // const source = CancelToken.source();
 
-const changeResponsibilityDescriptionAction = (newArray, rowId, newName) => {
+const changeResponsibilityDescriptionAction = ({ newArray, rowId, text, lastArray }) => {
 
+
+    store.dispatch(setNewResponsibilityDescriptionAction(newArray))
     return async function (dispatch) {
         try {
 
             // const res = await axios.post('/changeDescription',{
             //     rowId,
-            //     newName
+            //     text
             // },{
             //     cancelToken:source.token
             // })
 
-            // if(res.status === 200){
-            dispatch(setNewResponsibilityDescriptionAction(newArray))
+            // if(res.status !== 200){
+            //  alert('error')
+            //  dispatch(setNewResponsibilityDescriptionAction(lastArray))
             // }
 
         } catch (e) {
-            console.log(e)
+            // console.log(e);
+            //  dispatch(setNewResponsibilityDescriptionAction(lastArray))
         }
 
     }

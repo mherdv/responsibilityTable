@@ -22,15 +22,25 @@ import classes from './responsibility.module.scss';
 
 const Responsibility = ({ dispatch, responsibilityArray, usersArray, loading, error }) => {
 
-    // todo change name 
+
     function changeResponsibility({ userId, rowIndex, containerIndex }) {
 
         const { responsibilityArray } = store.getState().responsibility;
+
+        const LastArray = iterationCopy(responsibilityArray);
+
+
         const users = responsibilityArray[containerIndex].responsibilities[rowIndex].users;
+
 
         users[userId] = !users[userId];
 
-        dispatch(changeUserResponsibilityAction([...responsibilityArray]))
+        dispatch(changeUserResponsibilityAction({
+            newArray: [...responsibilityArray],
+            userId,
+            checked: users[userId],
+            LastArray
+        }))
 
         // todo send change request to server 
     }
@@ -50,27 +60,33 @@ const Responsibility = ({ dispatch, responsibilityArray, usersArray, loading, er
         // todo unique id shod come from server after adding 
         const newRowObject = { id: '_' + Math.random().toString(36).substr(2, 9), description: description, users: {} }
 
-        dispatch(addResponsibilityLineAction({ newArray, containerId, newRowObject, description, containerIndex }))
+        const LastArray = iterationCopy(newArray);
+
+
+        dispatch(addResponsibilityLineAction({ newArray, containerId, newRowObject, description, containerIndex, LastArray }))
 
     }
 
     function removeResponsibility(responsibilityArray, containerIndex, index, id) {
 
-        const newArr = iterationCopy(responsibilityArray);
+        const newArray = iterationCopy(responsibilityArray);
 
-        newArr[containerIndex].responsibilities[index].removed = true;
-        dispatch(removeResponsibilityLineAction(newArr, id));
+        const LastArray = iterationCopy(newArray)
+        newArray[containerIndex].responsibilities[index].removed = true;
+
+
+        dispatch(removeResponsibilityLineAction({ newArray, id, LastArray }));
     }
 
     async function onDescriptionChange(event, containerIndex, rowIndex) {
         const { responsibilityArray } = store.getState().responsibility;
-        const newArr = iterationCopy(responsibilityArray);
-        const row = newArr[containerIndex].responsibilities[rowIndex];
-        const { id: rowId } = newArr[containerIndex].responsibilities[rowIndex];
+        const newArray = iterationCopy(responsibilityArray);
+        const row = newArray[containerIndex].responsibilities[rowIndex];
+        const { id: rowId } = newArray[containerIndex].responsibilities[rowIndex];
         const text = event.currentTarget.innerText.trim();
         row.description = text;
 
-        await dispatch(changeResponsibilityDescriptionAction(newArr, rowId, text))
+        await dispatch(changeResponsibilityDescriptionAction({ newArray, rowId, text, lastArray: responsibilityArray }))
     }
 
     function toggleDescriptionFullHeight(responsibilityArray, index) {
@@ -84,17 +100,16 @@ const Responsibility = ({ dispatch, responsibilityArray, usersArray, loading, er
     }
 
     function removeResponsibilitySection({ responsibilityArray, sectionId, sectionIndex }) {
-        const newArr = iterationCopy(responsibilityArray);
-        newArr[sectionIndex].removed = true;
+        const newArray = iterationCopy(responsibilityArray);
+        newArray[sectionIndex].removed = true;
 
-        dispatch(removeResponsibilitySectionAction(newArr, sectionId))
+        dispatch(removeResponsibilitySectionAction({ newArray, sectionId, lastArray: responsibilityArray }))
 
 
     }
 
     function addResponsibilitySection(responsibilityArray, name) {
-        const newArr = iterationCopy(responsibilityArray);
-        // addResponsibilitySection
+        const newArray = iterationCopy(responsibilityArray);
 
 
         const newSection = {
@@ -103,16 +118,14 @@ const Responsibility = ({ dispatch, responsibilityArray, usersArray, loading, er
             id: '_' + Math.random().toString(36).substr(2, 9),
             responsibilities: []
         }
-
-
-        dispatch(addResponsibilitySectionAction(newArr, name, newSection))
+        dispatch(addResponsibilitySectionAction({ newArray, name, newSection, lastArray: responsibilityArray }))
     }
 
     function changeSectionName({ sectionIndex, sectionId, newName }) {
         const { responsibilityArray } = store.getState().responsibility;
         const newArray = iterationCopy(responsibilityArray);
 
-        dispatch(changeSectionNameAction({ newArray, sectionId, newName, sectionIndex }))
+        dispatch(changeSectionNameAction({ newArray, sectionId, newName, sectionIndex, lastArray: responsibilityArray }))
     }
 
 

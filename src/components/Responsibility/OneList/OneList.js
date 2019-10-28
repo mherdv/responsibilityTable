@@ -101,6 +101,7 @@ const OneList = ({
 
                             overscanRowCount={25}
                             scrollTop={scrollTop}
+                            // todo change this solution 
                             width={document.querySelector('header').offsetWidth + 300}
                         />
                     </div>

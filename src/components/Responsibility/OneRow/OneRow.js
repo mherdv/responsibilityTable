@@ -26,7 +26,6 @@ const OneRow = ({
 
             <div className={classes.descriptionLeftSide}>
 
-                {/* todo check the  performance*/}
                 <button onClick={removeLine}>remove</button>
                 <EditableText
                     openAllDescriptions={openAllDescriptions}
