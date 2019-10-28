@@ -21,7 +21,11 @@
     will-change: none !important;
 }
 .ReactVirtualized__Grid.ReactVirtualized__List{
-    will-change: initial !important;
+    // will-change: initial !important;
+}
+
+.checkboxWrapper{
+    outline: 1px solid;
 }
 footer{
     display: -webkit-box;

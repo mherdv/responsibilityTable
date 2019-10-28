@@ -5,6 +5,10 @@
 // }
 .section{
     background: lightblue;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    box-shadow: 1700px 0px 0px 0px lightblue;
     input{
         z-index: 1;
     }
