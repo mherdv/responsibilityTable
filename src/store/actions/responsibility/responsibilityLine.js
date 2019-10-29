@@ -2,6 +2,7 @@ import { REMOVERESPONSIBILITYLINE, ADDRESPONSIBILITYLINE } from "../../types"
 // import axios from "axios"
 // todo add catch handling 
 import store from '../../index';
+import { getClonedResponsibilityArray, getResponsibilityArray } from "../../../utils/storeGetters";
 
 const addResponsibilityLineAction = ({ newArray, description, containerId, newRowObject, containerIndex, LastArray }) => {
     // {newArr,containerId,newRowObject}
@@ -33,6 +34,25 @@ const addResponsibilityLineAction = ({ newArray, description, containerId, newRo
     }
 }
 
+
+
+
+
+function addResponsibilityLine({ description, containerIndex, containerId }) {
+
+    const newArray = getClonedResponsibilityArray();
+    const LastArray = getResponsibilityArray();
+
+    // todo unique id shod come from server after adding 
+    const newRowObject = { id: '_' + Math.random().toString(36).substr(2, 9), description: description, users: {} }
+
+
+
+    store.dispatch(addResponsibilityLineAction({ newArray, containerId, newRowObject, description, containerIndex, LastArray }))
+
+}
+
+
 const addLine = (newArr) => {
     return {
         type: ADDRESPONSIBILITYLINE,
@@ -42,6 +62,17 @@ const addLine = (newArr) => {
 
 
 
+
+function removeResponsibilityLine({ containerIndex, rowIndex, rowId }) {
+
+    const newArray = getClonedResponsibilityArray();
+    const LastArray = getResponsibilityArray();
+
+    newArray[containerIndex].responsibilities[rowIndex].removed = true;
+
+
+    store.dispatch(removeResponsibilityLineAction({ newArray, id: rowId, LastArray }));
+}
 
 const removeResponsibilityLineAction = ({ newArray, id, LastArray }) => {
 
@@ -69,4 +100,4 @@ const removeLine = (newArray) => {
 }
 
 
-export { removeResponsibilityLineAction, addResponsibilityLineAction }
+export { removeResponsibilityLine, addResponsibilityLine }

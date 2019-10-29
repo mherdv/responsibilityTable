@@ -2,17 +2,15 @@ import React, { useRef } from 'react';
 
 import { List, WindowScroller } from 'react-virtualized';
 import OneRow from '../OneRow';
+import { descriptionHeightChange } from '../../../store/actions/responsibility/description';
+import { removeResponsibilityLine } from '../../../store/actions/responsibility/responsibilityLine';
 
 const OneList = ({
     responsibilities,
     classes,
     usersArray,
-    responsibilityArray,
-    changeResponsibility,
+
     containerIndex,
-    onDescriptionChange,
-    removeResponsibility,
-    descriptionHeightChange,
     openAllDescriptions
 }) => {
 
@@ -41,6 +39,7 @@ const OneList = ({
 
                                 return responsibilities[index].height || 30
                             }}
+
                             rowRenderer={
                                 (props) => {
 
@@ -63,13 +62,10 @@ const OneList = ({
                                                     usersArray={usersArray}
                                                     key={`${id}__checkboxContainer`}
                                                     usersLength={Object.keys(users).length}
-                                                    responsibilityArray={responsibilityArray}
                                                     users={users}
-                                                    changeResponsibility={changeResponsibility}
                                                     rowIndex={props.index}
                                                     containerIndex={containerIndex}
                                                     classes={classes}
-                                                    onDescriptionChange={onDescriptionChange}
                                                     removed={removed}
                                                     openAllDescriptions={openAllDescriptions}
                                                     onInput={() => { }}
@@ -87,7 +83,7 @@ const OneList = ({
                                                     }}
 
                                                     removeLine={() => {
-                                                        removeResponsibility(responsibilityArray, containerIndex, props.index, id);
+                                                        removeResponsibilityLine({ containerIndex, rowIndex: props.index, rowId: id });
                                                         list.current.recomputeRowHeights(props.index)
                                                     }}
                                                 />

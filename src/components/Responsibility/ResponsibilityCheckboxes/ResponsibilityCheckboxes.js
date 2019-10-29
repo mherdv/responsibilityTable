@@ -1,9 +1,11 @@
 import React from 'react';
 import classes from './ResponsibilityCheckboxes.module.scss';
 import Checkbox from '../../Chechbox';
+import { changeResponsibility } from '../../../store/actions/responsibility/responsibilityAction';
+
+const ResponsibilityCheckboxes = ({ array, users, rowIndex, containerIndex, disabledAll }) => {
 
 
-const ResponsibilityCheckboxes = ({ array, users, changeResponsibility, rowIndex, containerIndex, disabledAll }) => {
 
     return (
 

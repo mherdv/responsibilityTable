@@ -3,18 +3,16 @@ import ResponsibilityCheckboxes from "../ResponsibilityCheckboxes/Responsibility
 import EditableText from "../EditableText";
 
 import classes from './oneRow.module.scss';
-
+import { changeResponsibilityDescription } from "../../../store/actions/responsibility/description";
 
 
 const OneRow = ({
     description,
     usersArray,
     users,
-    changeResponsibility,
     rowIndex,
     containerIndex,
     removeLine,
-    onDescriptionChange,
     removed,
     onInput,
     rowHeightChange,
@@ -31,7 +29,7 @@ const OneRow = ({
                     openAllDescriptions={openAllDescriptions}
                     rowHeightChange={rowHeightChange}
                     className={classes.EditableText} text={description}
-                    onBlur={(event) => onDescriptionChange(event, containerIndex, rowIndex)}
+                    onBlur={(event) => changeResponsibilityDescription(event, containerIndex, rowIndex)}
                     onInput={onInput}
                 />
             </div>
@@ -42,7 +40,6 @@ const OneRow = ({
                 rowIndex={rowIndex}
                 usersLength={Object.keys(users).length}
                 users={users}
-                changeResponsibility={changeResponsibility}
             />
         </div>
     )

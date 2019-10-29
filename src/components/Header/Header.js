@@ -8,10 +8,12 @@ const Header = ({ usersArray }) => {
         <header>
 
             {usersArray.map((deportament, index) => {
+
+                const sectionWidth = deportament.users.length * 44 + "px"
                 return (
 
                     deportament.show ?
-                        <div style={{ minWidth: deportament.users.length * 44 + "px" }} key={`${deportament.name}_${deportament.id}_${index}`} className={classes.deportament}>
+                        <div style={{ minWidth: sectionWidth, maxWidth: sectionWidth }} key={`${deportament.name}_${deportament.id}_${index}`} className={classes.deportament}>
 
                             <h4>{deportament.deportamentName}</h4>
                             <div>

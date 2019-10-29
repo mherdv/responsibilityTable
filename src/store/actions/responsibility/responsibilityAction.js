@@ -3,12 +3,11 @@ import {
     GETRESPONSIBILITYERROR,
     SETALLRESPONSIBILITY,
     UPDATERESPONSIBILITYARRAY,
-    CHANGERESPONSIBILITYSECIONVISIBILITY,
 } from "../../types";
 import axios from "axios";
 import keys from '../../../constants/keys';
 import store from '../../index';
-
+import { getClonedResponsibilityArray, getResponsibilityArray } from "../../../utils/storeGetters";
 
 
 
@@ -42,6 +41,23 @@ const changeUserResponsibilityAction = ({ newArray, userId, checked, LastArray }
 }
 
 
+function changeResponsibility({ userId, rowIndex, containerIndex }) {
+    const newArray = getClonedResponsibilityArray();
+    const LastArray = getResponsibilityArray();
+    const users = newArray[containerIndex].responsibilities[rowIndex].users;
+
+    users[userId] = !users[userId];
+    store.dispatch(changeUserResponsibilityAction({
+        newArray,
+        userId,
+        checked: users[userId],
+        LastArray
+    }))
+
+    // todo send change request to server 
+}
+
+
 const changeResponsibilityAction = (newArray) => {
 
     return {
@@ -72,12 +88,7 @@ const errorOnLoadAction = () => {
     return { type: GETRESPONSIBILITYERROR }
 }
 
-const changeResponsibilitySectionVisibilityAction = (newArray) => {
-    return {
-        type: CHANGERESPONSIBILITYSECIONVISIBILITY,
-        payload: newArray
-    }
-}
+
 
 
 
@@ -87,8 +98,7 @@ const changeResponsibilitySectionVisibilityAction = (newArray) => {
 
 export {
     getAllResponsibilityAction,
-    changeUserResponsibilityAction,
-    changeResponsibilitySectionVisibilityAction
+    changeResponsibility
 };
 
 
