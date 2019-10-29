@@ -41,10 +41,11 @@ const changeUserResponsibilityAction = ({ newArray, userId, checked, LastArray }
 }
 
 
-function changeResponsibility({ userId, rowIndex, containerIndex }) {
+function changeResponsibility({ userId, rowIndex, containerIndex, typeIndex }) {
     const newArray = getClonedResponsibilityArray();
     const LastArray = getResponsibilityArray();
-    const users = newArray[containerIndex].responsibilities[rowIndex].users;
+
+    const users = newArray[containerIndex].types[typeIndex].responsibilities[rowIndex].users;
 
     users[userId] = !users[userId];
     store.dispatch(changeUserResponsibilityAction({

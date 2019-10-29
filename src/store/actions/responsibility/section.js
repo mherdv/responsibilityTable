@@ -110,9 +110,9 @@ function changeSectionName({ sectionIndex, sectionId, newName }) {
 
 
 function toggleResponsibilitySection({ index }) {
-    const newArr = getClonedResponsibilityArray();
-    newArr[index].show = !newArr[index].show;
-    store.dispatch(changeResponsibilitySectionVisibilityAction(newArr));
+    const newArray = getClonedResponsibilityArray();
+    newArray[index].show = !newArray[index].show;
+    store.dispatch(changeResponsibilitySectionVisibilityAction(newArray));
 
 }
 

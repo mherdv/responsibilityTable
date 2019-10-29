@@ -4,8 +4,7 @@ import Checkbox from '../../Chechbox';
 import { changeResponsibility } from '../../../store/actions/responsibility/responsibilityAction';
 import { connect } from 'react-redux';
 
-const ResponsibilityCheckboxes = ({ array, users, rowIndex, containerIndex, disabledAll }) => {
-
+const ResponsibilityCheckboxes = ({ array, users, rowIndex, containerIndex, disabledAll, typeIndex }) => {
 
 
     return (
@@ -27,7 +26,8 @@ const ResponsibilityCheckboxes = ({ array, users, rowIndex, containerIndex, disa
                                         event,
                                         userId: user.id,
                                         rowIndex,
-                                        containerIndex
+                                        containerIndex,
+                                        typeIndex
                                     }) : null}
                             />
                         }) : null

@@ -5,15 +5,12 @@ import 'react-virtualized/styles.css';
 import {
     getAllResponsibilityAction,
 } from '../../store/actions/responsibility/responsibilityAction';
-import { iterationCopy } from '../../utils/cloningObject';
-import { removeResponsibilityLineAction } from '../../store/actions/responsibility/responsibilityLine';
-import { addResponsibilitySectionAction } from '../../store/actions/responsibility/section';
 
 import AddResponsibilityForm from './AddResponsibilityForm';
 import HoverEffect from '../HoverEffect';
-import OneList from './OneList/OneList';
 import ButtonsController from './ButtonsController';
 import classes from './responsibility.module.scss';
+import OneType from './oneType/OneType';
 
 
 // todo  add type grout for descriptions                 
@@ -50,6 +47,11 @@ const Responsibility = ({ dispatch, responsibilityArray, loading, error }) => {
             {responsibilityArray.map(({ id, responsibilities, name, removed }, containerIndex) => {
 
                 const descriptionsAreOpened = responsibilityArray[containerIndex].openAllDescriptions
+
+                const typesArray = responsibilityArray[containerIndex].types.map(({ name, id }, index) => {
+                    return { name, id, index }
+                })
+                console.log(typesArray)
                 return (
                     !removed ? <div key={`${id}__responsibilityRows_`}>
                         <ButtonsController
@@ -58,6 +60,7 @@ const Responsibility = ({ dispatch, responsibilityArray, loading, error }) => {
                             containerIndex={containerIndex}
                             containerId={id}
                             openAllDescriptions={descriptionsAreOpened}
+                            typesArray={typesArray}
                         />
 
 
@@ -65,11 +68,18 @@ const Responsibility = ({ dispatch, responsibilityArray, loading, error }) => {
                             {responsibilityArray[containerIndex].show ?
 
                                 // todo change to oneType 
-                                <OneList
-                                    responsibilities={responsibilities}
-                                    containerIndex={containerIndex}
-                                    openAllDescriptions={descriptionsAreOpened}
-                                />
+                                <>
+
+                                    <OneType section={responsibilityArray[containerIndex]} containerIndex={containerIndex} descriptionsAreOpened={descriptionsAreOpened} />
+
+
+                                    {/* <OneList
+                                        responsibilities={responsibilities}
+                                        containerIndex={containerIndex}
+                                        openAllDescriptions={descriptionsAreOpened}
+                                    /> */}
+
+                                </>
 
                                 : null}
                         </div>

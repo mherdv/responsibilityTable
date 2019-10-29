@@ -8,7 +8,8 @@ import { removeResponsibilityLine } from '../../../store/actions/responsibility/
 const OneList = ({
     responsibilities,
     containerIndex,
-    openAllDescriptions
+    openAllDescriptions,
+    typeIndex
 
 }) => {
 
@@ -65,6 +66,7 @@ const OneList = ({
                                                     removed={removed}
                                                     openAllDescriptions={openAllDescriptions}
                                                     onInput={() => { }}
+                                                    typeIndex={typeIndex}
                                                     rowHeightChange={(event) => {
 
                                                         const currentTarget = event.currentTarget;
@@ -73,13 +75,13 @@ const OneList = ({
 
                                                         if (currentTargetHeight > parentRowHeight || currentTargetHeight < parentRowHeight - 2) {
 
-                                                            descriptionHeightChange({ containerIndex, rowIndex: props.index, height: currentTargetHeight + 2 })
+                                                            descriptionHeightChange({ containerIndex, rowIndex: props.index, height: currentTargetHeight + 2, typeIndex })
                                                             list.current.recomputeRowHeights(props.index)
                                                         }
                                                     }}
 
                                                     removeLine={() => {
-                                                        removeResponsibilityLine({ containerIndex, rowIndex: props.index, rowId: id });
+                                                        removeResponsibilityLine({ containerIndex, rowIndex: props.index, rowId: id, typeIndex });
                                                         list.current.recomputeRowHeights(props.index)
                                                     }}
                                                 />

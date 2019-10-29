@@ -14,6 +14,7 @@ const OneRow = ({
     removeLine,
     removed,
     onInput,
+    typeIndex,
     rowHeightChange,
     openAllDescriptions
 }) => {
@@ -28,7 +29,7 @@ const OneRow = ({
                     openAllDescriptions={openAllDescriptions}
                     rowHeightChange={rowHeightChange}
                     className={classes.EditableText} text={description}
-                    onBlur={(event) => changeResponsibilityDescription(event, containerIndex, rowIndex)}
+                    onBlur={(event) => changeResponsibilityDescription({ event, containerIndex, rowIndex, typeIndex })}
                     onInput={onInput}
                 />
             </div>
@@ -38,6 +39,7 @@ const OneRow = ({
                 rowIndex={rowIndex}
                 usersLength={Object.keys(users).length}
                 users={users}
+                typeIndex={typeIndex}
             />
         </div>
     )

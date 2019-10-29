@@ -5,23 +5,31 @@ import classes from './ButtonsController.module.scss';
 import { toggleResponsibilitySection, changeSectionName, removeResponsibilitySection } from '../../../store/actions/responsibility/section';
 import { addResponsibilityLine } from '../../../store/actions/responsibility/responsibilityLine';
 import { toggleDescriptionFullHeight } from '../../../store/actions/responsibility/description';
+import CustomizedAutosuggest from '../../CustomizedAutosuggest';
+
+
+
 
 const ButtonsController = ({
     name,
     openAllDescriptions,
     containerIndex,
-
-    containerId
+    containerId,
+    typesArray
 }) => {
 
 
 
 
     const [showForm, setShowForm] = useState(false);
-    const input = useRef(null);
+    const inputDescription = useRef(null);
+    const inputName = useRef(null);
+    const inputType = useRef(null);
+
     return (
         <div className={classes.container}>
-            <EditableText text={name} className={classes.responsibilityTitle}
+            <EditableText text={name}
+                className={classes.responsibilityTitle}
                 onBlur={(event) => changeSectionName({
 
                     sectionId: containerId,
@@ -35,12 +43,14 @@ const ButtonsController = ({
 
             {showForm ?
                 <div>
-                    <input ref={input} type="text" />
+
+                    <CustomizedAutosuggest suggestions={typesArray} />
+                    <input ref={inputDescription} type="text" />
+
                     <button onClick={() => {
                         setShowForm(!showForm)
                         addResponsibilityLine({
-                            description: input.current.value,
-
+                            description: inputDescription.current.value,
                             containerIndex,
                             containerId
                         })

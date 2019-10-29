@@ -3,19 +3,15 @@ import { WindowScroller, List } from 'react-virtualized';
 import OneList from '../OneList/OneList';
 
 const OneType = ({
-    types,
-    responsibilities,
-    classes,
-    usersArray,
-    changeResponsibility,
+    section,
     containerIndex,
-    onDescriptionChange,
-    removeResponsibility,
     descriptionsAreOpened,
-    descriptionHeightChange
 
 
 }) => {
+
+    const { types } = section;
+
     const type = useRef(null);
 
 
@@ -46,18 +42,17 @@ const OneType = ({
                             rowRenderer={
 
                                 (props) => {
-                                    return <OneList
-                                        responsibilities={responsibilities}
-                                        classes={classes}
-                                        usersArray={usersArray}
-                                        changeResponsibility={changeResponsibility}
-                                        containerIndex={containerIndex}
-                                        onDescriptionChange={onDescriptionChange}
-                                        removeResponsibility={removeResponsibility}
-                                        openAllDescriptions={descriptionsAreOpened}
-                                        descriptionHeightChange={descriptionHeightChange}
+                                    return (
+                                        <div style={props.style} key={props.key}>
 
-                                    />
+                                            <OneList
+                                                responsibilities={types[props.index].responsibilities}
+                                                containerIndex={containerIndex}
+                                                typeIndex={props.index}
+                                                openAllDescriptions={descriptionsAreOpened}
+                                            />
+                                        </div>
+                                    )
                                 }
                             }
                         />

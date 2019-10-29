@@ -33,13 +33,15 @@ const changeResponsibilityDescriptionAction = ({ newArray, rowId, text, lastArra
     }
 }
 
-async function changeResponsibilityDescription(event, containerIndex, rowIndex) {
+async function changeResponsibilityDescription({ event, containerIndex, rowIndex, typeIndex }) {
 
     const newArray = getClonedResponsibilityArray();
     const lastArray = getResponsibilityArray();
 
-    const row = newArray[containerIndex].responsibilities[rowIndex];
-    const { id: rowId } = newArray[containerIndex].responsibilities[rowIndex];
+
+    const row = newArray[containerIndex].types[typeIndex].responsibilities[rowIndex];
+    // todo fix this ideotizm 
+    const { id: rowId } = newArray[containerIndex].types[typeIndex].responsibilities[rowIndex];
     const text = event.currentTarget.innerText.trim();
     row.description = text;
 
@@ -57,11 +59,11 @@ const setNewResponsibilityDescriptionAction = (newArray) => {
 
 function toggleDescriptionFullHeight({ index }) {
 
-    const newArr = getClonedResponsibilityArray();
+    const newArray = getClonedResponsibilityArray();
 
-    newArr[index].openAllDescriptions = !newArr[index].openAllDescriptions;
+    newArray[index].openAllDescriptions = !newArray[index].openAllDescriptions;
 
-    store.dispatch(toggleDescriptionFullHeightAction(newArr))
+    store.dispatch(toggleDescriptionFullHeightAction(newArray))
 
 }
 
@@ -73,13 +75,14 @@ const toggleDescriptionFullHeightAction = (newArray) => {
         payload: newArray
     }
 }
-function descriptionHeightChange({ containerIndex, rowIndex, height }) {
+function descriptionHeightChange({ containerIndex, rowIndex, height, typeIndex }) {
 
-    const newArr = getClonedResponsibilityArray();
+    const newArray = getClonedResponsibilityArray();
 
-    newArr[containerIndex].responsibilities[rowIndex].height = height;
 
-    store.dispatch(descriptionHeightChangeAction(newArr));
+    newArray[containerIndex].types[typeIndex].responsibilities[rowIndex].height = height;
+
+    store.dispatch(descriptionHeightChangeAction(newArray));
 
 }
 

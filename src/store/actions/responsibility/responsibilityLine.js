@@ -4,9 +4,11 @@ import { REMOVERESPONSIBILITYLINE, ADDRESPONSIBILITYLINE } from "../../types"
 import store from '../../index';
 import { getClonedResponsibilityArray, getResponsibilityArray } from "../../../utils/storeGetters";
 
-const addResponsibilityLineAction = ({ newArray, description, containerId, newRowObject, containerIndex, LastArray }) => {
-    // {newArr,containerId,newRowObject}
-    newArray[containerIndex].responsibilities.push(newRowObject);
+const addResponsibilityLineAction = ({ newArray, description, containerId, newRowObject, containerIndex, LastArray, typeIndex }) => {
+    // {newArray,containerId,newRowObject}
+
+
+    newArray[containerIndex].types[typeIndex].responsibilities.push(newRowObject);
     store.dispatch(addLine(newArray));
     return async function (dispatch) {
         // try {
@@ -38,7 +40,7 @@ const addResponsibilityLineAction = ({ newArray, description, containerId, newRo
 
 
 
-function addResponsibilityLine({ description, containerIndex, containerId }) {
+function addResponsibilityLine({ description, containerIndex, containerId, typeIndex }) {
 
     const newArray = getClonedResponsibilityArray();
     const LastArray = getResponsibilityArray();
@@ -48,27 +50,27 @@ function addResponsibilityLine({ description, containerIndex, containerId }) {
 
 
 
-    store.dispatch(addResponsibilityLineAction({ newArray, containerId, newRowObject, description, containerIndex, LastArray }))
+    store.dispatch(addResponsibilityLineAction({ newArray, containerId, newRowObject, description, containerIndex, LastArray, typeIndex }))
 
 }
 
 
-const addLine = (newArr) => {
+const addLine = (newArray) => {
     return {
         type: ADDRESPONSIBILITYLINE,
-        payload: newArr
+        payload: newArray
     }
 }
 
 
 
 
-function removeResponsibilityLine({ containerIndex, rowIndex, rowId }) {
+function removeResponsibilityLine({ containerIndex, rowIndex, rowId, typeIndex }) {
 
     const newArray = getClonedResponsibilityArray();
     const LastArray = getResponsibilityArray();
 
-    newArray[containerIndex].responsibilities[rowIndex].removed = true;
+    newArray[containerIndex].types[typeIndex].responsibilities[rowIndex].removed = true;
 
 
     store.dispatch(removeResponsibilityLineAction({ newArray, id: rowId, LastArray }));
