@@ -7,11 +7,9 @@ import { removeResponsibilityLine } from '../../../store/actions/responsibility/
 
 const OneList = ({
     responsibilities,
-    classes,
-    usersArray,
-
     containerIndex,
     openAllDescriptions
+
 }) => {
 
 
@@ -59,13 +57,11 @@ const OneList = ({
 
                                                 <OneRow
                                                     description={description}
-                                                    usersArray={usersArray}
                                                     key={`${id}__checkboxContainer`}
                                                     usersLength={Object.keys(users).length}
                                                     users={users}
                                                     rowIndex={props.index}
                                                     containerIndex={containerIndex}
-                                                    classes={classes}
                                                     removed={removed}
                                                     openAllDescriptions={openAllDescriptions}
                                                     onInput={() => { }}
@@ -95,7 +91,6 @@ const OneList = ({
 
                                 }
                             }
-
                             overscanRowCount={25}
                             scrollTop={scrollTop}
                             // todo change this solution 

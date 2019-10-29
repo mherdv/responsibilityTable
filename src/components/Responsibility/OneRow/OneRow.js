@@ -8,7 +8,6 @@ import { changeResponsibilityDescription } from "../../../store/actions/responsi
 
 const OneRow = ({
     description,
-    usersArray,
     users,
     rowIndex,
     containerIndex,
@@ -35,7 +34,6 @@ const OneRow = ({
             </div>
             <ResponsibilityCheckboxes
                 disabledAll={removed}
-                array={usersArray}
                 containerIndex={containerIndex}
                 rowIndex={rowIndex}
                 usersLength={Object.keys(users).length}

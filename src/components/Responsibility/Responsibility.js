@@ -27,7 +27,7 @@ import classes from './responsibility.module.scss';
 
 
 
-const Responsibility = ({ dispatch, responsibilityArray, usersArray, loading, error }) => {
+const Responsibility = ({ dispatch, responsibilityArray, loading, error }) => {
 
     useEffect(() => {
         dispatch(getAllResponsibilityAction());
@@ -64,11 +64,9 @@ const Responsibility = ({ dispatch, responsibilityArray, usersArray, loading, er
                         <div className={classes.section + ' ' + (!!descriptionsAreOpened ? classes.openAllDescriptions : '')}>
                             {responsibilityArray[containerIndex].show ?
 
-                                // todo change to types 
+                                // todo change to oneType 
                                 <OneList
                                     responsibilities={responsibilities}
-                                    classes={classes}
-                                    usersArray={usersArray}
                                     containerIndex={containerIndex}
                                     openAllDescriptions={descriptionsAreOpened}
                                 />

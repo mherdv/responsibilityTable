@@ -30,7 +30,7 @@ const App = ({ loading, error, dispatch, usersArray }) => {
 
       {loading ? 'preloader' : <Header usersArray={usersArray} />}
 
-      {usersArray.length ? <Responsibility usersArray={usersArray} /> : null}
+      {usersArray.length ? <Responsibility /> : null}
 
 
 

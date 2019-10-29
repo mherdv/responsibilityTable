@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './ResponsibilityCheckboxes.module.scss';
 import Checkbox from '../../Chechbox';
 import { changeResponsibility } from '../../../store/actions/responsibility/responsibilityAction';
+import { connect } from 'react-redux';
 
 const ResponsibilityCheckboxes = ({ array, users, rowIndex, containerIndex, disabledAll }) => {
 
@@ -37,4 +38,11 @@ const ResponsibilityCheckboxes = ({ array, users, rowIndex, containerIndex, disa
     );
 };
 
-export default ResponsibilityCheckboxes;
+function mapStateToProps(state) {
+
+    return {
+        array: state.users.usersArray
+    }
+}
+
+export default connect(mapStateToProps)(ResponsibilityCheckboxes);
