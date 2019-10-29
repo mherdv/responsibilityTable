@@ -44,7 +44,8 @@ const OneList = ({
                             rowRenderer={
                                 (props) => {
 
-                                    if (!responsibilities[props.index]) return false
+                                    if (!responsibilities[props.index]) return false;
+
                                     const { users, description, id, removed } = responsibilities[props.index];
                                     return (
                                         props.style.height !== 0 ?
@@ -55,7 +56,7 @@ const OneList = ({
                                                 }}
                                                 key={props.key} >
 
-                                                {/* todo fix position sticky */}
+                                                {/* todo adding type container think about it   */}
 
                                                 <OneRow
                                                     description={description}
