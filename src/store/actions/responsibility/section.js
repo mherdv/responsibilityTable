@@ -88,7 +88,8 @@ function addResponsibilitySection({ name }) {
         name,
         show: 1,
         id: '_' + Math.random().toString(36).substr(2, 9),
-        responsibilities: []
+
+        types: []
     }
     store.dispatch(addResponsibilitySectionAction({ newArray, name, newSection, lastArray }))
 }

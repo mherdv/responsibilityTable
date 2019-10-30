@@ -12,17 +12,7 @@
 
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-.ReactVirtualized__Grid__innerScrollContainer,
-.ReactVirtualized__Grid 
-{
-    overflow: initial !important;
-    -webkit-transform: none !important;
-            transform: none !important;
-    will-change: none !important;
-}
-.ReactVirtualized__Grid.ReactVirtualized__List{
-    // will-change: initial !important;
-}
+
 
 .checkboxWrapper{
     outline: 1px solid;

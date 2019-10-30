@@ -9,99 +9,116 @@ const OneList = ({
     responsibilities,
     containerIndex,
     openAllDescriptions,
-    typeIndex
+    typeIndex,
+    containerHeight
 
 }) => {
 
+
+    const detectVisibility = ({ props, containerIndex, typeIndex, containerHeight }) => {
+
+
+        const itemTop = containerHeight
+
+        const scrollTop = document.documentElement.scrollTop;
+        const windowHeight = window.innerHeight;
+        console.log(scrollTop, windowHeight, props)
+
+    }
 
     const list = useRef(null)
 
     return (
 
-        <WindowScroller >
-            {({ height, isScrolling, registerChild, scrollTop }) => (
-                <div>
-                    <div
-                        ref={registerChild}
-                    >
-                        <List
-                            autoHeight
-                            height={height}
-                            ref={list}
-                            isScrolling={isScrolling}
-                            rowCount={responsibilities.length}
+        // <WindowScroller >
+        //     {({ height, isScrolling, registerChild, scrollTop }) => (
+        //         <div>
+        //             <div
+        //                 ref={el => registerChild(el)}
+        //             >
 
-                            rowHeight={({ index }) => {
-                                if (responsibilities[index].removed) {
-                                    return 0;
-                                }
+        <List
+            autoHeight
+            height={1500}
+            ref={list}
+            rowCount={responsibilities.length}
 
-                                return responsibilities[index].height || 30
-                            }}
+            rowHeight={({ index }) => {
+                if (responsibilities[index].removed) {
+                    return 0;
+                }
+                return responsibilities[index].height || 30;
 
-                            rowRenderer={
-                                (props) => {
+            }}
 
-                                    if (!responsibilities[props.index]) return false;
+            rowRenderer={
+                (props) => {
+                    if (!responsibilities[props.index]) return false;
+                    const { users, description, id, removed } = responsibilities[props.index];
 
-                                    const { users, description, id, removed } = responsibilities[props.index];
-                                    return (
-                                        props.style.height !== 0 ?
-                                            <div
-                                                className={'rowContainer'}
-                                                style={{
-                                                    ...props.style
-                                                }}
-                                                key={props.key} >
+                    detectVisibility({ props, containerIndex, typeIndex, containerHeight })
 
-                                                {/* todo adding type container think about it   */}
+                    return (
+                        props.style.height !== 0 && props.isVisible ?
+                            <div
+                                className={'rowContainer'}
+                                style={{
+                                    ...props.style
+                                }}
+                                key={props.key} >
 
-                                                <OneRow
-                                                    description={description}
-                                                    key={`${id}__checkboxContainer`}
-                                                    usersLength={Object.keys(users).length}
-                                                    users={users}
-                                                    rowIndex={props.index}
-                                                    containerIndex={containerIndex}
-                                                    removed={removed}
-                                                    openAllDescriptions={openAllDescriptions}
-                                                    onInput={() => { }}
-                                                    typeIndex={typeIndex}
-                                                    rowHeightChange={(event) => {
+                                {/* todo adding type container think about it   */}
 
-                                                        const currentTarget = event.currentTarget;
-                                                        const currentTargetHeight = currentTarget.offsetHeight;
-                                                        const parentRowHeight = currentTarget.closest('.rowContainer').offsetHeight;
+                                <OneRow
+                                    description={description}
+                                    key={`${id}__checkboxContainer`}
+                                    usersLength={Object.keys(users).length}
+                                    users={users}
+                                    rowIndex={props.index}
+                                    containerIndex={containerIndex}
+                                    removed={removed}
+                                    openAllDescriptions={openAllDescriptions}
+                                    onInput={() => { }}
+                                    typeIndex={typeIndex}
+                                    rowHeightChange={(event) => {
 
-                                                        if (currentTargetHeight > parentRowHeight || currentTargetHeight < parentRowHeight - 2) {
+                                        const currentTarget = event.currentTarget;
+                                        const currentTargetHeight = currentTarget.offsetHeight;
+                                        const parentRowHeight = currentTarget.closest('.rowContainer').offsetHeight;
 
-                                                            descriptionHeightChange({ containerIndex, rowIndex: props.index, height: currentTargetHeight + 2, typeIndex })
-                                                            list.current.recomputeRowHeights(props.index)
-                                                        }
-                                                    }}
+                                        if (currentTargetHeight > parentRowHeight || currentTargetHeight < parentRowHeight - 2) {
 
-                                                    removeLine={() => {
-                                                        removeResponsibilityLine({ containerIndex, rowIndex: props.index, rowId: id, typeIndex });
-                                                        list.current.recomputeRowHeights(props.index)
-                                                    }}
-                                                />
+                                            descriptionHeightChange({ containerIndex, rowIndex: props.index, height: currentTargetHeight + 2, typeIndex });
+                                            const rowIndex = props.index > 0 ? props.index - 1 : 0;
+                                            list.current.recomputeRowHeights(rowIndex);
+
+                                        }
+                                    }}
+
+                                    removeLine={() => {
+
+                                        removeResponsibilityLine({ containerIndex, rowIndex: props.index, rowId: id, typeIndex });
+                                        const rowIndex = props.index > 0 ? props.index - 1 : 0;
+                                        list.current.recomputeRowHeights(rowIndex);
+                                    }}
+                                />
 
 
-                                            </div>
-                                            : false
-                                    )
+                            </div>
+                            : <div style={props.style} key={props.key} />
+                    )
 
-                                }
-                            }
-                            overscanRowCount={25}
-                            scrollTop={scrollTop}
-                            // todo change this solution 
-                            width={document.querySelector('header').offsetWidth + 300}
-                        />
-                    </div>
-                </div>
-            )}
-        </WindowScroller>)
+                }
+            }
+            overscanRowCount={0}
+            // scrollTop={scrollTop}
+            // todo change this solution 
+            width={document.querySelector('header').offsetWidth + 300}
+        />)
+    //             </div>
+    //         </div>
+    //     )}
+    // </WindowScroller>)
 };
 
 

@@ -3,7 +3,7 @@ import EditableText from '../EditableText';
 import classes from './ButtonsController.module.scss';
 
 import { toggleResponsibilitySection, changeSectionName, removeResponsibilitySection } from '../../../store/actions/responsibility/section';
-import { addResponsibilityLine } from '../../../store/actions/responsibility/responsibilityLine';
+import { addResponsibilityLine, createResponsibilityTypeAddNewLine } from '../../../store/actions/responsibility/responsibilityLine';
 import { toggleDescriptionFullHeight } from '../../../store/actions/responsibility/description';
 import CustomizedAutosuggest from '../../CustomizedAutosuggest';
 
@@ -22,9 +22,11 @@ const ButtonsController = ({
 
 
     const [showForm, setShowForm] = useState(false);
+    const [requestType, setRequestType] = useState(null);
+    const [selectedType, setSelectedType] = useState(null);
+
     const inputDescription = useRef(null);
     const inputName = useRef(null);
-    const inputType = useRef(null);
 
     return (
         <div className={classes.container}>
@@ -44,16 +46,41 @@ const ButtonsController = ({
             {showForm ?
                 <div>
 
-                    <CustomizedAutosuggest suggestions={typesArray} />
-                    <input ref={inputDescription} type="text" />
+                    <CustomizedAutosuggest suggestions={typesArray} setSelected={setSelectedType} />
+                    <hr />
+                    <input ref={inputDescription} type="text" placeholder="row description" />
+                    <hr />
+                    <input ref={inputName} type="text" placeholder="row name" />
 
                     <button onClick={() => {
                         setShowForm(!showForm)
-                        addResponsibilityLine({
-                            description: inputDescription.current.value,
-                            containerIndex,
-                            containerId
-                        })
+                        // todo check validation 
+
+
+                        if (selectedType instanceof Object) {
+
+                            addResponsibilityLine({
+                                description: inputDescription.current.value,
+                                name: inputName.current.value,
+                                containerIndex,
+                                containerId,
+                                typeIndex: selectedType.index
+                                //type index 
+                            })
+                        } else {
+                            createResponsibilityTypeAddNewLine({
+
+                                containerId,
+                                containerIndex,
+                                typeName: selectedType,
+                                lineProps: {
+
+                                    description: inputDescription.current.value,
+                                    name: inputName.current.value
+                                }
+
+                            })
+                        }
 
                     }}>create</button>
                 </div> : null}

@@ -20,6 +20,7 @@ const EditableText = memo(({ text, className, onInput, onBlur, rowHeightChange, 
     useEffect(() => {
         rowHeightChange && textArea.current &&
             rowHeightChange({ currentTarget: textArea.current.el.current });
+
         // eslint-disable-next-line
     }, [focused, openAllDescriptions])
 

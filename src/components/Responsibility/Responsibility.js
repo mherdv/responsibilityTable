@@ -49,9 +49,8 @@ const Responsibility = ({ dispatch, responsibilityArray, loading, error }) => {
                 const descriptionsAreOpened = responsibilityArray[containerIndex].openAllDescriptions
 
                 const typesArray = responsibilityArray[containerIndex].types.map(({ name, id }, index) => {
-                    return { name, id, index }
+                    return { name, typeId: id, index, typeName: name }
                 })
-                console.log(typesArray)
                 return (
                     !removed ? <div key={`${id}__responsibilityRows_`}>
                         <ButtonsController

@@ -7,36 +7,35 @@ const filterSuggestions = ({ suggestions, value }) => {
     const inputLength = inputValue.length;
 
     return inputLength === 0 ? [] : suggestions.filter(lang =>
-        lang.name.toLowerCase().slice(0, inputLength) === inputValue
+        lang.name.toLowerCase().search(inputValue) !== -1
     );
 }
 
 const findEquivalent = ({ suggestions, value }) => {
-
+    return suggestions.find(suggestion => {
+        return suggestion.name.toLowerCase().trim() === value.toLowerCase().trim()
+    })
 }
 
-const CustomizedAutosuggest = ({ suggestions }) => {
+const CustomizedAutosuggest = ({ suggestions, setSelected }) => {
 
     const [value, setValue] = useState('');
-
     const [filteredSuggestions, setFilteredSuggestions] = useState(suggestions);
 
-    const [selected, setSelected] = useState({});
-
+    setSelected && setSelected(findEquivalent({ suggestions, value: value }) || value);
 
     return <Autosuggest
         suggestions={filteredSuggestions}
         onSuggestionsFetchRequested={(e) => {
-            setFilteredSuggestions(filterSuggestions({ suggestions, value }))
-            // return filterSuggestions()
+
+            setFilteredSuggestions(
+                filterSuggestions({ suggestions, value })
+            );
+
         }}
-        onSuggestionsClearRequested={(e) => {
-            // setValue(e)
-        }}
+        onSuggestionsClearRequested={(e) => { }}
         getSuggestionValue={(e) => {
 
-            console.log(e)
-            setSelected(e)
             setValue(e.name)
 
         }}
@@ -51,13 +50,8 @@ const CustomizedAutosuggest = ({ suggestions }) => {
                 if (props.newValue === undefined) return;
 
                 setValue(props.newValue);
-
-
-                // if has equivalent select id else clear selected and add clear value
-
-                findEquivalent({ suggestions, value })
-                // console.log(filterSuggestions({ suggestions, value }))
-            }
+            },
+            placeholder: "select responsibility Type"
         }}
 
     />
