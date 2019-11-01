@@ -48,3 +48,7 @@ footer{
     bottom: 0;
     left: $respContainerWidth;
 }
+
+.ReactVirtualized__Grid.ReactVirtualized__List,.ReactVirtualized__Grid__innerScrollContainer{
+    overflow: initial !important;
+}

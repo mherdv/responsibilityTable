@@ -1,9 +1,14 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 
 import { List, WindowScroller } from 'react-virtualized';
 import OneRow from '../OneRow';
 import { descriptionHeightChange } from '../../../store/actions/responsibility/description';
 import { removeResponsibilityLine } from '../../../store/actions/responsibility/responsibilityLine';
+
+
+// window.addEventListener('scroll', function () {
+//     console.log(1)
+// })
 
 const OneList = ({
     responsibilities,
@@ -15,110 +20,111 @@ const OneList = ({
 }) => {
 
 
-    const detectVisibility = ({ props, containerIndex, typeIndex, containerHeight }) => {
+    const list = useRef(null);
+    const scrollContainer = useRef(null);
+    const [containerVisibility, setContainerVisibility] = useState(false)
 
-
-        const itemTop = containerHeight
-
-        const scrollTop = document.documentElement.scrollTop;
-        const windowHeight = window.innerHeight;
-        console.log(scrollTop, windowHeight, props)
-
-    }
-
-    const list = useRef(null)
-
+    useEffect(() => {
+        setContainerVisibility(true)
+    }, [])
     return (
 
-        // <WindowScroller >
-        //     {({ height, isScrolling, registerChild, scrollTop }) => (
-        //         <div>
-        //             <div
-        //                 ref={el => registerChild(el)}
-        //             >
+        <WindowScroller >
+            {({ height, isScrolling, registerChild, scrollTop }) => (
+                <div style={{ marginLeft: '47px' }}>
+                    <div
+                        ref={el => registerChild(el)}
+                    >
 
-        <List
-            autoHeight
-            height={1500}
-            ref={list}
-            rowCount={responsibilities.length}
+                        <div ref={scrollContainer}>
+                            {containerVisibility ? <List
+                                // scrollTop={scrollTop}
+                                autoHeight
+                                height={1500}
+                                ref={list}
+                                rowCount={responsibilities.length}
 
-            rowHeight={({ index }) => {
-                if (responsibilities[index].removed) {
-                    return 0;
-                }
-                return responsibilities[index].height || 30;
+                                rowHeight={({ index }) => {
+                                    if (responsibilities[index].removed) {
+                                        return 0;
+                                    }
+                                    return responsibilities[index].height || 30;
 
-            }}
-
-            rowRenderer={
-                (props) => {
-                    if (!responsibilities[props.index]) return false;
-                    const { users, description, id, removed } = responsibilities[props.index];
-
-                    detectVisibility({ props, containerIndex, typeIndex, containerHeight })
-
-                    return (
-                        props.style.height !== 0 && props.isVisible ?
-                            <div
-                                className={'rowContainer'}
-                                style={{
-                                    ...props.style
                                 }}
-                                key={props.key} >
 
-                                {/* todo adding type container think about it   */}
+                                rowRenderer={
+                                    (props) => {
 
-                                <OneRow
-                                    description={description}
-                                    key={`${id}__checkboxContainer`}
-                                    usersLength={Object.keys(users).length}
-                                    users={users}
-                                    rowIndex={props.index}
-                                    containerIndex={containerIndex}
-                                    removed={removed}
-                                    openAllDescriptions={openAllDescriptions}
-                                    onInput={() => { }}
-                                    typeIndex={typeIndex}
-                                    rowHeightChange={(event) => {
+                                        const containerTop = scrollContainer.current.getBoundingClientRect().top;
+                                        const elementTop = containerTop + props.style.top;
 
-                                        const currentTarget = event.currentTarget;
-                                        const currentTargetHeight = currentTarget.offsetHeight;
-                                        const parentRowHeight = currentTarget.closest('.rowContainer').offsetHeight;
+                                        if (elementTop < -400 || elementTop > window.innerHeight + 400) return;
 
-                                        if (currentTargetHeight > parentRowHeight || currentTargetHeight < parentRowHeight - 2) {
+                                        if (!responsibilities[props.index]) return false;
+                                        const { users, description, id, removed } = responsibilities[props.index];
 
-                                            descriptionHeightChange({ containerIndex, rowIndex: props.index, height: currentTargetHeight + 2, typeIndex });
-                                            const rowIndex = props.index > 0 ? props.index - 1 : 0;
-                                            list.current.recomputeRowHeights(rowIndex);
+                                        return (
+                                            props.style.height !== 0 ?
+                                                <div
+                                                    className={'rowContainer'}
+                                                    style={{
+                                                        ...props.style
+                                                    }}
+                                                    key={props.key} >
 
-                                        }
-                                    }}
+                                                    {/* todo adding type container think about it   */}
 
-                                    removeLine={() => {
+                                                    <OneRow
+                                                        description={description}
+                                                        key={`${id}__checkboxContainer`}
+                                                        usersLength={Object.keys(users).length}
+                                                        users={users}
+                                                        rowIndex={props.index}
+                                                        containerIndex={containerIndex}
+                                                        removed={removed}
+                                                        openAllDescriptions={openAllDescriptions}
+                                                        onInput={() => { }}
+                                                        typeIndex={typeIndex}
+                                                        rowHeightChange={(event) => {
 
-                                        removeResponsibilityLine({ containerIndex, rowIndex: props.index, rowId: id, typeIndex });
-                                        const rowIndex = props.index > 0 ? props.index - 1 : 0;
-                                        list.current.recomputeRowHeights(rowIndex);
-                                    }}
-                                />
+                                                            const currentTarget = event.currentTarget;
+                                                            const currentTargetHeight = currentTarget.offsetHeight;
+                                                            const parentRowHeight = currentTarget.closest('.rowContainer').offsetHeight;
+
+                                                            if (currentTargetHeight > parentRowHeight || currentTargetHeight < parentRowHeight - 2) {
+
+                                                                descriptionHeightChange({ containerIndex, rowIndex: props.index, height: currentTargetHeight + 2, typeIndex });
+                                                                const rowIndex = props.index > 0 ? props.index - 1 : 0;
+                                                                list.current.recomputeRowHeights(rowIndex);
+
+                                                            }
+                                                        }}
+
+                                                        removeLine={() => {
+
+                                                            removeResponsibilityLine({ containerIndex, rowIndex: props.index, rowId: id, typeIndex });
+                                                            const rowIndex = props.index > 0 ? props.index - 1 : 0;
+                                                            list.current.recomputeRowHeights(rowIndex);
+                                                        }}
+                                                    />
 
 
-                            </div>
-                            : <div style={props.style} key={props.key} />
-                    )
+                                                </div>
+                                                : <div style={props.style} key={props.key} />
+                                        )
 
-                }
-            }
-            overscanRowCount={0}
-            // scrollTop={scrollTop}
-            // todo change this solution 
-            width={document.querySelector('header').offsetWidth + 300}
-        />)
-    //             </div>
-    //         </div>
-    //     )}
-    // </WindowScroller>)
+                                    }
+                                }
+                                overscanRowCount={2}
+
+                                // todo change this solution 
+                                width={document.querySelector('header').offsetWidth + 300}
+                            /> : null}
+                        </div>
+                    </div>
+                </div>
+            )}
+        </WindowScroller>)
 };
 
 
