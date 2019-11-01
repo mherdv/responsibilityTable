@@ -34,7 +34,7 @@ const OneType = ({
                         height += 30
                     }
                 }
-                return <div style={{ height: height + 'px', position: 'relative' }} key={oneType.name + index + height}>
+                return <div style={{ height: height + 'px', position: 'relative' }} key={oneType.name + index}>
 
                     <h2 className={classes.typeTitle}>{oneType.name}</h2>
                     <OneList

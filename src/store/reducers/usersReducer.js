@@ -2,7 +2,8 @@ import {
     SETALLUSERS,
     LOADUSERS,
     GETUSERSERROR,
-    CHANGEDEPORTMENTVISIBILITYSTATUS
+    CHANGEDEPORTMENTVISIBILITYSTATUS,
+    CHANGEDEPORTMENTSHOWHALF
 } from "../types";
 
 const initialState = {
@@ -22,6 +23,8 @@ function usersReducer(state = initialState, action) {
             return { usersArray: action.payload, loading: false, error: false };
 
         case CHANGEDEPORTMENTVISIBILITYSTATUS:
+            return { ...state, usersArray: action.payload }
+        case CHANGEDEPORTMENTSHOWHALF:
             return { ...state, usersArray: action.payload }
         default:
             return state;

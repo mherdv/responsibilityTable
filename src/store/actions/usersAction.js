@@ -1,6 +1,8 @@
-import { LOADUSERS, GETUSERSERROR, SETALLUSERS, CHANGEDEPORTMENTVISIBILITYSTATUS } from "../types";
+import { LOADUSERS, GETUSERSERROR, SETALLUSERS, CHANGEDEPORTMENTVISIBILITYSTATUS, CHANGEDEPORTMENTSHOWHALF } from "../types";
 import Axios from "axios";
 import keys from '../../constants/keys';
+import { iterationCopy } from "../../utils/cloningObject";
+import store from '../';
 
 
 const getAllUsersAction = () => {
@@ -30,5 +32,29 @@ const changeDeportmentVisibilityStatusAction = (users) => {
         payload: users
     }
 }
+function changeDeportmentShowHalfAction(newUsersArray) {
+    return {
+        type: CHANGEDEPORTMENTSHOWHALF,
+        payload: newUsersArray
 
-export { getAllUsersAction, changeDeportmentVisibilityStatusAction };
+    }
+}
+
+function toggleDeportment(
+    index,
+    usersArray
+) {
+
+    const newUsersArray = iterationCopy(usersArray);
+    newUsersArray[index].show = newUsersArray[index].show === 0 ? 1 : 0;
+    store.dispatch(changeDeportmentVisibilityStatusAction(newUsersArray));
+}
+
+function showHalfDeportmentUsers(index, usersArray) {
+    const newUsersArray = iterationCopy(usersArray);
+    newUsersArray[index].showHalf = newUsersArray[index].showHalf === 0 ? 1 : 0;
+    store.dispatch(changeDeportmentShowHalfAction(newUsersArray));
+}
+
+
+export { getAllUsersAction, changeDeportmentVisibilityStatusAction, toggleDeportment, showHalfDeportmentUsers, changeDeportmentShowHalfAction };

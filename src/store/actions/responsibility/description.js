@@ -82,7 +82,6 @@ function descriptionHeightChange({ containerIndex, rowIndex, height, typeIndex }
 
     newArray[containerIndex].types[typeIndex].responsibilities[rowIndex].height = height;
 
-
     store.dispatch(descriptionHeightChangeAction(newArray));
 
 }

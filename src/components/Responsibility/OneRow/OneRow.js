@@ -4,6 +4,7 @@ import EditableText from "../EditableText";
 
 import classes from './oneRow.module.scss';
 import { changeResponsibilityDescription } from "../../../store/actions/responsibility/description";
+import { changeResponsibilityName } from "../../../store/actions/responsibility/name";
 
 
 const OneRow = ({
@@ -16,7 +17,8 @@ const OneRow = ({
     onInput,
     typeIndex,
     rowHeightChange,
-    openAllDescriptions
+    openAllDescriptions,
+    name
 }) => {
 
     return (
@@ -25,6 +27,13 @@ const OneRow = ({
             <div className={classes.descriptionLeftSide}>
 
                 <button onClick={removeLine}>remove</button>
+                <EditableText
+                    openAllDescriptions={openAllDescriptions}
+                    rowHeightChange={rowHeightChange}
+                    className={classes.EditableText} text={name || ''}
+                    onBlur={(event) => changeResponsibilityName({ event, containerIndex, rowIndex, typeIndex })}
+                    onInput={onInput}
+                />
                 <EditableText
                     openAllDescriptions={openAllDescriptions}
                     rowHeightChange={rowHeightChange}

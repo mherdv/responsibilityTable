@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
 import './App.scss';
 import { connect } from 'react-redux'
-import { getAllUsersAction, changeDeportmentVisibilityStatusAction } from './store/actions/usersAction';
+import { getAllUsersAction } from './store/actions/usersAction';
 import Responsibility from './components/Responsibility';
-import { iterationCopy } from './utils/cloningObject';
 import Header from './components/Header';
 
 
@@ -14,14 +13,6 @@ const App = ({ loading, error, dispatch, usersArray }) => {
   useEffect(() => {
     dispatch(getAllUsersAction())
   }, [dispatch])
-  function toggleDeportment(
-    index
-  ) {
-
-    const newUsersArray = iterationCopy(usersArray);
-    newUsersArray[index].show = newUsersArray[index].show === 0 ? 1 : 0;
-    dispatch(changeDeportmentVisibilityStatusAction(newUsersArray));
-  }
 
   return (
     <div className="App">
@@ -33,28 +24,6 @@ const App = ({ loading, error, dispatch, usersArray }) => {
       {usersArray.length ? <Responsibility /> : null}
 
 
-
-      {/* todo change logic and append to header   */}
-
-
-      <footer>
-        {usersArray.map((deportament, index) => {
-          return (
-            <div key={`checkbox____${deportament.deportamentName}`}>
-              <label>{deportament.deportamentName}</label>
-              {/* todo change to deportament id  */}
-              <input type="checkbox"
-
-                checked={deportament.show}
-                onChange={() => toggleDeportment(index)} />
-            </div>
-          )
-        })}
-      </footer>
-
-
-
-      {/* <BigDataTable rowCount={1000} columnCount={1000} /> */}
 
     </div>
   );
