@@ -52,7 +52,7 @@ function toggleDeportment(
 
 function showHalfDeportmentUsers(index, usersArray) {
     const newUsersArray = iterationCopy(usersArray);
-    newUsersArray[index].showHalf = newUsersArray[index].showHalf === 0 ? 1 : 0;
+    newUsersArray[index].showHalf = newUsersArray[index].showHalf === 0 || newUsersArray[index].showHalf === undefined ? 1 : 0;
     store.dispatch(changeDeportmentShowHalfAction(newUsersArray));
 }
 

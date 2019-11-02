@@ -13,8 +13,9 @@ const ResponsibilityCheckboxes = ({ array, users, rowIndex, containerIndex, disa
             {
                 array.map((deportment, index) => {
                     return deportment.show ?
-                        deportment.users.map((user) => {
+                        deportment.users.map((user, index) => {
                             // console.log(users, index)
+                            if (deportment.showHalf && index > 4) return null;
                             return <Checkbox
                                 key={`checkbox___${user.id}_`}
                                 rowIndex={rowIndex}

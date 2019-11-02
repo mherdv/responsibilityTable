@@ -28,7 +28,7 @@ const OneList = ({
         setContainerLoad(true);
 
 
-        const updateList = () => list.current.recomputeRowHeights(responsibilities.length - 1);
+        const updateList = () => list.current.recomputeRowHeights(10000);
         document.addEventListener('scroll', updateList)
         return () => {
             document.removeEventListener('scroll', updateList)
@@ -36,7 +36,7 @@ const OneList = ({
     }, [])
     return (
         <>
-            <div ref={scrollContainer} style={{ marginLeft: '97px' }}>
+            <div ref={scrollContainer} style={{ marginLeft: '87px' }}>
                 {containerLoad ? <List
 
                     autoHeight
