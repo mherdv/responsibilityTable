@@ -31,7 +31,7 @@ const OneType = ({
                     if (!types[index].responsibilities[i].removed && types[index].responsibilities[i].height) {
                         height += types[index].responsibilities[i].height;
                     } else if (!types[index].responsibilities[i].removed) {
-                        height += 30
+                        height += 60
                     }
                 }
                 return <div style={{ height: height + 'px', position: 'relative' }} key={oneType.name + index}>

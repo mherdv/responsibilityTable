@@ -12,7 +12,7 @@ import { getClonedResponsibilityArray, getResponsibilityArray } from "../../../u
 
 
 
-const changeUserResponsibilityAction = ({ newArray, userId, checked, LastArray }) => {
+const changeUserResponsibilityAction = ({ newArray, userId, status, LastArray }) => {
     store.dispatch(changeResponsibilityAction(newArray))
 
 
@@ -22,7 +22,7 @@ const changeUserResponsibilityAction = ({ newArray, userId, checked, LastArray }
 
         // axios.post('/setResponsibility', {
         //     userId,
-        //     checked
+        //     status
         // }).then((res) => {
 
         //     if (res.status != 200) {
@@ -47,11 +47,11 @@ function changeResponsibility({ userId, rowIndex, containerIndex, typeIndex }) {
 
     const users = newArray[containerIndex].types[typeIndex].responsibilities[rowIndex].users;
 
-    users[userId] = !users[userId];
+    users[userId] = users[userId] === undefined ? 1 : users[userId] >= 3 ? 1 : ++users[userId];
     store.dispatch(changeUserResponsibilityAction({
         newArray,
         userId,
-        checked: users[userId],
+        status: users[userId],
         LastArray
     }))
 

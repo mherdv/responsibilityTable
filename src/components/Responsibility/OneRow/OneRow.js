@@ -26,7 +26,7 @@ const OneRow = ({
 
             <div className={classes.descriptionLeftSide}>
 
-                <button onClick={removeLine}>remove</button>
+                <button onClick={removeLine} className={classes.removeRow}>-</button>
                 <EditableText
                     openAllDescriptions={openAllDescriptions}
                     rowHeightChange={rowHeightChange}

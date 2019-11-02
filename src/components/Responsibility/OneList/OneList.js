@@ -36,7 +36,7 @@ const OneList = ({
     }, [])
     return (
         <>
-            <div ref={scrollContainer} style={{ marginLeft: '47px' }}>
+            <div ref={scrollContainer} style={{ marginLeft: '97px' }}>
                 {containerLoad ? <List
 
                     autoHeight
@@ -48,7 +48,7 @@ const OneList = ({
                         if (responsibilities[index].removed) {
                             return 0;
                         }
-                        return responsibilities[index].height || 30;
+                        return responsibilities[index].height || 60; //row height
 
                     }}
 
@@ -90,12 +90,16 @@ const OneList = ({
                                             rowHeightChange={(event) => {
 
                                                 const currentTarget = event.currentTarget;
-                                                const currentTargetHeight = currentTarget.offsetHeight;
-                                                const parentRowHeight = currentTarget.closest('.rowContainer').offsetHeight;
+                                                const parentRow = currentTarget.closest('.rowContainer');
+                                                const parentContainer = parentRow.querySelector('div');
 
-                                                if (currentTargetHeight > parentRowHeight || currentTargetHeight < parentRowHeight - 2) {
+                                                const parentRowHeight = parentRow.offsetHeight;
+                                                const parentContainerHeight = parentContainer.offsetHeight;
 
-                                                    descriptionHeightChange({ containerIndex, rowIndex: props.index, height: currentTargetHeight + 2, typeIndex });
+                                                if (parentRowHeight !== parentContainerHeight) {
+
+
+                                                    descriptionHeightChange({ containerIndex, rowIndex: props.index, height: parentContainerHeight, typeIndex });
                                                     const rowIndex = props.index > 0 ? props.index - 1 : 0;
                                                     list.current.recomputeRowHeights(rowIndex);
 
@@ -117,7 +121,7 @@ const OneList = ({
 
                         }
                     }
-                    overscanRowCount={2}
+                    overscanRowCount={1002}
 
                     // todo change this solution 
                     width={document.querySelector('header').offsetWidth + 300}

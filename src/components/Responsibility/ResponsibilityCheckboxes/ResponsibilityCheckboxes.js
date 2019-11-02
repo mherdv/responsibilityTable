@@ -19,7 +19,7 @@ const ResponsibilityCheckboxes = ({ array, users, rowIndex, containerIndex, disa
                                 key={`checkbox___${user.id}_`}
                                 rowIndex={rowIndex}
                                 responsibilityIndex={index}
-                                checked={!!users[user.id]}
+                                status={users[user.id]}
                                 disabled={disabledAll}
                                 onChange={(event) =>
                                     !disabledAll ? changeResponsibility({
