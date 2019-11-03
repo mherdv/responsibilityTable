@@ -16,8 +16,7 @@ const OneList = ({
     responsibilities,
     containerIndex,
     openAllDescriptions,
-    typeIndex,
-    containerHeight
+    typeIndex
 
 }) => {
 
@@ -59,6 +58,7 @@ const OneList = ({
 
                             const containerTop = scrollContainer.current.getBoundingClientRect().top;
                             const elementTop = containerTop + props.style.top;
+
 
                             if (elementTop < -(sizes.owerscreenPixels) || elementTop > window.innerHeight + sizes.owerscreenPixels) return;
 
@@ -122,7 +122,7 @@ const OneList = ({
 
                         }
                     }
-                    overscanRowCount={1002}
+                    overscanRowCount={100002}
 
                     // todo change this solution 
                     width={document.querySelector('header').offsetWidth + 300}

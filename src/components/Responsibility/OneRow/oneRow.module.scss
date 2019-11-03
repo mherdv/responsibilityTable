@@ -19,7 +19,11 @@
         white-space: nowrap;
         overflow: hidden;
         min-width: 100%;
-      
+        
+        &:focus{
+            
+            margin-bottom: 4px;
+        }
         &:hover{
 
             white-space:initial;
