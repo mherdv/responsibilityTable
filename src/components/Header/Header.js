@@ -1,6 +1,7 @@
 import React from 'react';
 import classes from './Header.module.scss'
 import { toggleDeportment, showHalfDeportmentUsers } from '../../store/actions/usersAction';
+import sizes from '../../constants/sizes'
 
 const Header = ({ usersArray }) => {
 
@@ -30,8 +31,8 @@ const Header = ({ usersArray }) => {
 
                 {usersArray.map((deportament, index) => {
 
-                    let sectionWidth = deportament.users.length * 44 + "px";
-                    if (deportament.showHalf) sectionWidth = 5 * 44 + 'px';
+                    let sectionWidth = deportament.users.length * sizes.checkboxWidth + "px";
+                    if (deportament.showHalf) sectionWidth = (sizes.halfPersonalCount + 1) * sizes.checkboxWidth + 'px';
                     return (
 
                         deportament.show ?
@@ -39,14 +40,14 @@ const Header = ({ usersArray }) => {
 
                                 <h4>
                                     {deportament.deportamentName}
-                                    {deportament.users.length > 5 ?
+                                    {deportament.users.length > sizes.halfPersonalCount + 1 ?
                                         <button className={classes.halfShower} onClick={() => showHalfDeportmentUsers(index, usersArray)}>-</button>
                                         : null}
 
                                 </h4>
                                 <div>
                                     {deportament.users.map((user, index) => {
-                                        if (deportament.showHalf && index > 4) return null
+                                        if (deportament.showHalf && index > sizes.halfPersonalCount) return null
                                         return <p key={`${user.name}_${user.id}_${index}`}>{user.fullName}</p>
                                     })}
                                 </div>

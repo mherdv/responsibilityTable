@@ -1,6 +1,8 @@
 import React, { useRef, useEffect, useState } from 'react';
 
-import { List, WindowScroller } from 'react-virtualized';
+import { List } from 'react-virtualized';
+
+import sizes from '../../../constants/sizes'
 import OneRow from '../OneRow';
 import { descriptionHeightChange } from '../../../store/actions/responsibility/description';
 import { removeResponsibilityLine } from '../../../store/actions/responsibility/responsibilityLine';
@@ -48,7 +50,7 @@ const OneList = ({
                         if (responsibilities[index].removed) {
                             return 0;
                         }
-                        return responsibilities[index].height || 60; //row height
+                        return responsibilities[index].height || sizes.rowHeight; //row height
 
                     }}
 
@@ -58,7 +60,7 @@ const OneList = ({
                             const containerTop = scrollContainer.current.getBoundingClientRect().top;
                             const elementTop = containerTop + props.style.top;
 
-                            if (elementTop < -400 || elementTop > window.innerHeight + 400) return;
+                            if (elementTop < -(sizes.owerscreenPixels) || elementTop > window.innerHeight + sizes.owerscreenPixels) return;
 
                             if (!responsibilities[props.index]) return false;
 
@@ -73,7 +75,6 @@ const OneList = ({
                                         }}
                                         key={props.key} >
 
-                                        {/* todo adding type container think about it   */}
 
                                         <OneRow
                                             description={description}

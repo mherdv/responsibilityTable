@@ -1,5 +1,6 @@
-import React, { useRef } from 'react';
-import { WindowScroller, List } from 'react-virtualized';
+import React from 'react';
+
+import sizes from '../../../constants/sizes';
 import classes from './oneType.module.scss';
 import OneList from '../OneList/OneList';
 
@@ -31,7 +32,7 @@ const OneType = ({
                     if (!types[index].responsibilities[i].removed && types[index].responsibilities[i].height) {
                         height += types[index].responsibilities[i].height;
                     } else if (!types[index].responsibilities[i].removed) {
-                        height += 60
+                        height += sizes.rowHeight
                     }
                 }
                 return <div style={{ height: height + 'px', position: 'relative' }} key={oneType.name + index}>
