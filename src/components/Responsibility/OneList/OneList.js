@@ -7,10 +7,10 @@ import OneRow from '../OneRow';
 import { descriptionHeightChange } from '../../../store/actions/responsibility/description';
 import { removeResponsibilityLine } from '../../../store/actions/responsibility/responsibilityLine';
 
-
-// window.addEventListener('scroll', function () {
-//     console.log(1)
-// })
+let count = 0
+document.addEventListener('scroll', function () {
+    count++
+})
 
 const OneList = ({
     responsibilities,
@@ -29,12 +29,28 @@ const OneList = ({
         setContainerLoad(true);
 
 
-        const updateList = () => list.current.recomputeRowHeights(10000);
-        document.addEventListener('scroll', updateList)
+        const updateList = () => {
+            let current = scrollContainer.current;
+
+            let top = current.getBoundingClientRect().top;
+            let bottom = current.offsetHeight + top;
+
+
+            // + sizes.containerOwerscreenPixels
+
+            if (bottom > top - sizes.containerOwerscreenPixels && top < window.innerHeight + sizes.containerOwerscreenPixels) {
+                list.current.recomputeRowHeights(10000)
+
+            }
+        };
+
+        document.addEventListener('scroll', updateList);
+
         return () => {
-            document.removeEventListener('scroll', updateList)
+            document.removeEventListener('scroll', updateList);
         }
     }, [])
+
     return (
         <>
             <div ref={scrollContainer} style={{ marginLeft: '87px' }}>
@@ -55,7 +71,6 @@ const OneList = ({
 
                     rowRenderer={
                         (props) => {
-
                             const containerTop = scrollContainer.current.getBoundingClientRect().top;
                             const elementTop = containerTop + props.style.top;
 
