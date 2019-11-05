@@ -7,13 +7,10 @@ import OneRow from '../OneRow';
 import { descriptionHeightChange } from '../../../store/actions/responsibility/description';
 import { removeResponsibilityLine } from '../../../store/actions/responsibility/responsibilityLine';
 
-let count = 0
-document.addEventListener('scroll', function () {
-    count++
-})
 
 
-function elementInViewport2(el, containerHeight) {
+
+function elementInViewport(el, containerHeight) {
 
     const scrollTop = document.documentElement.scrollTop
     const relativeTop = el.getBoundingClientRect().top + scrollTop;
@@ -24,6 +21,24 @@ function elementInViewport2(el, containerHeight) {
     return (relativeTop + containerHeight >= scrollTop && relativeTop - containerHeight <= scrollTop);
 
 }
+
+
+let lastScrollTop = 0;
+let direction = 1
+// element should be replaced with the actual target element on which you have applied scroll, use window in case of no target element.
+window.addEventListener("scroll", function () { // or window.addEventListener("scroll"....
+    let st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
+    if (st > lastScrollTop) {
+        // downscroll code
+        direction = 1
+    } else {
+        // upscroll code
+        direction = 0
+    }
+    lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+});
+
+
 const OneList = ({
     responsibilities,
     containerIndex,
@@ -43,8 +58,9 @@ const OneList = ({
 
 
         const updateList = () => {
-            if (elementInViewport2(scrollContainer.current, containerHeight)) {
+            if (elementInViewport(scrollContainer.current, containerHeight)) {
                 list.current.recomputeRowHeights(10000)
+
             }
         };
 
@@ -78,8 +94,16 @@ const OneList = ({
                             const containerTop = scrollContainer.current.getBoundingClientRect().top;
                             const elementTop = containerTop + props.style.top;
 
+                            if (direction === 0) {
+                                // up
 
-                            if (elementTop < -(sizes.owerscreenPixels) || elementTop > window.innerHeight + sizes.owerscreenPixels) return;
+                                if (elementTop < -(sizes.owerscreenLargPixels) || elementTop > window.innerHeight + sizes.owerscreenLowgPixels) return;
+
+
+                            } else {
+                                // down
+                                if (elementTop < (sizes.owerscreenLowgPixels) || elementTop > window.innerHeight + sizes.owerscreenLargPixels) return;
+                            }
 
                             if (!responsibilities[props.index]) return false;
 
