@@ -2,8 +2,7 @@ import React, { memo } from 'react';
 
 
 
-const Checkbox = memo(({ status, onChange }) => {
-    const background = status === 1 ? '/1.svg' : status === 2 ? '/2.svg' : '/3.svg';
+const Checkbox = memo(({ status = 3, onChange }) => {
 
 
     return (
@@ -12,7 +11,7 @@ const Checkbox = memo(({ status, onChange }) => {
             className={"checkboxWrapper"}
             onClick={onChange}
             style={{
-                background: `url(${background})`
+                backgroundImage: `url(${status}.svg)`
             }}
         />
     );

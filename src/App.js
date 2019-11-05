@@ -25,6 +25,7 @@ let startX;
 let scrollLeft;
 
 html.addEventListener('mousedown', (e) => {
+  if (e.button !== 0) return;
   isDown = true;
   html.classList.add('active');
   startX = e.clientX - html.offsetLeft;

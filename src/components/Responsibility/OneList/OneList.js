@@ -59,7 +59,12 @@ const OneList = ({
 
         const updateList = () => {
             if (elementInViewport(scrollContainer.current, containerHeight)) {
-                list.current.recomputeRowHeights(10000)
+
+
+                //detect if last childe is visible 
+
+
+                list.current.forceUpdateGrid()
 
             }
         };
