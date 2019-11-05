@@ -12,11 +12,24 @@ document.addEventListener('scroll', function () {
     count++
 })
 
+
+function elementInViewport2(el, containerHeight) {
+
+    const scrollTop = document.documentElement.scrollTop
+    const relativeTop = el.getBoundingClientRect().top + scrollTop;
+    // console.log(relativeTop, containerHeight, scrollTop)
+
+    // console.log(relativeTop + containerHeight >= scrollTop && relativeTop - containerHeight <= scrollTop)
+
+    return (relativeTop + containerHeight >= scrollTop && relativeTop - containerHeight <= scrollTop);
+
+}
 const OneList = ({
     responsibilities,
     containerIndex,
     openAllDescriptions,
-    typeIndex
+    typeIndex,
+    containerHeight
 
 }) => {
 
@@ -30,17 +43,8 @@ const OneList = ({
 
 
         const updateList = () => {
-            let current = scrollContainer.current;
-
-            let top = current.getBoundingClientRect().top;
-            let bottom = current.offsetHeight + top;
-
-
-            // + sizes.containerOwerscreenPixels
-
-            if (bottom > top - sizes.containerOwerscreenPixels && top < window.innerHeight + sizes.containerOwerscreenPixels) {
+            if (elementInViewport2(scrollContainer.current, containerHeight)) {
                 list.current.recomputeRowHeights(10000)
-
             }
         };
 
@@ -57,7 +61,7 @@ const OneList = ({
                 {containerLoad ? <List
 
                     autoHeight
-                    height={1500}
+                    height={containerHeight}
                     ref={list}
                     rowCount={responsibilities.length}
 
@@ -137,7 +141,7 @@ const OneList = ({
 
                         }
                     }
-                    overscanRowCount={100002}
+                    // overscanRowCount={12}
 
                     // todo change this solution 
                     width={document.querySelector('header').offsetWidth + 300}
