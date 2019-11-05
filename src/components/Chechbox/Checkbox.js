@@ -8,11 +8,8 @@ const Checkbox = memo(({ status = 3, onChange }) => {
     return (
 
         <div
-            className={"checkboxWrapper"}
+            className={`checkboxWrapper b_${status}`}
             onClick={onChange}
-            style={{
-                backgroundImage: `url(${status}.svg)`
-            }}
         />
     );
 }, (next, prev) => {
