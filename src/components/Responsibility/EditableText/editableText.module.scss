@@ -3,6 +3,15 @@
 .container{
     word-break: break-all;
     display: inline-block !important;
+    cursor: text;
+    &[placeholder]:empty:before {
+        content: attr(placeholder);
+        color: #555; 
+    }
+    
+    &[placeholder]:empty:focus:before {
+        content: "";
+    }
 }
 .focused {
     white-space: initial !important;

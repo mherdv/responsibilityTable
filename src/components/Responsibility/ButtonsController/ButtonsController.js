@@ -34,6 +34,7 @@ const ButtonsController = ({
         <div className={classes.container}>
             <EditableText text={name}
                 className={classes.responsibilityTitle}
+                placeholder={'section Name'}
                 onBlur={(event) => changeSectionName({
 
                     sectionId: containerId,

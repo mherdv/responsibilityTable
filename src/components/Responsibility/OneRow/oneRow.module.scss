@@ -34,14 +34,7 @@
 
 
         
-        &[placeholder]:empty:before {
-            content: attr(placeholder);
-            color: #555; 
-        }
-        
-        &[placeholder]:empty:focus:before {
-            content: "";
-        }
+      
     }
     .nameEditable{
         max-width: 100px;
@@ -59,6 +52,7 @@
         width: -moz-fit-content;
         min-width: 234px;
         max-width: 234px;
+        width: 234px;
         display: inline-block;
         background: #fff;
     }

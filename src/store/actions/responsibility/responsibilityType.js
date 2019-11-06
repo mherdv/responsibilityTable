@@ -1,6 +1,6 @@
 import store from '../../';
 import { getClonedResponsibilityArray, getResponsibilityArray } from '../../../utils/storeGetters';
-import { ADDNEWTYPE, CHANGETYPEID } from '../../types';
+import { ADDNEWTYPE, CHANGETYPEID, CHANGTYPENAME } from '../../types';
 
 import axios from 'axios';
 
@@ -67,9 +67,49 @@ function setNewTypeIdActionCreator(array) {
 }
 
 
+function changeTypeName({ name, typeId, containerIndex, typeIndex }) {
+
+    const newArray = getClonedResponsibilityArray();
+    const lastArray = getResponsibilityArray();
+
+    newArray[containerIndex].types[typeIndex].name = name;
+
+    store.dispatch(changeTypeNameAction({ newArray, lastArray, typeId, name }))
+}
+
+
+function changeTypeNameAction({ newArray, lastArray, typeId, name }) {
+
+    store.dispatch(changeTypeNameActionCreator(newArray))
+
+    return async (dispatch) => {
+
+
+        //     try {
+        //         const res = await axios.post('/changeTypeName',{
+        //             typeId,
+        //             name
+        //         })
+        //         if(res.status !==200) throw new Error({})
+        //     } catch (e) {
+        //         alert("error");
+        //         dispatch(changeTypeNameActionCreator(lastArray))
+        //     }
+
+    }
+}
+
+function changeTypeNameActionCreator(array) {
+    return {
+        type: CHANGTYPENAME,
+        payload: array
+    }
+}
+
 
 
 
 export {
-    addNewType
+    addNewType,
+    changeTypeName,
 }
