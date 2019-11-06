@@ -61,7 +61,7 @@ const ButtonsController = ({
                         if (
                             !inputName.current.value.trim() ||
                             !inputDescription.current.value.trim() ||
-                            !selectedType
+                            !selectedType.index
                         ) return;
                         setShowLineForm(!showLineForm)
                         // todo check validation 
@@ -77,20 +77,22 @@ const ButtonsController = ({
                                 typeIndex: selectedType.index
                                 //type index 
                             })
-                        } else {
-                            createResponsibilityTypeAddNewLine({
-
-                                containerId,
-                                containerIndex,
-                                typeName: selectedType,
-                                lineProps: {
-
-                                    description: inputDescription.current.value,
-                                    name: inputName.current.value
-                                }
-
-                            })
                         }
+
+                        // else {
+                        //     createResponsibilityTypeAddNewLine({
+
+                        //         containerId,
+                        //         containerIndex,
+                        //         typeName: selectedType,
+                        //         lineProps: {
+
+                        //             description: inputDescription.current.value,
+                        //             name: inputName.current.value
+                        //         }
+
+                        //     })
+                        // }
 
                     }}>Add</button>
                 </div> : null}
