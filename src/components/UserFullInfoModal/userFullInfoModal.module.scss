@@ -1,0 +1,38 @@
+.container{
+    position: fixed;
+    width: 529px;
+    height: 281px;
+    background: #fff;
+    top: 0;
+    z-index: 9;
+    overflow: auto;
+    left: calc(50% - 270px);
+    top: 236px;
+    padding: 10px;
+    border-radius: 5px;
+
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25)
+}
+.oneResponsibility{
+    &>div{
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        margin-bottom: 22px;
+    
+    }
+}
+.closeButton{
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+
+    &> img{
+        width: 16px;
+    }
+}

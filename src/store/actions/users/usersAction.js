@@ -1,8 +1,8 @@
-import { LOADUSERS, GETUSERSERROR, SETALLUSERS, CHANGEDEPORTMENTVISIBILITYSTATUS, CHANGEDEPORTMENTSHOWHALF } from "../types";
+import { LOADUSERS, GETUSERSERROR, SETALLUSERS, CHANGEDEPORTMENTVISIBILITYSTATUS, CHANGEDEPORTMENTSHOWHALF } from "../../types";
 import Axios from "axios";
-import keys from '../../constants/keys';
-import { iterationCopy } from "../../utils/cloningObject";
-import store from '../';
+import keys from '../../../constants/keys';
+import { iterationCopy } from "../../../utils/cloningObject";
+import store from '../..';
 
 
 const getAllUsersAction = () => {

@@ -97,12 +97,12 @@ const OneList = ({
                             if (direction === 0) {
                                 // up
 
-                                if (elementTop < -(sizes.owerscreenLargPixels) || elementTop > window.innerHeight + sizes.owerscreenLowgPixels) return;
+                                if (elementTop < -(sizes.owerscreenLargPixels) || elementTop > window.innerHeight + sizes.owerscreenLowPixels) return;
 
 
                             } else {
                                 // down
-                                if (elementTop < (sizes.owerscreenLowgPixels) || elementTop > window.innerHeight + sizes.owerscreenLargPixels) return;
+                                if (elementTop < (sizes.owerscreenLowPixels) || elementTop > window.innerHeight + sizes.owerscreenLargPixels) return;
                             }
 
                             if (!responsibilities[props.index]) return false;

@@ -31,11 +31,6 @@ header{
 .deportament{
     
     text-align: center;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
     border-left: none;
     border: 1px solid black;
     border-left: none;
@@ -55,6 +50,7 @@ header{
     }
     &>div{
         
+    height: 194px;
         -webkit-writing-mode: vertical-lr;
         
             -ms-writing-mode: tb-lr;
@@ -68,6 +64,18 @@ header{
             border-top: 1px solid black;
             border-bottom: none;
             white-space: nowrap;
+            // justify-content: flex-start;
+            display: block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-align: left;
+            line-height: 38px;
+
+            cursor: pointer;
+            &:hover {
+                background: lightcyan;
+            }
+            
             &:last-child{
 
                 border-right: none;
@@ -104,7 +112,7 @@ header{
     
     position: absolute;
     outline: none;
-    top: 12px;
+    top: 3px;
 }
 .checkboxContainer{
     cursor: pointer;

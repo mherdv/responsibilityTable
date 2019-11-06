@@ -48,6 +48,7 @@ function changeResponsibility({ userId, rowIndex, containerIndex, typeIndex }) {
     const users = newArray[containerIndex].types[typeIndex].responsibilities[rowIndex].users;
 
     users[userId] = users[userId] === undefined ? 1 : users[userId] >= 3 ? 1 : ++users[userId];
+
     store.dispatch(changeUserResponsibilityAction({
         newArray,
         userId,

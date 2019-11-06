@@ -1,7 +1,8 @@
 import React from 'react';
 import classes from './Header.module.scss'
-import { toggleDeportment, showHalfDeportmentUsers } from '../../store/actions/usersAction';
+import { toggleDeportment, showHalfDeportmentUsers } from '../../store/actions/users/usersAction';
 import sizes from '../../constants/sizes'
+import { showUserFullResponsibilitiesModal } from '../../store/actions/users/fullResponsibilityes';
 
 const Header = ({ usersArray }) => {
 
@@ -27,10 +28,7 @@ const Header = ({ usersArray }) => {
                 })}
             </div>
             <header>
-
-
                 {usersArray.map((deportament, index) => {
-
                     let sectionWidth = deportament.users.length * sizes.checkboxWidth + "px";
                     if (deportament.showHalf) sectionWidth = (sizes.halfPersonalCount + 1) * sizes.checkboxWidth + 'px';
                     return (
@@ -47,8 +45,9 @@ const Header = ({ usersArray }) => {
                                 </h4>
                                 <div>
                                     {deportament.users.map((user, index) => {
+
                                         if (deportament.showHalf && index > sizes.halfPersonalCount) return null
-                                        return <p key={`${user.name}_${user.id}_${index}`}>{user.fullName}</p>
+                                        return <p key={`${user.name}_${user.id}_${index}`} onClick={() => showUserFullResponsibilitiesModal(user)}>{user.fullName}</p>
                                     })}
                                 </div>
                             </div> : null

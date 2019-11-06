@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
 import './App.scss';
 import { connect } from 'react-redux'
-import { getAllUsersAction } from './store/actions/usersAction';
+import { getAllUsersAction } from './store/actions/users/usersAction';
 import Responsibility from './components/Responsibility';
 import Header from './components/Header';
 
 import { scrollLeftSetterActionCreator } from './store/actions/events/eventsAction';
 
 import store from './store'
+import UserFullInfoModal from './components/UserFullInfoModal';
 
 window.addEventListener('scroll', () => {
   const scrollLeft = store.getState().events.scrollLeft;
@@ -50,12 +51,12 @@ html.addEventListener('mousemove', (e) => {
 
 
 
-const App = ({ loading, error, dispatch, usersArray, scrollLeft }) => {
+const App = ({ loading, error, dispatch, usersArray, userFullInfoModal }) => {
+
 
   useEffect(() => {
+
     dispatch(getAllUsersAction())
-
-
 
   }, [])
 
@@ -68,7 +69,7 @@ const App = ({ loading, error, dispatch, usersArray, scrollLeft }) => {
 
       {usersArray.length ? <Responsibility /> : null}
 
-
+      {userFullInfoModal.isVisible ? <UserFullInfoModal {...userFullInfoModal} /> : null}
 
     </div>
   );
@@ -76,10 +77,12 @@ const App = ({ loading, error, dispatch, usersArray, scrollLeft }) => {
 
 
 function mapStateToProps(store) {
+
   return {
     loading: store.users.loading,
     error: store.users.error,
-    usersArray: store.users.usersArray
+    usersArray: store.users.usersArray,
+    userFullInfoModal: store.userFullInfoModal
 
   }
 }
