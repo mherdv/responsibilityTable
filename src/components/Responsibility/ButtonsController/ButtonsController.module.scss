@@ -85,20 +85,35 @@
     top: -71px;
     height: 30px;
 
-    input{
-        width: 142px;
-        height: 30px;
-        margin-bottom: 5px;
-        padding-left: 5px;
-        font-size: 11px;
-       
-    }
+  
     
     button{
         padding: 7px 15px;
         margin-left: 16px;
     }
 }
+input{
+    width: 142px;
+    height: 30px;
+    margin-bottom: 5px;
+    padding-left: 5px;
+    font-size: 11px;
+   
+}
+.typeForm{
+    display: flex;
+    align-items: center;
+    input{
+        margin-bottom: 0;
+        margin-left: 5px;
+    }
+    button{
+        margin-left: 5px;
+        padding: 7px 15px;
+    }
+}
+
+
 input[type=checkbox] {
     display: none;
   }

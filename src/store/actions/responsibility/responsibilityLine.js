@@ -1,7 +1,7 @@
 import { REMOVERESPONSIBILITYLINE, ADDRESPONSIBILITYLINE, CREATERESPONSIBILITYTYPEANDNEWLINE } from "../../types"
 import axios from "axios"
 // todo add catch handling 
-import store from '../../index';
+import store from '../../';
 import { getClonedResponsibilityArray, getResponsibilityArray } from "../../../utils/storeGetters";
 import { iterationCopy } from "../../../utils/cloningObject";
 
@@ -63,7 +63,7 @@ function createResponsibilityTypeAddNewLine({
 }) {
     const newArray = getClonedResponsibilityArray();
     const LastArray = getResponsibilityArray();
-    console.log(newArray)
+
 
     const responsibilityLine = {
         id: '_' + Math.random().toString(36).substr(2, 9),
@@ -88,6 +88,7 @@ function createResponsibilityTypeAddNewLine({
         LastArray,
         responsibilityLine,
         containerIndex,
+        containerId,
         newType
     }))
 }
@@ -97,7 +98,8 @@ const createResponsibilityTypeAddNewLineAction = ({
     LastArray,
     containerIndex,
     responsibilityLine,
-    newType
+    newType,
+    containerId
 }) => {
 
     store.dispatch(createResponsibilityTypeAddNewLineActionCreator(newArray))
@@ -106,7 +108,7 @@ const createResponsibilityTypeAddNewLineAction = ({
         // try {
 
         //     const response = await axios.post('/createNewTypeAndLine', {
-
+        //         containerId
         //     })
         //     if (!response) throw new Error({});
 

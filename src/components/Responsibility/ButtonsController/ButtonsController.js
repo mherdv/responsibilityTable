@@ -6,6 +6,7 @@ import { toggleResponsibilitySection, changeSectionName, removeResponsibilitySec
 import { addResponsibilityLine, createResponsibilityTypeAddNewLine } from '../../../store/actions/responsibility/responsibilityLine';
 import { toggleDescriptionFullHeight } from '../../../store/actions/responsibility/description';
 import CustomizedAutosuggest from '../../CustomizedAutosuggest';
+import { addNewType } from '../../../store/actions/responsibility/responsibilityType';
 
 
 
@@ -21,11 +22,13 @@ const ButtonsController = ({
 
 
 
-    const [showForm, setShowForm] = useState(false);
+    const [showLineForm, setShowLineForm] = useState(false);
+    const [showTypeForm, setShowTypeForm] = useState(false);
     const [selectedType, setSelectedType] = useState(null);
 
     const inputDescription = useRef(null);
     const inputName = useRef(null);
+    const typeName = useRef(null);
 
     return (
         <div className={classes.container}>
@@ -39,10 +42,11 @@ const ButtonsController = ({
 
                 })}
             />
-            <button style={{ marginLeft: "10px" }} onClick={() => toggleResponsibilitySection({ index: containerIndex })}>showHide</button>
-            <button style={{ marginLeft: "10px" }} onClick={() => { setShowForm(!showForm) }}>addNewLine</button>
+            <button style={{ marginLeft: "10px" }} onClick={() => toggleResponsibilitySection({ index: containerIndex })}>show-Hide</button>
+            <button style={{ marginLeft: "10px" }} onClick={() => { setShowLineForm(!showLineForm) }}>add New Line</button>
 
-            {showForm ?
+
+            {showLineForm ?
                 <div className={classes.addLineForm}>
 
                     <CustomizedAutosuggest suggestions={typesArray} setSelected={setSelectedType} />
@@ -52,7 +56,13 @@ const ButtonsController = ({
                     <input ref={inputName} type="text" placeholder="row name" />
 
                     <button onClick={() => {
-                        setShowForm(!showForm)
+
+                        if (
+                            !inputName.current.value.trim() ||
+                            !inputDescription.current.value.trim() ||
+                            !selectedType
+                        ) return;
+                        setShowLineForm(!showLineForm)
                         // todo check validation 
 
 
@@ -84,6 +94,26 @@ const ButtonsController = ({
                     }}>Add</button>
                 </div> : null}
 
+
+            <button style={{ marginLeft: "10px" }} onClick={() => { setShowTypeForm(!showTypeForm) }}>add new type</button>
+
+
+            {showTypeForm ?
+                <div className={classes.typeForm}>
+                    <input ref={typeName} type="text" placeholder="type Name" />
+                    <button onClick={() => {
+                        if (!typeName.current.value.trim()) return;
+
+                        addNewType({
+                            name: typeName.current.value,
+                            containerId,
+                            containerIndex
+                        })
+                        setShowTypeForm(false)
+                    }}>Add</button>
+                </div>
+                : null}
+            {/* showTypeForm({ containerId, containerIndex }) */}
             <div className={classes.openAllContainer}
                 onClick={() => toggleDescriptionFullHeight({ index: containerIndex })}
             >
