@@ -6,7 +6,7 @@ const filterSuggestions = ({ suggestions, value }) => {
     const inputValue = value.trim().toLowerCase();
     const inputLength = inputValue.length;
 
-    return inputLength === 0 ? [] : suggestions.filter(lang =>
+    return inputLength === 0 ? suggestions : suggestions.filter(lang =>
         lang.name.toLowerCase().search(inputValue) !== -1
     );
 }
@@ -53,6 +53,8 @@ const CustomizedAutosuggest = ({ suggestions, setSelected }) => {
             },
             placeholder: "select responsibility Type"
         }}
+
+        shouldRenderSuggestions={() => true}
 
     />
 }
