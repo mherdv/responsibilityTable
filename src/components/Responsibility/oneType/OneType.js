@@ -20,7 +20,7 @@ const OneType = ({
     return (
 
 
-        <div>
+        <div >
 
 
             {types.map((oneType, index) => {
@@ -35,9 +35,12 @@ const OneType = ({
                         height += sizes.rowHeight
                     }
                 }
-                return <div style={{ height: height + 'px', position: 'relative' }} key={oneType.name + index}>
+                return <div style={{ height: height + 'px', position: 'relative' }} className={classes.oneTypeSection} key={oneType.name + index}>
 
-                    <h2 className={classes.typeTitle}>{oneType.name}</h2>
+                    <div className={classes.typeTitleContainer}>
+                        <h2 className={classes.typeTitle}>{oneType.name}</h2>
+                    </div>
+
                     <OneList
                         responsibilities={oneType.responsibilities}
                         containerIndex={containerIndex}

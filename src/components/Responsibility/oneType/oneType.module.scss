@@ -1,10 +1,27 @@
+
+.oneTypeSection{
+    display: flex;
+
+}
+
+.typeTitleContainer{
+    
+    height: 100%;
+    width: 100px;
+    position: sticky;
+    display: inline-block;
+    left: 40px;
+    width: 1px;
+}
 .typeTitle{
     position: absolute;
-    background: #ffe700;
+    background: #FFFFFF;
+    border: 1px solid #CCCCCC;
     height: 100%;
     writing-mode: vertical-lr;
     z-index: 2;
     text-align: center;
     padding: 0 10px;
-    border: 1px solid;
+    color: #CCCCCC;
+    border: 1px solid, black ;
 }

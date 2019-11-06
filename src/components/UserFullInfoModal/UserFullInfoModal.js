@@ -7,15 +7,14 @@ import { hideUserFullResponsibilityModal } from '../../store/actions/users/fullR
 const UserFullInfoModal = ({ user, responsibilities }) => {
 
     useEffect(() => {
-
         const documentOnClick = function (event) {
 
             if (event.target.closest('.' + classes.container) || event.target.closest('header')) return;
             hideUserFullResponsibilityModal()
         }
-
         document.addEventListener('click', documentOnClick)
         return () => {
+
             document.removeEventListener('click', documentOnClick)
         }
     }, [])
@@ -29,16 +28,16 @@ const UserFullInfoModal = ({ user, responsibilities }) => {
 
 
             <div>
-                {responsibilities.map(responsibility => {
+                {responsibilities.map((responsibility, index) => {
 
 
                     let status = responsibility.users[user.id];
                     if (status === 3) return null;
 
-                    return <div className={classes.oneResponsibility}>
+                    return <div className={classes.oneResponsibility} key={"description__detail" + index}>
 
-                        <div><span>Responsibility:</span> {responsibility.name || null} <img src={status + ".svg"} alt="status icon" style={{ width: '30px' }} /></div>
-                        <div><span>Description:</span> {responsibility.description || null}</div>
+                        <div><span>Responsibility: {responsibility.name || 'name'}</span>  <img src={status + ".svg"} alt="status icon" style={{ width: '30px' }} /></div>
+                        <div><span>Description:  {responsibility.description || null}</span> </div>
                     </div>
                 })}
             </div>

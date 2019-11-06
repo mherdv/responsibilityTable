@@ -16,7 +16,7 @@
 
 
 .checkboxWrapper{
-    outline: 1px solid;
+    outline: 1px solid #cccccc;
     background-size: 90% !important;
     background-repeat: no-repeat !important;
     background-position: center  !important;
@@ -29,7 +29,7 @@
     background-image:url(/2.svg) ;
 }
 .b_3{
-    background-image:url(/3.svg) ;
+    // background-image:url(/3.svg) ;
 }
 .rowContainer{
     // will-change: height;
@@ -66,3 +66,50 @@ footer{
 .ReactVirtualized__Grid.ReactVirtualized__List,.ReactVirtualized__Grid__innerScrollContainer{
     overflow: initial !important;
 }
+
+.react-autosuggest__suggestions-container{
+    position: absolute;
+    background: #fff;
+    width: 147px;
+    z-index: 99;
+    max-height: 150px;
+    overflow: auto;
+    ul{
+        li{
+            list-style: none;
+            cursor: pointer;
+            padding: 5px;
+            &:hover{
+                background: lightcyan;
+            }
+            &.react-autosuggest__suggestion--highlighted{
+                background: lightcyan;
+            }
+        }
+    
+    }
+}
+
+
+.customCheckboxLeft{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    &::before{
+        content: '';
+        height: 20px;
+        width: 20px;
+        display: inline-block;
+        border: 1px solid #616161;
+        margin-right:7px;
+    }
+    &.checked::before{
+        background: url(/checked.svg);
+        background-size: 80% 80%;
+        background-position: center;
+        background-repeat: no-repeat;
+        // display: none;
+    }
+}
+
+

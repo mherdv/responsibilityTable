@@ -22,7 +22,6 @@ const ButtonsController = ({
 
 
     const [showForm, setShowForm] = useState(false);
-    const [requestType, setRequestType] = useState(null);
     const [selectedType, setSelectedType] = useState(null);
 
     const inputDescription = useRef(null);
@@ -44,12 +43,12 @@ const ButtonsController = ({
             <button style={{ marginLeft: "10px" }} onClick={() => { setShowForm(!showForm) }}>addNewLine</button>
 
             {showForm ?
-                <div>
+                <div className={classes.addLineForm}>
 
                     <CustomizedAutosuggest suggestions={typesArray} setSelected={setSelectedType} />
-                    <hr />
+
                     <input ref={inputDescription} type="text" placeholder="row description" />
-                    <hr />
+
                     <input ref={inputName} type="text" placeholder="row name" />
 
                     <button onClick={() => {
@@ -82,14 +81,15 @@ const ButtonsController = ({
                             })
                         }
 
-                    }}>create</button>
+                    }}>Add</button>
                 </div> : null}
 
             <div className={classes.openAllContainer}
                 onClick={() => toggleDescriptionFullHeight({ index: containerIndex })}
             >
-                <span> open All</span>
-                <input type="checkbox" checked={openAllDescriptions} />
+                {/* containerId */}
+                <span className={openAllDescriptions ? classes.checked : ''}> open All</span>
+                <input type="checkbox" id={'addNewLine' + containerId} checked={openAllDescriptions} />
             </div>
 
             <div className={classes.removeSection}

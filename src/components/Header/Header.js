@@ -17,7 +17,7 @@ const Header = ({ usersArray }) => {
                             onClick={() => toggleDeportment(index, usersArray)}
                             className={classes.checkboxContainer}
                         >
-                            <label>{deportament.deportamentName}</label>
+                            <label className={'customCheckboxLeft ' + (deportament.show ? ' checked' : ' ')} >{deportament.deportamentName}</label>
                             {/* todo change to deportament id  */}
                             <input type="checkbox"
 

@@ -6,7 +6,7 @@
 header{
 
     margin-left: $respContainerWidth;
-    padding-left: 1px;
+    padding-left: 4px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -26,18 +26,20 @@ header{
     -webkit-transform: translateY(0);
             transform: translateY(0);
     top: 0;
+
 }
 
 .deportament{
     
     text-align: center;
     border-left: none;
-    border: 1px solid black;
+    border: 1px solid #ccc;
     border-left: none;
     background: #fff;
+    
     &:first-child{
 
-        border-left: 1px solid black;
+        border-left: 1px solid #ccc;
     }
     &> h4{
 
@@ -50,7 +52,7 @@ header{
     }
     &>div{
         
-    height: 194px;
+    height: 217px;
         -webkit-writing-mode: vertical-lr;
         
             -ms-writing-mode: tb-lr;
@@ -61,7 +63,7 @@ header{
         &>p{
 
             @include columnStyles;
-            border-top: 1px solid black;
+            border-top: 1px solid #ccc;
             border-bottom: none;
             white-space: nowrap;
             // justify-content: flex-start;
@@ -89,14 +91,14 @@ header{
 }
 .departmentsChecker{
     position: fixed;
-    min-width: $respContainerWidth;
+    width: $respContainerWidth;
     z-index: 4;
     left: 0;
     margin-right: 5px;
     background: #fff;
     min-height: 235px;
-    border-bottom: 1px solid;
-    border-right: 1px solid;
+    // border-bottom: 1px solid;
+    // border-right: 1px solid;
     &> div{
         display: flex;
         justify-content: space-between;

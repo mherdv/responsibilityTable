@@ -6,12 +6,11 @@ const AddResponsibilityForm = () => {
     const input = useRef(null);
     return (
         <div className={classes.container}>
-            <div>add new responsibility section</div>
-            <input ref={input} type="text" />
+            <input ref={input} type="text" placeholder="Add New Responsibility" />
             <button onClick={() => {
                 addResponsibilitySection({ name: input.current.value });
-                input.current.value = ''
-            }}> create section</button>
+                input.current.value = '';
+            }}> Add</button>
         </div>
     );
 };

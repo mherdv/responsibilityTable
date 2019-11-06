@@ -3,7 +3,7 @@ import classes from './editableText.module.scss';
 
 import ContentEditable from "react-contenteditable";
 
-const EditableText = memo(({ text, className, onInput, onBlur, rowHeightChange, openAllDescriptions }) => {
+const EditableText = memo(({ text, className, onInput, onBlur, rowHeightChange, openAllDescriptions, placeholder }) => {
 
 
     const [focused, setFocused] = useState(false);
@@ -38,6 +38,8 @@ const EditableText = memo(({ text, className, onInput, onBlur, rowHeightChange, 
             html={text}
             onKeyDown={onKeyDown}
             onFocus={() => setFocused(true)}
+
+            placeholder={placeholder || ''}
             onChange={(event) => {
                 onInput && onInput(event)
                 rowHeightChange && rowHeightChange(event)

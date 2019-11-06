@@ -26,13 +26,14 @@ const OneRow = ({
 
             <div className={classes.descriptionLeftSide}>
 
-                <button onClick={removeLine} className={classes.removeRow}>-</button>
+                <button onClick={removeLine} className={classes.removeRow}></button>
                 <EditableText
                     openAllDescriptions={openAllDescriptions}
                     rowHeightChange={rowHeightChange}
                     className={classes.EditableText} text={name || ''}
                     onBlur={(event) => changeResponsibilityName({ event, containerIndex, rowIndex, typeIndex })}
                     onInput={onInput}
+                    placeholder="Name"
                 />
                 <EditableText
                     openAllDescriptions={openAllDescriptions}
@@ -40,6 +41,7 @@ const OneRow = ({
                     className={classes.EditableText} text={description}
                     onBlur={(event) => changeResponsibilityDescription({ event, containerIndex, rowIndex, typeIndex })}
                     onInput={onInput}
+                    placeholder="Description"
                 />
             </div>
             <ResponsibilityCheckboxes
