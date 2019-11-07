@@ -33,6 +33,9 @@ header{
     top: 0;
 
 }
+header + div{
+    min-width: 100%;    
+}
 
 .deportament{
     
@@ -84,7 +87,7 @@ header{
 
             cursor: pointer;
             &:hover {
-                background: lightcyan;
+                background: #ededed;
             }
             
             &:last-child{
@@ -151,6 +154,6 @@ header{
 .checkboxContainer{
     cursor: pointer;
     &:hover{
-        background: lightcyan;
+        background: #ededed;
     }
 }

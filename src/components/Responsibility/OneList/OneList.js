@@ -7,20 +7,30 @@ import OneRow from '../OneRow';
 import { descriptionHeightChange } from '../../../store/actions/responsibility/description';
 import { removeResponsibilityLine } from '../../../store/actions/responsibility/responsibilityLine';
 
+import { connect } from 'react-redux';
+
 
 
 
 function elementInViewport(el, containerHeight) {
 
+    const elTop = el.getBoundingClientRect().top
     const scrollTop = document.documentElement.scrollTop
-    const relativeTop = el.getBoundingClientRect().top + scrollTop;
+    const relativeTop = elTop + scrollTop;
     // console.log(relativeTop, containerHeight, scrollTop)
 
     // console.log(relativeTop + containerHeight >= scrollTop && relativeTop - containerHeight <= scrollTop)
 
-    return (relativeTop + containerHeight >= scrollTop && relativeTop - containerHeight <= scrollTop);
+    return (
+        (
+            relativeTop + containerHeight >= scrollTop &&
+            relativeTop - containerHeight <= scrollTop
+        )
+        || (elTop >= 0 && elTop <= window.innerHeight));
 
 }
+
+
 
 
 let lastScrollTop = 0;
@@ -39,23 +49,27 @@ window.addEventListener("scroll", function () { // or window.addEventListener("s
 });
 
 
+
+
 const OneList = ({
     responsibilities,
     containerIndex,
     openAllDescriptions,
     typeIndex,
-    containerHeight
+    containerHeight,
+    counter
 
 }) => {
-
-
     const list = useRef(null);
     const scrollContainer = useRef(null);
     const [containerLoad, setContainerLoad] = useState(false);
 
+
     useEffect(() => {
         setContainerLoad(true);
 
+
+        // document.dispatchEvent(new Event('scroll'))
 
         const updateList = () => {
             if (elementInViewport(scrollContainer.current, containerHeight)) {
@@ -63,10 +77,22 @@ const OneList = ({
             }
         };
 
+
+
+
         document.addEventListener('scroll', updateList);
 
         return () => {
             document.removeEventListener('scroll', updateList);
+
+
+
+
+            setTimeout(() => {
+
+                document.dispatchEvent(new Event('scroll'))
+            })
+
         }
     }, [])
 
@@ -175,5 +201,15 @@ const OneList = ({
         </>)
 };
 
+function mapStateToProps(state) {
 
-export default OneList;
+    let counter = 0;
+
+    state.responsibility.responsibilityArray.forEach(resp => {
+        if (resp.show && !resp.removed) counter++
+    })
+    return {
+        counter
+    }
+}
+export default connect(mapStateToProps)(OneList);

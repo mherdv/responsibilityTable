@@ -8,6 +8,11 @@
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
 }
+
+
+html{
+    min-height: 100%;
+}
 .App{
 
     font-family: Arial;
@@ -82,10 +87,10 @@ footer{
             cursor: pointer;
             padding: 5px;
             &:hover{
-                background: lightcyan;
+                background: #ededed;
             }
             &.react-autosuggest__suggestion--highlighted{
-                background: lightcyan;
+                background: #ededed;
             }
         }
     

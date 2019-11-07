@@ -7,6 +7,8 @@ import { getClonedResponsibilityArray, getResponsibilityArray } from "../../../u
 
 
 
+
+
 function removeResponsibilitySection({ sectionId, sectionIndex }) {
     const newArray = getClonedResponsibilityArray();
     const lastArray = getResponsibilityArray();
@@ -15,12 +17,16 @@ function removeResponsibilitySection({ sectionId, sectionIndex }) {
     store.dispatch(removeResponsibilitySectionAction({ newArray, sectionId, lastArray: lastArray }))
 
 
+
+
 }
 
 
 function removeResponsibilitySectionAction({ newArray, sectionId, lastArray }) {
 
     store.dispatch(removeSection(newArray))
+
+
 
 
     return async function (dispatch) {
@@ -114,6 +120,8 @@ function toggleResponsibilitySection({ index }) {
     const newArray = getClonedResponsibilityArray();
     newArray[index].show = !newArray[index].show;
     store.dispatch(changeResponsibilitySectionVisibilityAction(newArray));
+
+
 
 }
 

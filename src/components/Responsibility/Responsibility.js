@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
 import 'react-virtualized/styles.css';
@@ -26,10 +26,13 @@ import OneType from './oneType/OneType';
 
 const Responsibility = ({ dispatch, responsibilityArray, loading, error }) => {
 
+
     useEffect(() => {
         dispatch(getAllResponsibilityAction());
         // eslint-disable-next-line
     }, [])
+
+
 
     return (
         <div className={classes.container}>

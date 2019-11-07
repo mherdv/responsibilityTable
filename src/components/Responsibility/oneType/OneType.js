@@ -9,8 +9,7 @@ import { changeTypeName } from '../../../store/actions/responsibility/responsibi
 const OneType = ({
     section,
     containerIndex,
-    descriptionsAreOpened,
-
+    descriptionsAreOpened
 
 }) => {
 
