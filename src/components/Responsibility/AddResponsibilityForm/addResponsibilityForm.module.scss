@@ -1,6 +1,8 @@
 .container{
-    padding-left: 45px;
+    left: 45px;
+    position: sticky;
     font-size: 30px;
+    display: inline-block;
     margin-top: 30px;
     input {
         width: 259.44px;

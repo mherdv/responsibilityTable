@@ -43,8 +43,28 @@ const ButtonsController = ({
 
                 })}
             />
-            <button style={{ marginLeft: "10px" }} onClick={() => toggleResponsibilitySection({ index: containerIndex })}>show-Hide</button>
-            <button style={{ marginLeft: "10px" }} onClick={() => { setShowLineForm(!showLineForm) }}>add New Line</button>
+
+
+
+            <button style={{ marginLeft: "10px" }} onClick={() => { setShowTypeForm(!showTypeForm) }}>Add new type</button>
+
+
+            {showTypeForm ?
+                <div className={classes.typeForm}>
+                    <input ref={typeName} type="text" placeholder="type Name" />
+                    <button onClick={() => {
+                        if (!typeName.current.value.trim()) return;
+
+                        addNewType({
+                            name: typeName.current.value,
+                            containerId,
+                            containerIndex
+                        })
+                        setShowTypeForm(false)
+                    }}>Add</button>
+                </div>
+                : null}
+            <button style={{ marginLeft: "10px" }} onClick={() => { setShowLineForm(!showLineForm) }}>Add New Line</button>
 
 
             {showLineForm ?
@@ -61,7 +81,7 @@ const ButtonsController = ({
                         if (
                             !inputName.current.value.trim() ||
                             !inputDescription.current.value.trim() ||
-                            !selectedType.index
+                            !selectedType || selectedType.index === undefined
                         ) return;
                         setShowLineForm(!showLineForm)
                         // todo check validation 
@@ -98,32 +118,18 @@ const ButtonsController = ({
                 </div> : null}
 
 
-            <button style={{ marginLeft: "10px" }} onClick={() => { setShowTypeForm(!showTypeForm) }}>add new type</button>
 
-
-            {showTypeForm ?
-                <div className={classes.typeForm}>
-                    <input ref={typeName} type="text" placeholder="type Name" />
-                    <button onClick={() => {
-                        if (!typeName.current.value.trim()) return;
-
-                        addNewType({
-                            name: typeName.current.value,
-                            containerId,
-                            containerIndex
-                        })
-                        setShowTypeForm(false)
-                    }}>Add</button>
-                </div>
-                : null}
             {/* showTypeForm({ containerId, containerIndex }) */}
             <div className={classes.openAllContainer}
                 onClick={() => toggleDescriptionFullHeight({ index: containerIndex })}
             >
                 {/* containerId */}
-                <span className={openAllDescriptions ? classes.checked : ''}> open All</span>
+                <span className={openAllDescriptions ? classes.checked : ''}> Open All</span>
                 <input type="checkbox" id={'addNewLine' + containerId} checked={openAllDescriptions} />
             </div>
+
+
+            <button style={{ marginLeft: "10px" }} onClick={() => toggleResponsibilitySection({ index: containerIndex })}>Show-Hide</button>
 
             <div className={classes.removeSection}
                 onClick={() => {
@@ -133,7 +139,7 @@ const ButtonsController = ({
                         sectionIndex: containerIndex
                     })
                 }}>
-                <button>remove this section</button>
+                <button>Remove this section</button>
             </div>
 
 

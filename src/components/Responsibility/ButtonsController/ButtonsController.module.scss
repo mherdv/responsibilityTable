@@ -2,9 +2,8 @@
 .container{
     display: inline-flex;
     margin: 10px;
-    margin-left: 45px;
+    left: 45px;
     align-items: center;
-    left: 0;
     position: sticky;
     z-index: 1;
 
@@ -30,6 +29,7 @@
     font-size: 20px;
     display: inline-block;
     min-width: 100px;
+    font-weight: bold;
 }
 
 .openAllContainer{
@@ -60,6 +60,9 @@
             margin-left:7px;
         }
       
+    }
+    input[type="checkbox"]{
+        display: none;
     }
  
 }
@@ -115,6 +118,6 @@ input{
 }
 
 
-input[type=checkbox] {
-    display: none;
-  }
+// input[type=checkbox] {
+//     display: none;
+//   }

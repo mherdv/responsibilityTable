@@ -17,7 +17,7 @@
 
 .checkboxWrapper{
     outline: 1px solid #cccccc;
-    background-size: 90% !important;
+    background-size: 70% !important;
     background-repeat: no-repeat !important;
     background-position: center  !important;
 }
@@ -74,6 +74,7 @@ footer{
     z-index: 99;
     max-height: 150px;
     overflow: auto;
+    top: 30px;
     ul{
         li{
             list-style: none;
@@ -94,6 +95,7 @@ footer{
 .customCheckboxLeft{
     display: flex;
     align-items: center;
+    font-size: 15px;
     cursor: pointer;
     &::before{
         content: '';
@@ -113,6 +115,6 @@ footer{
 }
 
 
-.react-autosuggest__container input{
-    margin-bottom: 0;
-}
+// .react-autosuggest__container input{
+//     margin-bottom: 0;
+// }

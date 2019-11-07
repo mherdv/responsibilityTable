@@ -20,23 +20,43 @@ const HoverEffect = () => {
         function hoverHandler(event) {
 
             const target = event.target;
-            const inputContainer = target.closest(".checkboxWrapper")
+            const inputContainer = target.closest(".checkboxWrapper");
+
+            const styledHeader = document.querySelector('header [data-name][style]');
 
             if (!inputContainer) {
+
+
                 setStyles({ display: 'none' })
+                if (styledHeader)
+                    styledHeader.removeAttribute('style')
                 return
             }
+
+            const headerClass = inputContainer.classList[2];
+
+            [...document.querySelectorAll('header [data-name][style]')].forEach(headName => {
+                headName.removeAttribute('style')
+            })
+
+
+            const currentUserHeaderName = document.querySelector(`header [data-name="${headerClass}"]`);
+
+
+
+
             const { top: inputContainerTop, left: inputContainerLeft } = inputContainer.getBoundingClientRect();
 
 
             const left = inputContainerLeft + document.body.scrollLeft;
             const top = inputContainerTop + document.body.scrollTop;
+            currentUserHeaderName.style.background = '#ededed';
             setStyles({
                 width: left + inputContainer.offsetWidth + 'px',
                 display: 'block',
-                borderBottom: inputContainer.offsetHeight + 'px solid  rgb(121, 193, 218)',
+                borderBottom: inputContainer.offsetHeight + 'px solid #ededed',
                 height: top + inputContainer.offsetHeight + 'px',
-                borderRight: inputContainer.offsetWidth + 'px solid rgb(121, 193, 218)'
+                borderRight: inputContainer.offsetWidth + 'px solid #ededed'
             })
         }
     }, [])

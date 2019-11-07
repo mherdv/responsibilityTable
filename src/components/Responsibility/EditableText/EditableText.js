@@ -3,6 +3,12 @@ import classes from './editableText.module.scss';
 
 import ContentEditable from "react-contenteditable";
 
+
+function blockDocumentClick(event) {
+
+    event.stopImmediatePropagation()
+}
+
 const EditableText = memo(({ text, className, onInput, onBlur, rowHeightChange, openAllDescriptions, placeholder }) => {
 
 
@@ -37,7 +43,12 @@ const EditableText = memo(({ text, className, onInput, onBlur, rowHeightChange, 
             contentEditable="true"
             html={text}
             onKeyDown={onKeyDown}
-            onFocus={() => setFocused(true)}
+            onFocus={() => {
+                // document.removeEventListener('click', blockDocumentClick)
+                // document.addEventListener('click', blockDocumentClick)
+                setFocused(true)
+
+            }}
 
             placeholder={placeholder || ''}
             onChange={(event) => {
@@ -45,6 +56,8 @@ const EditableText = memo(({ text, className, onInput, onBlur, rowHeightChange, 
                 rowHeightChange && rowHeightChange(event)
             }}
             onBlur={(event) => {
+
+                // document.removeEventListener('click', blockDocumentClick)
                 setFocused(false);
                 onBlur && onBlur(event);
                 rowHeightChange && rowHeightChange(event)

@@ -46,11 +46,13 @@ function renderCheckboxesArray({ array, scrollLeft, rowIndex, users, containerIn
 
     // }
 
+    let indexCheckbox = -1
     let checkboxes = array.map((deportment) => {
 
 
         return deportment.show ?
             deportment.users.map((user, index) => {
+                indexCheckbox++
                 if (deportment.showHalf && index > sizes.halfPersonalCount) return null
                 chackboxCount++
 
@@ -66,6 +68,7 @@ function renderCheckboxesArray({ array, scrollLeft, rowIndex, users, containerIn
                 return <Checkbox
                     key={`checkbox___${user.id}_`}
                     status={users[user.id]}
+                    index={indexCheckbox}
                     onChange={() =>
                         changeResponsibility({
                             userId: user.id,

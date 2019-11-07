@@ -21,13 +21,13 @@ const UserFullInfoModal = ({ user, responsibilities }) => {
 
     return (
         <div className={classes.container}>
-            <h1>Name: {user.fullName}</h1>
+            <h1>{user.fullName}</h1>
 
-            <h2>Position: {user.position || ''} </h2>
+            <h4>{user.position || ''} </h4>
 
 
 
-            <div>
+            <div className={classes.modalResponsibilitiesContainer}>
                 {responsibilities.map((responsibility, index) => {
 
 
@@ -36,8 +36,8 @@ const UserFullInfoModal = ({ user, responsibilities }) => {
 
                     return <div className={classes.oneResponsibility} key={"description__detail" + index}>
 
-                        <div><span>Responsibility: {responsibility.name || 'name'}</span>  <img src={status + ".svg"} alt="status icon" style={{ width: '30px' }} /></div>
-                        <div><span>Description:  {responsibility.description || null}</span> </div>
+                        <div><span className={classes.smallTitle}>Responsibility: </span> <div> {responsibility.name || 'name'}</div>  <img src={status + ".svg"} alt="status icon" /></div>
+                        <div><span className={classes.smallTitle}>Description:    </span> <div>{responsibility.description || null}</div> </div>
                     </div>
                 })}
             </div>

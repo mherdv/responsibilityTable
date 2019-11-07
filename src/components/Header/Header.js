@@ -6,6 +6,8 @@ import { showUserFullResponsibilitiesModal } from '../../store/actions/users/ful
 
 const Header = ({ usersArray }) => {
 
+    let headerPIndex = -1;
+
 
 
     return (
@@ -31,26 +33,26 @@ const Header = ({ usersArray }) => {
                 {usersArray.map((deportament, index) => {
                     let sectionWidth = deportament.users.length * sizes.checkboxWidth + "px";
                     if (deportament.showHalf) sectionWidth = (sizes.halfPersonalCount + 1) * sizes.checkboxWidth + 'px';
+                    if (!deportament.show) return null;
                     return (
 
-                        deportament.show ?
-                            <div style={{ minWidth: sectionWidth, maxWidth: sectionWidth }} key={`${deportament.name}_${deportament.id}_${index}`} className={classes.deportament}>
+                        <div style={{ minWidth: sectionWidth, maxWidth: sectionWidth }} key={`${deportament.name}_${deportament.id}_${index}`} className={classes.deportament}>
 
-                                <h4>
-                                    {deportament.deportamentName}
-                                    {deportament.users.length > sizes.halfPersonalCount + 1 ?
-                                        <button className={classes.halfShower} onClick={() => showHalfDeportmentUsers(index, usersArray)}>-</button>
-                                        : null}
+                            <h4 className={classes.deportamentName}>
+                                {deportament.deportamentName}
+                                {deportament.users.length > sizes.halfPersonalCount + 1 ?
+                                    <button className={classes.halfShower + " " + (deportament.showHalf ? classes.showLess : '')} onClick={() => showHalfDeportmentUsers(index, usersArray)}><img src="/arrowDown.svg" alt="arrow" /></button>
+                                    : null}
 
-                                </h4>
-                                <div>
-                                    {deportament.users.map((user, index) => {
-
-                                        if (deportament.showHalf && index > sizes.halfPersonalCount) return null
-                                        return <p key={`${user.name}_${user.id}_${index}`} onClick={() => showUserFullResponsibilitiesModal(user)}>{user.fullName}</p>
-                                    })}
-                                </div>
-                            </div> : null
+                            </h4>
+                            <div>
+                                {deportament.users.map((user, index) => {
+                                    headerPIndex++
+                                    if (deportament.showHalf && index > sizes.halfPersonalCount) return null
+                                    return <p key={`${user.name}_${user.id}_${index}`} data-name={"header_" + headerPIndex} onClick={() => showUserFullResponsibilitiesModal(user)}>{user.fullName}</p>
+                                })}
+                            </div>
+                        </div>
                     )
                 })}
             </header>

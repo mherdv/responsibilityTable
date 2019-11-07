@@ -12,16 +12,25 @@
     border-radius: 5px;
 
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+
+    
+     img{
+        width: 15px;
+        margin-left: 5px;
+        margin-top: 4px;
+    }
     
 }
 .oneResponsibility{
     &>div{
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         position: relative;
 
-        margin-bottom: 22px;
-    
+        margin-bottom: 7px;
+        &:last-child{
+            margin-bottom: 20px;
+        }
     }
 }
 .closeButton{
@@ -33,7 +42,18 @@
     border: none;
     outline: none;
 
-    &> img{
-        width: 16px;
+}
+
+.modalResponsibilitiesContainer{
+
+    margin-top: 30px;
+}
+
+.smallTitle{
+    margin-right: 10px;
+
+    & + div{
+        word-break: break-all;
     }
+
 }
