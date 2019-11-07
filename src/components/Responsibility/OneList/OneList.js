@@ -69,6 +69,8 @@ const OneList = ({
 
 
         const updateList = () => {
+
+            // todo think about this condition removing 
             if (elementInViewport(scrollContainer.current, containerHeight)) {
                 list.current.forceUpdateGrid()
             }
