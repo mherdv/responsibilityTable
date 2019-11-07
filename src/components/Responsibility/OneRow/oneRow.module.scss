@@ -11,7 +11,7 @@
     padding-right: 10px;
     
     .EditableText{
-
+       
         width: 210px;
         // background: lightgreen;
         text-overflow: ellipsis; 
@@ -19,7 +19,14 @@
         overflow: hidden;
         min-width: 100%;
         
-        color: #8E8E8E;
+        color: #555;
+
+        font-weight: bold;
+        
+
+        &:last-child{
+            font-weight: initial;
+        }
         &:focus{
             
             margin-bottom: 4px;
@@ -36,6 +43,8 @@
         
       
     }
+
+  
     .nameEditable{
         max-width: 100px;
         min-width: 100px;
