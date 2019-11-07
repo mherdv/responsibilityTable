@@ -17,9 +17,7 @@ function elementInViewport(el, containerHeight) {
     const elTop = el.getBoundingClientRect().top
     const scrollTop = document.documentElement.scrollTop
     const relativeTop = elTop + scrollTop;
-    // console.log(relativeTop, containerHeight, scrollTop)
 
-    // console.log(relativeTop + containerHeight >= scrollTop && relativeTop - containerHeight <= scrollTop)
 
     return (
         (
@@ -69,7 +67,6 @@ const OneList = ({
         setContainerLoad(true);
 
 
-        // document.dispatchEvent(new Event('scroll'))
 
         const updateList = () => {
             if (elementInViewport(scrollContainer.current, containerHeight)) {

@@ -13,14 +13,7 @@ import classes from './responsibility.module.scss';
 import OneType from './oneType/OneType';
 
 
-// todo  add type grout for descriptions                 
-// todo  add name for descriptions
 
-
-// todo  on checkbox checking if click 1 it is main responsibility if 2 secondary  responsibility if 3 not his responsibility
-// todo  add header partly closing availability 
-// todo  add horizontal scroll availability 
-// todo  change checkboxes to icons or change color 
 
 
 
@@ -69,19 +62,12 @@ const Responsibility = ({ dispatch, responsibilityArray, loading, error }) => {
                         <div className={classes.section + ' ' + (!!descriptionsAreOpened ? classes.openAllDescriptions : '')}>
                             {responsibilityArray[containerIndex].show ?
 
-                                // todo change to oneType 
-                                <>
-
-                                    <OneType section={responsibilityArray[containerIndex]} containerIndex={containerIndex} descriptionsAreOpened={descriptionsAreOpened} />
 
 
-                                    {/* <OneList
-                                        responsibilities={responsibilities}
-                                        containerIndex={containerIndex}
-                                        openAllDescriptions={descriptionsAreOpened}
-                                    /> */}
+                                <OneType section={responsibilityArray[containerIndex]} containerIndex={containerIndex} descriptionsAreOpened={descriptionsAreOpened} />
 
-                                </>
+
+
 
                                 : null}
                         </div>

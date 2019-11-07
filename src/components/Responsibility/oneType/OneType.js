@@ -14,13 +14,10 @@ const OneType = ({
 }) => {
 
     const { types } = section;
-    // todo type block resizing
     // type.current.recomputeRowHeights(props.index)
 
 
     return (
-
-
         <div >
 
 

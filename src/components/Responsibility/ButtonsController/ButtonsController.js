@@ -84,7 +84,6 @@ const ButtonsController = ({
                             !selectedType || selectedType.index === undefined
                         ) return;
                         setShowLineForm(!showLineForm)
-                        // todo check validation 
 
 
                         if (selectedType instanceof Object) {

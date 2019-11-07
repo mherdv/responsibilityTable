@@ -45,7 +45,7 @@ function addResponsibilityLine({ description, containerIndex, containerId, typeI
     const newArray = getClonedResponsibilityArray();
     const LastArray = getResponsibilityArray();
 
-    // todo unique id shod come from server after adding 
+
     const newRowObject = { id: '_' + Math.random().toString(36).substr(2, 9), description: description, users: {}, name }
 
 

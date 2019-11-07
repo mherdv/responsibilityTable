@@ -40,8 +40,8 @@ async function changeResponsibilityName({ event, containerIndex, rowIndex, typeI
 
 
     const row = newArray[containerIndex].types[typeIndex].responsibilities[rowIndex];
-    // todo fix this ideotizm 
-    const { id: rowId } = newArray[containerIndex].types[typeIndex].responsibilities[rowIndex];
+
+    const { id: rowId } = row;
     const text = event.currentTarget.innerText.trim();
     row.name = text;
 
