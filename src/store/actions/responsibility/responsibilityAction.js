@@ -11,12 +11,10 @@ import { getClonedResponsibilityArray, getResponsibilityArray } from "../../../u
 
 import API_Rotes from '../API_Routes';
 
-
-
-
-const changeUserResponsibilityAction = ({ newArray, userId, status, LastArray }) => {
+//responsibility id
+const changeUserResponsibilityAction = ({ newArray, userId, status, LastArray ,rowId}) => {
     store.dispatch(changeResponsibilityAction(newArray))
-
+    
 
 
     return async (dispatch) => {
@@ -24,7 +22,7 @@ const changeUserResponsibilityAction = ({ newArray, userId, status, LastArray })
         
         // axios.post(API_Rotes.setResponsibility, {
         //     userId,
-        //     status
+        //     status,rowId
         // }).then((res) => {
 
         //     if (res.status != 200) {
@@ -51,11 +49,17 @@ function changeResponsibility({ userId, rowIndex, containerIndex, typeIndex }) {
 
     users[userId] = users[userId] === undefined ? 1 : users[userId] >= 3 ? 1 : ++users[userId];
 
+    const row = newArray[containerIndex].types[typeIndex].responsibilities[rowIndex];
+
+    const { id: rowId } = row;
+
+
     store.dispatch(changeUserResponsibilityAction({
         newArray,
         userId,
         status: users[userId],
-        LastArray
+        LastArray,
+        rowId
     }))
 
     // todo send change request to server 

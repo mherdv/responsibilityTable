@@ -85,7 +85,7 @@ const ButtonsController = ({
                         ) return;
                         setShowLineForm(!showLineForm)
 
-
+                        console.log(selectedType)
                         if (selectedType instanceof Object) {
 
                             addResponsibilityLine({
@@ -93,7 +93,8 @@ const ButtonsController = ({
                                 name: inputName.current.value,
                                 containerIndex,
                                 containerId,
-                                typeIndex: selectedType.index
+                                typeIndex: selectedType.index,
+                                typeId:selectedType.typeId
                                 //type index 
                             })
                         }

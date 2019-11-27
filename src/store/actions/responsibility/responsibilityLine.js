@@ -6,17 +6,16 @@ import { getClonedResponsibilityArray, getResponsibilityArray } from "../../../u
 import { iterationCopy } from "../../../utils/cloningObject";
 import API_Rotes from '../API_Routes';
 
-const addResponsibilityLineAction = ({ newArray, description, containerId, newRowObject, containerIndex, LastArray, typeIndex }) => {
+const addResponsibilityLineAction = ({ newArray, description, containerId, newRowObject, containerIndex, typeId,LastArray, typeIndex }) => {
     // {newArray,containerId,newRowObject}
-
     newArray[containerIndex].types[typeIndex].responsibilities.push(newRowObject);
     store.dispatch(addResponsibilityLineActionCreator(newArray));
     return async function (dispatch) {
        
         // try {
         //    const res = await axios.post( API_Rotes.addNewLine,{
-        //         containerId,
-        //         description
+        //         
+        //         description , typeId ,name:newRowObject.name
         //    })
 
 
@@ -42,7 +41,7 @@ const addResponsibilityLineAction = ({ newArray, description, containerId, newRo
 
 
 
-function addResponsibilityLine({ description, containerIndex, containerId, typeIndex, name }) {
+function addResponsibilityLine({ description, containerIndex, containerId, typeIndex, name,typeId }) {
 
     const newArray = getClonedResponsibilityArray();
     const LastArray = getResponsibilityArray();
@@ -52,7 +51,7 @@ function addResponsibilityLine({ description, containerIndex, containerId, typeI
 
 
 
-    store.dispatch(addResponsibilityLineAction({ newArray, containerId, newRowObject, description, containerIndex, LastArray, typeIndex }))
+    store.dispatch(addResponsibilityLineAction({ newArray,typeId, containerId, newRowObject, description, containerIndex, LastArray, typeIndex }))
 
 }
 
