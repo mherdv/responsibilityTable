@@ -1,13 +1,15 @@
 import {
-    LOADRESPONSIBILITY,
-    GETRESPONSIBILITYERROR,
-    SETALLRESPONSIBILITY,
-    UPDATERESPONSIBILITYARRAY,
+    LOAD_RESPONSIBILITY,
+    GET_RESPONSIBILITY_ERROR,
+    SET_ALL_RESPONSIBILITY,
+    UPDATE_RESPONSIBILITY_ARRAY,
 } from "../../types";
 import axios from "axios";
 import keys from '../../../constants/keys';
 import store from '../../index';
 import { getClonedResponsibilityArray, getResponsibilityArray } from "../../../utils/storeGetters";
+
+import API_Rotes from '../API_Routes';
 
 
 
@@ -19,8 +21,8 @@ const changeUserResponsibilityAction = ({ newArray, userId, status, LastArray })
 
     return async (dispatch) => {
 
-
-        // axios.post('/setResponsibility', {
+        
+        // axios.post(API_Rotes.setResponsibility, {
         //     userId,
         //     status
         // }).then((res) => {
@@ -63,7 +65,7 @@ function changeResponsibility({ userId, rowIndex, containerIndex, typeIndex }) {
 const changeResponsibilityAction = (newArray) => {
 
     return {
-        type: UPDATERESPONSIBILITYARRAY,
+        type: UPDATE_RESPONSIBILITY_ARRAY,
         payload: newArray
     }
 }
@@ -73,9 +75,9 @@ const getAllResponsibilityAction = () => {
     return async (dispatch) => {
         dispatch(loadingResponsibilityAction())
         try {
-            const response = await axios.get(`${keys.HOST}/responsibility.json`);
+            const response = await axios.get(API_Rotes.getAllResponsibilities);
             const responsibility = response.data.responsibilitiesArray;
-            dispatch({ type: SETALLRESPONSIBILITY, payload: responsibility })
+            dispatch({ type: SET_ALL_RESPONSIBILITY, payload: responsibility })
         } catch (e) {
             dispatch(errorOnLoadAction())
         }
@@ -83,11 +85,11 @@ const getAllResponsibilityAction = () => {
 }
 
 const loadingResponsibilityAction = () => {
-    return { type: LOADRESPONSIBILITY }
+    return { type: LOAD_RESPONSIBILITY }
 }
 
 const errorOnLoadAction = () => {
-    return { type: GETRESPONSIBILITYERROR }
+    return { type: GET_RESPONSIBILITY_ERROR }
 }
 
 

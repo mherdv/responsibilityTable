@@ -1,9 +1,9 @@
 import {
-    SETALLUSERS,
-    LOADUSERS,
-    GETUSERSERROR,
-    CHANGEDEPORTMENTVISIBILITYSTATUS,
-    CHANGEDEPORTMENTSHOWHALF
+    SET_ALL_USERS,
+    LOAD_USERS,
+    GET_USERS_ERROR,
+    CHANGE_DEPORTMENT_VISIBILITY_STATUS,
+    CHANGE_DEPORTMENT_SHOW_HALF_STATUS
 } from "../types";
 
 const initialState = {
@@ -15,16 +15,16 @@ const initialState = {
 function usersReducer(state = initialState, action) {
 
     switch (action.type) {
-        case LOADUSERS:
+        case LOAD_USERS:
             return { ...state, loading: true };
-        case GETUSERSERROR:
+        case GET_USERS_ERROR:
             return { ...state, loading: false, error: true };
-        case SETALLUSERS:
+        case SET_ALL_USERS:
             return { usersArray: action.payload, loading: false, error: false };
 
-        case CHANGEDEPORTMENTVISIBILITYSTATUS:
+        case CHANGE_DEPORTMENT_VISIBILITY_STATUS:
             return { ...state, usersArray: action.payload }
-        case CHANGEDEPORTMENTSHOWHALF:
+        case CHANGE_DEPORTMENT_SHOW_HALF_STATUS:
             return { ...state, usersArray: action.payload }
         default:
             return state;

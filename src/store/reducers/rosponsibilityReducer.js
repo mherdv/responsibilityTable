@@ -1,4 +1,4 @@
-import { LOADRESPONSIBILITY, GETRESPONSIBILITYERROR, SETALLRESPONSIBILITY, UPDATERESPONSIBILITYARRAY, CHANGERESPONSIBILITYSECIONVISIBILITY, ADDRESPONSIBILITYLINE, REMOVERESPONSIBILITYLINE, SETNEWRESPONSIBILITYDESCRIPTION, TOGGLEDESCRIPTIONFULLHEIGHT, REMOVERESPONSIBILITYSECTION, ADDRESPONSIBILITYSECTION, CHAGESECTIONTITLE, DESCRIPTIONHEIGHTCHANGE, CREATERESPONSIBILITYTYPEANDNEWLINE, SETNEWRESPONSIBILITYNAME, ADDNEWTYPE, CHANGTYPENAME } from "../types";
+import { LOAD_RESPONSIBILITY, GET_RESPONSIBILITY_ERROR, SET_ALL_RESPONSIBILITY, UPDATE_RESPONSIBILITY_ARRAY, CHANGE_RESPONSIBILITY_SECTION_VISIBILITY, ADD_RESPONSIBILITY_LINE, REMOVE_RESPONSIBILITY_LINE, SET_NEW_RESPONSIBILITY_DESCRIPTION, TOGGLE_EDITABLE_TEXT_FULL_HEIGHT, REMOVE_RESPONSIBILITY_SECTION, ADD_RESPONSIBILITY_SECTION, CHANGE_SECTION_TITLE, DESCRIPTION_HEIGHT_CHANGE, CREATE_RESPONSIBILITY_TYPE_AND_NEW_LINE, SET_NEW_RESPONSIBILITY_NAME, ADD_NEW_TYPE, CHANGE_TYPE_NAME } from "../types";
 
 const initialState = {
     loading: false,
@@ -8,42 +8,42 @@ const initialState = {
 
 function responsobilityReducer(state = initialState, action) {
     switch (action.type) {
-        case LOADRESPONSIBILITY:
+        case LOAD_RESPONSIBILITY:
             return { ...state, loading: true };
-        case GETRESPONSIBILITYERROR:
+        case GET_RESPONSIBILITY_ERROR:
             return { ...state, loading: false, error: true };
-        case SETALLRESPONSIBILITY:
+        case SET_ALL_RESPONSIBILITY:
             return { responsibilityArray: action.payload, loading: false, error: false };
-        case UPDATERESPONSIBILITYARRAY:
+        case UPDATE_RESPONSIBILITY_ARRAY:
             return { ...state, responsibilityArray: action.payload };
-        case CHANGERESPONSIBILITYSECIONVISIBILITY:
+        case CHANGE_RESPONSIBILITY_SECTION_VISIBILITY:
             return { ...state, responsibilityArray: action.payload };
-        case ADDRESPONSIBILITYLINE:
+        case ADD_RESPONSIBILITY_LINE:
             return { ...state, responsibilityArray: action.payload };
-        case REMOVERESPONSIBILITYLINE:
+        case REMOVE_RESPONSIBILITY_LINE:
             return { ...state, responsibilityArray: action.payload };
-        case SETNEWRESPONSIBILITYDESCRIPTION:
+        case SET_NEW_RESPONSIBILITY_DESCRIPTION:
             return { ...state, responsibilityArray: action.payload };
-        case TOGGLEDESCRIPTIONFULLHEIGHT:
+        case TOGGLE_EDITABLE_TEXT_FULL_HEIGHT:
             return { ...state, responsibilityArray: action.payload };
-        case REMOVERESPONSIBILITYSECTION:
+        case REMOVE_RESPONSIBILITY_SECTION:
             return { ...state, responsibilityArray: action.payload };
-        case ADDRESPONSIBILITYSECTION:
+        case ADD_RESPONSIBILITY_SECTION:
             return { ...state, responsibilityArray: action.payload };
-        case CHAGESECTIONTITLE:
+        case CHANGE_SECTION_TITLE:
             return { ...state, responsibilityArray: action.payload };
-        case DESCRIPTIONHEIGHTCHANGE:
+        case DESCRIPTION_HEIGHT_CHANGE:
             return { ...state, responsibilityArray: action.payload };
-        case CREATERESPONSIBILITYTYPEANDNEWLINE:
+        case CREATE_RESPONSIBILITY_TYPE_AND_NEW_LINE:
             return { ...state, responsibilityArray: action.payload };
-        case SETNEWRESPONSIBILITYNAME:
-            return { ...state, responsibilityArray: action.payload };
-
-
-        case ADDNEWTYPE:
+        case SET_NEW_RESPONSIBILITY_NAME:
             return { ...state, responsibilityArray: action.payload };
 
-        case CHANGTYPENAME:
+
+        case ADD_NEW_TYPE:
+            return { ...state, responsibilityArray: action.payload };
+
+        case CHANGE_TYPE_NAME:
             return { ...state, responsibilityArray: action.payload };
         default:
             return state;

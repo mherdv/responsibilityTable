@@ -24,6 +24,7 @@ const Header = ({ usersArray }) => {
                             <input type="checkbox"
 
                                 checked={deportament.show}
+                                onChange={()=>{}}
                             />
                         </div>
                     )

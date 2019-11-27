@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import classes from './ResponsibilityCheckboxes.module.scss';
 import Checkbox from '../../Chechbox';
 import { changeResponsibility } from '../../../store/actions/responsibility/responsibilityAction';
@@ -69,13 +69,15 @@ function renderCheckboxesArray({ array, scrollLeft, rowIndex, users, containerIn
                     key={`checkbox___${user.id}_`}
                     status={users[user.id]}
                     index={indexCheckbox}
-                    onChange={() =>
+                    onChange={() => {
+
                         changeResponsibility({
                             userId: user.id,
                             rowIndex,
                             containerIndex,
                             typeIndex
-                        })}
+                        })
+                    }}
                 />
             }) : null
     })

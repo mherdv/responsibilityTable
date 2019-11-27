@@ -1,8 +1,9 @@
 import store from '../../';
 import { getClonedResponsibilityArray, getResponsibilityArray } from '../../../utils/storeGetters';
-import { ADDNEWTYPE, CHANGETYPEID, CHANGTYPENAME } from '../../types';
+import { ADD_NEW_TYPE, CHANGE_TYPE_ID, CHANGE_TYPE_NAME } from '../../types';
 
 import axios from 'axios';
+import  API_Rotes from '../API_Routes';
 
 
 function addNewType({ name, containerId, containerIndex }) {
@@ -30,9 +31,9 @@ function addNewTypeAction({ newArray, lastArray, containerId, name, typeIndex, c
 
     return async (dispatch) => {
 
-
+        
         //     try {
-        //         const res = await axios.post('/addNewType',{
+        //         const res = await axios.post(API_Rotes.addNewType,{
         //             containerId,name
         //         })
 
@@ -53,18 +54,18 @@ function addNewTypeAction({ newArray, lastArray, containerId, name, typeIndex, c
 
 function addNewLineActionCreator(array) {
     return {
-        type: ADDNEWTYPE,
+        type: ADD_NEW_TYPE,
         payload: array
     }
 }
 
 
-function setNewTypeIdActionCreator(array) {
-    return {
-        type: CHANGETYPEID,
-        payload: array
-    }
-}
+// function setNewTypeIdActionCreator(array) {
+//     return {
+//         type: CHANGE_TYPE_ID,
+//         payload: array
+//     }
+// }
 
 
 function changeTypeName({ name, typeId, containerIndex, typeIndex }) {
@@ -83,10 +84,10 @@ function changeTypeNameAction({ newArray, lastArray, typeId, name }) {
     store.dispatch(changeTypeNameActionCreator(newArray))
 
     return async (dispatch) => {
-
+        
 
         //     try {
-        //         const res = await axios.post('/changeTypeName',{
+        //         const res = await axios.post(API_Rotes.changeTypeName,{
         //             typeId,
         //             name
         //         })
@@ -101,7 +102,7 @@ function changeTypeNameAction({ newArray, lastArray, typeId, name }) {
 
 function changeTypeNameActionCreator(array) {
     return {
-        type: CHANGTYPENAME,
+        type: CHANGE_TYPE_NAME,
         payload: array
     }
 }

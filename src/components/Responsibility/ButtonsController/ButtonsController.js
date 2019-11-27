@@ -3,7 +3,7 @@ import EditableText from '../EditableText';
 import classes from './ButtonsController.module.scss';
 
 import { toggleResponsibilitySection, changeSectionName, removeResponsibilitySection } from '../../../store/actions/responsibility/section';
-import { addResponsibilityLine, createResponsibilityTypeAddNewLine } from '../../../store/actions/responsibility/responsibilityLine';
+import { addResponsibilityLine } from '../../../store/actions/responsibility/responsibilityLine';
 import { toggleDescriptionFullHeight } from '../../../store/actions/responsibility/description';
 import CustomizedAutosuggest from '../../CustomizedAutosuggest';
 import { addNewType } from '../../../store/actions/responsibility/responsibilityType';
@@ -98,21 +98,6 @@ const ButtonsController = ({
                             })
                         }
 
-                        // else {
-                        //     createResponsibilityTypeAddNewLine({
-
-                        //         containerId,
-                        //         containerIndex,
-                        //         typeName: selectedType,
-                        //         lineProps: {
-
-                        //             description: inputDescription.current.value,
-                        //             name: inputName.current.value
-                        //         }
-
-                        //     })
-                        // }
-
                     }}>Add</button>
                 </div> : null}
 
@@ -124,7 +109,7 @@ const ButtonsController = ({
             >
                 {/* containerId */}
                 <span className={openAllDescriptions ? classes.checked : ''}> Open All</span>
-                <input type="checkbox" id={'addNewLine' + containerId} checked={openAllDescriptions} />
+                <input type="checkbox" onChange={()=>{}} id={'addNewLine' + containerId} checked={!!openAllDescriptions} />
             </div>
 
 

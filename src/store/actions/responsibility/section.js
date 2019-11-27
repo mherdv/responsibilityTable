@@ -1,8 +1,10 @@
 import axios from "axios";
-import { REMOVERESPONSIBILITYSECTION, ADDRESPONSIBILITYSECTION, CHAGESECTIONTITLE, CHANGERESPONSIBILITYSECIONVISIBILITY } from "../../types";
+import { REMOVE_RESPONSIBILITY_SECTION, ADD_RESPONSIBILITY_SECTION, CHANGE_SECTION_TITLE, CHANGE_RESPONSIBILITY_SECTION_VISIBILITY } from "../../types";
 import store from '../../index';
 import { iterationCopy } from "../../../utils/cloningObject";
 import { getClonedResponsibilityArray, getResponsibilityArray } from "../../../utils/storeGetters";
+
+import API_Rotes from '../API_Routes';
 
 
 
@@ -30,8 +32,9 @@ function removeResponsibilitySectionAction({ newArray, sectionId, lastArray }) {
 
 
     return async function (dispatch) {
+        
         // try {
-        //     const res = await axios.post('/removeSection', {
+        //     const res = await axios.post(API_Rotes.removeSection, {
         //         sectionId
         //     })
 
@@ -52,7 +55,7 @@ function removeResponsibilitySectionAction({ newArray, sectionId, lastArray }) {
 
 function removeSection(newArray) {
     return {
-        type: REMOVERESPONSIBILITYSECTION,
+        type: REMOVE_RESPONSIBILITY_SECTION,
         payload: newArray
     }
 }
@@ -66,8 +69,9 @@ function addResponsibilitySectionAction({ newArray, name, newSection, lastArray 
     store.dispatch(addSection(newArray))
 
     return async function (dispatch) {
+        
         // try {
-        //     const res = await axios.post('/createSection',{name});
+        //     const res = await axios.post(API_Rotes.createSection,{name});
 
         //     if(res.status !== 200){
         //        newSection.id = res.body.id
@@ -103,7 +107,7 @@ function addResponsibilitySection({ name }) {
 
 const changeResponsibilitySectionVisibilityAction = (newArray) => {
     return {
-        type: CHANGERESPONSIBILITYSECIONVISIBILITY,
+        type: CHANGE_RESPONSIBILITY_SECTION_VISIBILITY,
         payload: newArray
     }
 }
@@ -127,7 +131,7 @@ function toggleResponsibilitySection({ index }) {
 
 function addSection(newArray) {
     return {
-        type: ADDRESPONSIBILITYSECTION,
+        type: ADD_RESPONSIBILITY_SECTION,
         payload: newArray
     }
 }
@@ -138,8 +142,9 @@ function changeSectionNameAction({ newArray, sectionId, newName, sectionIndex, l
     newArray[sectionIndex].name = newName;
     store.dispatch(changeName(newArray))
     return async function (dispatch) {
+        
         try {
-            // const res = await axios.post('/changeName',{
+            // const res = await axios.post(API_Rotes.changeSectionName,{
             //     sectionId,
             //     newName
             // })
@@ -161,7 +166,7 @@ function changeSectionNameAction({ newArray, sectionId, newName, sectionIndex, l
 
 function changeName(newArray) {
     return {
-        type: CHAGESECTIONTITLE,
+        type: CHANGE_SECTION_TITLE,
         payload: newArray
     }
 }

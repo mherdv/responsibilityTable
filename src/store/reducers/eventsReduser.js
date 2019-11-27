@@ -1,4 +1,4 @@
-import { SCROLLLEFT } from "../types";
+import { SCROLL_LEFT } from "../types";
 
 const initialState = {
     scrollLeft: document.documentElement.scrollLeft
@@ -8,7 +8,7 @@ const initialState = {
 function eventsReducer(state = initialState, action) {
 
     switch (action.type) {
-        case SCROLLLEFT:
+        case SCROLL_LEFT:
             return { ...state, scrollLeft: document.documentElement.scrollLeft }
 
         default:

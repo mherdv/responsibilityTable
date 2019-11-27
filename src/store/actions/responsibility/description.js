@@ -1,7 +1,8 @@
 import axios from "axios";
-import { SETNEWRESPONSIBILITYDESCRIPTION, TOGGLEDESCRIPTIONFULLHEIGHT, DESCRIPTIONHEIGHTCHANGE } from "../../types";
+import { SET_NEW_RESPONSIBILITY_DESCRIPTION, TOGGLE_EDITABLE_TEXT_FULL_HEIGHT, DESCRIPTION_HEIGHT_CHANGE } from "../../types";
 import store from '../../index'
 import { getClonedResponsibilityArray, getResponsibilityArray } from "../../../utils/storeGetters";
+import API_Rotes from '../API_Routes';
 
 // const CancelToken = axios.CancelToken;
 // const source = CancelToken.source();
@@ -12,8 +13,9 @@ const changeResponsibilityDescriptionAction = ({ newArray, rowId, text, lastArra
     store.dispatch(setNewResponsibilityDescriptionAction(newArray))
     return async function (dispatch) {
         try {
+            
 
-            // const res = await axios.post('/changeDescription',{
+            // const res = await axios.post(API_Rotes.changeDescription,{
             //     rowId,
             //     text
             // },{
@@ -33,7 +35,7 @@ const changeResponsibilityDescriptionAction = ({ newArray, rowId, text, lastArra
     }
 }
 
-async function changeResponsibilityDescription({ event, containerIndex, rowIndex, typeIndex }) {
+function changeResponsibilityDescription({ event, containerIndex, rowIndex, typeIndex }) {
 
     const newArray = getClonedResponsibilityArray();
     const lastArray = getResponsibilityArray();
@@ -45,12 +47,12 @@ async function changeResponsibilityDescription({ event, containerIndex, rowIndex
     const text = event.currentTarget.innerText.trim();
     row.description = text;
 
-    await store.dispatch(changeResponsibilityDescriptionAction({ newArray, rowId, text, lastArray }))
+    store.dispatch(changeResponsibilityDescriptionAction({ newArray, rowId, text, lastArray }))
 }
 
 const setNewResponsibilityDescriptionAction = (newArray) => {
     return {
-        type: SETNEWRESPONSIBILITYDESCRIPTION,
+        type: SET_NEW_RESPONSIBILITY_DESCRIPTION,
         payload: newArray
     }
 }
@@ -71,7 +73,7 @@ function toggleDescriptionFullHeight({ index }) {
 const toggleDescriptionFullHeightAction = (newArray) => {
 
     return {
-        type: TOGGLEDESCRIPTIONFULLHEIGHT,
+        type: TOGGLE_EDITABLE_TEXT_FULL_HEIGHT,
         payload: newArray
     }
 }
@@ -89,7 +91,7 @@ function descriptionHeightChange({ containerIndex, rowIndex, height, typeIndex }
 const descriptionHeightChangeAction = (newArray) => {
     return {
 
-        type: DESCRIPTIONHEIGHTCHANGE,
+        type: DESCRIPTION_HEIGHT_CHANGE,
         payload: newArray
     }
 }

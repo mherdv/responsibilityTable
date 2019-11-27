@@ -1,10 +1,11 @@
-import { SCROLLLEFT } from '../../types';
+import { SCROLL_LEFT } from '../../types';
 
 function scrollLeftSetterActionCreator() {
     return {
-        type: SCROLLLEFT
+        type: SCROLL_LEFT
     }
 }
+
 
 
 export { scrollLeftSetterActionCreator }

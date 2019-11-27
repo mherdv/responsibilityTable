@@ -1,17 +1,18 @@
-import { LOADUSERS, GETUSERSERROR, SETALLUSERS, CHANGEDEPORTMENTVISIBILITYSTATUS, CHANGEDEPORTMENTSHOWHALF } from "../../types";
+import { LOAD_USERS, GET_USERS_ERROR, SET_ALL_USERS, CHANGE_DEPORTMENT_VISIBILITY_STATUS, CHANGE_DEPORTMENT_SHOW_HALF_STATUS } from "../../types";
 import Axios from "axios";
-import keys from '../../../constants/keys';
 import { iterationCopy } from "../../../utils/cloningObject";
 import store from '../..';
+
+import API_Rotes from '../API_Routes';
 
 
 const getAllUsersAction = () => {
     return async (dispatch) => {
         dispatch(LoadingUsersAction())
         try {
-            const response = await Axios.get(`${keys.HOST}/users.json`);
+            const response = await Axios.get(API_Rotes.getAllUsers);
             const users = response.data.users
-            dispatch({ type: SETALLUSERS, payload: users })
+            dispatch({ type: SET_ALL_USERS, payload: users })
         } catch (e) {
             dispatch(errorOnLoadAction())
         }
@@ -19,22 +20,22 @@ const getAllUsersAction = () => {
 }
 
 const LoadingUsersAction = () => {
-    return { type: LOADUSERS }
+    return { type: LOAD_USERS }
 }
 
 const errorOnLoadAction = () => {
-    return { type: GETUSERSERROR }
+    return { type: GET_USERS_ERROR }
 }
 
 const changeDeportmentVisibilityStatusAction = (users) => {
     return {
-        type: CHANGEDEPORTMENTVISIBILITYSTATUS,
+        type: CHANGE_DEPORTMENT_VISIBILITY_STATUS,
         payload: users
     }
 }
 function changeDeportmentShowHalfAction(newUsersArray) {
     return {
-        type: CHANGEDEPORTMENTSHOWHALF,
+        type: CHANGE_DEPORTMENT_SHOW_HALF_STATUS,
         payload: newUsersArray
 
     }

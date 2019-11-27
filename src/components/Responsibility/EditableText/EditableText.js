@@ -4,8 +4,7 @@ import classes from './editableText.module.scss';
 import ContentEditable from "react-contenteditable";
 
 
-function blockDocumentClick(event) {
-
+function blockDocumentMouseDown(event) {
     event.stopImmediatePropagation()
 }
 
@@ -44,8 +43,8 @@ const EditableText = memo(({ text, className, onInput, onBlur, rowHeightChange, 
             html={text}
             onKeyDown={onKeyDown}
             onFocus={() => {
-                // document.removeEventListener('click', blockDocumentClick)
-                // document.addEventListener('click', blockDocumentClick)
+
+                document.documentElement.addEventListener('click', blockDocumentMouseDown)
                 setFocused(true)
 
             }}
@@ -57,10 +56,13 @@ const EditableText = memo(({ text, className, onInput, onBlur, rowHeightChange, 
             }}
             onBlur={(event) => {
 
-                // document.removeEventListener('click', blockDocumentClick)
                 setFocused(false);
                 onBlur && onBlur(event);
-                rowHeightChange && rowHeightChange(event)
+                rowHeightChange && rowHeightChange(event);
+                setTimeout(()=>{
+
+                    document.documentElement.removeEventListener('click', blockDocumentMouseDown)
+                },100)
             }}
             onMouseEnter={(event) => {
                 rowHeightChange && rowHeightChange(event)

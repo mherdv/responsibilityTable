@@ -2,7 +2,7 @@
 
 
 import { getResponsibilityArray } from '../../../utils/storeGetters';
-import { SHOWUSERFULLDESCRIPTIONMODAL, HIDESERFULLDESCRIPTIONMODAL } from '../../types';
+import { SHOW_USER_FULL_DESCRIPTION_MODAL, HIDE_USER_FULL_DESCRIPTION_MODAL } from '../../types';
 import store from '../../'
 
 
@@ -33,7 +33,7 @@ function showUserFullResponsibilitiesModal(user) {
 
 function showUserFullResponsibilitiesModalAction(modalInfo) {
     return {
-        type: SHOWUSERFULLDESCRIPTIONMODAL,
+        type: SHOW_USER_FULL_DESCRIPTION_MODAL,
         payload: modalInfo
     }
 }
@@ -44,7 +44,7 @@ function hideUserFullResponsibilityModal() {
 
 function hideUserFullResponsibilitiesModalAction() {
     return {
-        type: HIDESERFULLDESCRIPTIONMODAL
+        type: HIDE_USER_FULL_DESCRIPTION_MODAL
     }
 }
 
